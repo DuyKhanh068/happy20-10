@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Spotify 20/10 Wrapped</title>
+  <!-- Google Fonts: Plus Jakarta Sans & Caveat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    body {
+      background-color: #050507;
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    :root {
+      --sp-green: #1DB954;
+      --sp-green-light: #1ed760;
+      --sp-black: #121212;
+      --sp-rose: #ff1475;
+      --sp-crimson: #e11d48;
+    }
+
+    #story-frame {
+      position: relative;
+      width: 100%;
+      max-width: 425px;
+      height: 94vh;
+      max-height: 870px;
+      background-color: var(--sp-black);
+      border-radius: 36px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 80px -10px rgba(0, 0, 0, 0.95), 0 0 0 2px rgba(255, 255, 255, 0.12);
+      cursor: pointer;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 68px 22px 24px 22px;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      z-index: 10;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+    .slide::-webkit-scrollbar {
+      display: none;
+    }
+    .slide.active {
+      display: flex !important;
+      opacity: 1 !important;
+      z-index: 20;
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background-color: #ffffff;
+      border-radius: 999px;
+    }
+
+    /* Vinyl Disc Spin */
+    @keyframes spin-vinyl {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .vinyl-disc {
+      animation: spin-vinyl 11s linear infinite;
+    }
+    .vinyl-disc.paused {
+      animation-play-state: paused;
+    }
+
+    /* Soundwave bars */
+    @keyframes wave-pulse {
+      0%, 100% { height: 4px; }
+      50% { height: 16px; }
+    }
+    .eq-bar {
+      width: 3px;
+      border-radius: 4px;
+      background: var(--sp-green-light);
+      animation: wave-pulse 1s ease-in-out infinite;
+    }
+    .eq-bar:nth-child(2) { animation-delay: 0.15s; }
+    .eq-bar:nth-child(3) { animation-delay: 0.35s; }
+    .eq-bar:nth-child(4) { animation-delay: 0.2s; }
+
+    /* Aura Orb */
+    @keyframes aura-pulse {
+      0% { transform: scale(1) rotate(0deg); filter: blur(45px) hue-rotate(0deg); }
+      50% { transform: scale(1.15) rotate(180deg); filter: blur(55px) hue-rotate(60deg); }
+      100% { transform: scale(1) rotate(360deg); filter: blur(45px) hue-rotate(0deg); }
+    }
+    .aura-orb {
+      animation: aura-pulse 12s infinite ease-in-out;
+      background: radial-gradient(circle at 40% 40%, #ff007f 0%, #7928ca 45%, #00f2fe 75%, #1DB954 100%);
+    }
+
+    /* Floating motion for heart container */
+    @keyframes gentle-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+    .heart-float-wrapper {
+      animation: gentle-float 3.4s ease-in-out infinite;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Rhythmic gentle heartbeat */
+    @keyframes natural-heartbeat {
+      0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 18px rgba(255, 20, 117, 0.75)) drop-shadow(0 0 38px rgba(225, 29, 72, 0.5));
+      }
+      12% {
+        transform: scale(1.13);
+        filter: drop-shadow(0 0 28px rgba(255, 20, 117, 1)) drop-shadow(0 0 55px rgba(225, 29, 72, 0.75));
+      }
+      24% {
+        transform: scale(1.04);
+        filter: drop-shadow(0 0 20px rgba(255, 20, 117, 0.8)) drop-shadow(0 0 42px rgba(225, 29, 72, 0.55));
+      }
+      38% {
+        transform: scale(1.17);
+        filter: drop-shadow(0 0 32px rgba(255, 20, 117, 1)) drop-shadow(0 0 65px rgba(225, 29, 72, 0.85));
+      }
+      68% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 18px rgba(255, 20, 117, 0.75)) drop-shadow(0 0 38px rgba(225, 29, 72, 0.5));
+      }
+      100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 18px rgba(255, 20, 117, 0.75)) drop-shadow(0 0 38px rgba(225, 29, 72, 0.5));
+      }
+    }
+    .heart-majestic-pulse {
+      animation: natural-heartbeat 1.9s infinite ease-in-out;
+      cursor: pointer;
+      transform-origin: center;
+      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .heart-majestic-pulse:hover {
+      transform: scale(1.08);
+    }
+
+    /* Rapid frantic beat right before opening */
+    @keyframes rapid-heart-rush {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 30px #ff007f); }
+      25% { transform: scale(1.22); filter: drop-shadow(0 0 50px #ff007f); }
+      50% { transform: scale(1.06); filter: drop-shadow(0 0 35px #e11d48); }
+      75% { transform: scale(1.3); filter: drop-shadow(0 0 65px #ff1475); }
+    }
+    .heart-rapid-rush {
+      animation: rapid-heart-rush 0.28s ease-in-out 2 !important;
+    }
+
+    /* Shockwave ring explosion */
+    .shockwave-ring {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 20, 117, 0.9);
+      box-shadow: 0 0 25px rgba(255, 20, 117, 0.8), inset 0 0 20px rgba(255, 20, 117, 0.6);
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.6);
+      z-index: 5;
+    }
+    @keyframes shockwave-burst {
+      0% {
+        opacity: 1;
+        transform: scale(0.6);
+      }
+      60% {
+        opacity: 0.85;
+      }
+      100% {
+        opacity: 0;
+        transform: scale(3.8);
+      }
+    }
+    .shockwave-ring.animate-burst {
+      animation: shockwave-burst 0.75s cubic-bezier(0.1, 0.85, 0.25, 1) forwards;
+    }
+
+    /* Sparkle twinkle around heart */
+    @keyframes sparkle-twinkle {
+      0%, 100% { opacity: 0.25; transform: scale(0.7) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1.35) rotate(45deg); filter: drop-shadow(0 0 8px #fff); }
+    }
+    .sparkle-dot {
+      position: absolute;
+      color: #fff;
+      font-size: 13px;
+      pointer-events: none;
+      animation: sparkle-twinkle 2.2s ease-in-out infinite;
+    }
+
+    /* Letter Popup 3D Flourish Animation */
+    @keyframes letter-3d-emerge {
+      0% {
+        opacity: 0;
+        transform: scale(0.4) translateY(60px) rotateX(16deg);
+      }
+      65% {
+        opacity: 1;
+        transform: scale(1.02) translateY(-6px) rotateX(0deg);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0) rotateX(0deg);
+      }
+    }
+    .letter-paper {
+      animation: letter-3d-emerge 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      background: radial-gradient(ellipse at top left, #fffdfa 0%, #fcf7ee 55%, #f5e9d3 100%);
+      color: #2b170e;
+      box-shadow: 0 35px 100px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.4);
+      transform-origin: center bottom;
+    }
+
+    .polaroid-frame {
+      position: relative;
+      background: #ffffff;
+      padding: 7px 7px 11px 7px;
+      border-radius: 12px;
+      box-shadow: 0 14px 30px -5px rgba(45, 20, 10, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.08);
+      transform: rotate(-3.5deg);
+      transition: transform 0.35s ease;
+    }
+    .polaroid-frame:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+    .washi-tape {
+      position: absolute;
+      top: -9px;
+      left: 50%;
+      transform: translateX(-50%) rotate(2deg);
+      width: 48px;
+      height: 15px;
+      background: rgba(255, 225, 230, 0.85);
+      border-left: 2px dashed rgba(225, 29, 72, 0.25);
+      border-right: 2px dashed rgba(225, 29, 72, 0.25);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      z-index: 10;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main id="story-frame">
+    <!-- Header with 6 progress bars -->
+    <header style="position: absolute; top: 0; left: 0; right: 0; z-index: 50; padding: 12px 14px 10px; background: linear-gradient(180deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 70%, transparent 100%); pointer-events: none;">
+      <div id="progress-container" style="display: flex; gap: 6px; width: 100%; margin-bottom: 10px;">
+        <div class="progress-track"><div id="p-bar-0" class="progress-fill"></div></div>
+        <div class="progress-track"><div id="p-bar-1" class="progress-fill"></div></div>
+        <div class="progress-track"><div id="p-bar-2" class="progress-fill"></div></div>
+        <div class="progress-track"><div id="p-bar-3" class="progress-fill"></div></div>
+        <div class="progress-track"><div id="p-bar-4" class="progress-fill"></div></div>
+        <div class="progress-track"><div id="p-bar-5" class="progress-fill"></div></div>
+      </div>
+
+      <div style="display: flex; align-items: center; justify-content: space-between; pointer-events: auto;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #ff1475, #1DB954); padding: 1.5px; display: flex; align-items: center; justify-content: center;">
+            <div style="width: 100%; height: 100%; background: #121212; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px;">👑</div>
+          </div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span id="header-name" style="font-weight: 800; font-size: 13px; color: #fff; max-width: 135px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Nàng Thơ</span>
+              <button id="btn-edit-name" style="background: none; border: none; color: #888; cursor: pointer; display: flex; align-items: center; padding: 2px;" title="Đổi tên">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 20 20"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/></svg>
+              </button>
+            </div>
+            <span id="slide-num" style="font-size: 10px; font-weight: 700; color: var(--sp-green); letter-spacing: 0.5px;">1 / 6</span>
+          </div>
+        </div>
+
+        <div style="padding: 3px 9px; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); font-size: 9px; font-weight: 800; letter-spacing: 1px; color: #e5e5e5;">
+          20/10 WRAPPED
+        </div>
+      </div>
+    </header>
+
+    <!-- Slide 1: Intro -->
+    <article id="slide-0" class="slide active" style="background: linear-gradient(180deg, #1d0930 0%, #0d0417 55%, #050209 100%);">
+      <div>
+        <div style="display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(29, 185, 84, 0.15); border: 1px solid rgba(29, 185, 84, 0.35); font-size: 10px; font-weight: 800; letter-spacing: 1px; color: var(--sp-green-light); margin-bottom: 10px;">
+          ✨ BÁO CÁO THƯỜNG NIÊN 20/10
+        </div>
+        <h1 style="font-size: 34px; font-weight: 900; line-height: 1.1; text-transform: uppercase; letter-spacing: -0.5px; background: linear-gradient(90deg, #1ed760, #a8ff78); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+          20.10<br>WRAPPED<br>CỦA NÀNG
+        </h1>
+        <p style="color: #b3b3b3; font-size: 13px; line-height: 1.45; margin-top: 8px;">
+          Dữ liệu tương tác 365 ngày của <span class="sync-name" style="color: var(--sp-green-light); font-weight: 800; text-decoration: underline;">Nàng Thơ</span> đã được giải mã trọn vẹn!
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 15px 0;">
+        <div id="vinyl-elem" class="vinyl-disc" style="width: 175px; height: 175px; border-radius: 50%; background: linear-gradient(135deg, #ff1475, #7928ca, #1DB954); padding: 3px; box-shadow: 0 10px 40px rgba(29, 185, 84, 0.35);">
+          <div style="width: 100%; height: 100%; border-radius: 50%; background: #111111; border: 4px solid #000; display: flex; align-items: center; justify-content: center;">
+            <div style="width: 120px; height: 120px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center;">
+              <div style="width: 75px; height: 75px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center;">
+                <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #ff1475, #e11d48); display: flex; align-items: center; justify-content: center; font-size: 18px;">
+                  💖
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 4px; margin-top: 18px;">
+          <span class="eq-bar"></span>
+          <span class="eq-bar"></span>
+          <span class="eq-bar"></span>
+          <span class="eq-bar"></span>
+          <span style="font-size: 10px; font-weight: 800; color: #888; margin-left: 6px; letter-spacing: 1.5px;">AUDIO RECORDING 2024</span>
+        </div>
+      </div>
+
+      <div>
+        <button id="btn-start" style="width: 100%; padding: 14px; border: none; border-radius: 999px; background: var(--sp-green); color: #000; font-weight: 900; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 20px rgba(29, 185, 84, 0.5);">
+          <span>BẮT ĐẦU KHÁM PHÁ</span>
+          <span style="font-size: 16px;">➔</span>
+        </button>
+      </div>
+    </article>
+
+    <!-- Slide 2: Vibes -->
+    <article id="slide-1" class="slide" style="background: linear-gradient(180deg, #2b0b1c 0%, #15050e 60%, #000000 100%);">
+      <div>
+        <span style="font-size: 10px; font-weight: 800; color: #ff66b2; letter-spacing: 1.5px; text-transform: uppercase;">PHÂN BỔ TÂM LÝ HỌC</span>
+        <h2 style="font-size: 28px; font-weight: 900; text-transform: uppercase; margin-top: 4px; line-height: 1.15;">
+          NĂNG LƯỢNG VIBE<br><span style="color: #ff66b2;">CHỦ ĐẠO TRONG NĂM</span>
+        </h2>
+        <p style="color: #999; font-size: 12px; margin-top: 4px;">Dữ liệu cảm xúc đo lường thời gian thực:</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 13px; margin: 15px 0;">
+        <div>
+          <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 800; margin-bottom: 4px;">
+            <span style="color: #ff99cc;">💖 Đáng yêu vô cớ</span>
+            <span style="color: #ff66b2; font-family: monospace;">48%</span>
+          </div>
+          <div style="width: 100%; height: 10px; background: #261622; border-radius: 999px; overflow: hidden; padding: 1.5px;">
+            <div class="vibe-bar" data-width="48%" style="height: 100%; width: 0%; background: linear-gradient(90deg, #ff007f, #ff66b2); border-radius: 999px; transition: width 1.2s ease;"></div>
+          </div>
+          <p style="font-size: 11px; color: #888; font-style: italic; margin-top: 3px;">"Cười nhẹ một cái là đối phương quên luôn đang định hờn."</p>
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 800; margin-bottom: 4px;">
+            <span style="color: #ffcc80;">🧋 Đói bụng kinh niên</span>
+            <span style="color: #ffa726; font-family: monospace;">30%</span>
+          </div>
+          <div style="width: 100%; height: 10px; background: #261622; border-radius: 999px; overflow: hidden; padding: 1.5px;">
+            <div class="vibe-bar" data-width="30%" style="height: 100%; width: 0%; background: linear-gradient(90deg, #ff9800, #ffb74d); border-radius: 999px; transition: width 1.2s ease;"></div>
+          </div>
+          <p style="font-size: 11px; color: #888; font-style: italic; margin-top: 3px;">"Ăn xong bữa chính là trăn trở ngay bữa phụ và trà chiều."</p>
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 800; margin-bottom: 4px;">
+            <span style="color: #80cbc4;">🦥 Lười chúa vô đối</span>
+            <span style="color: #26a69a; font-family: monospace;">17%</span>
+          </div>
+          <div style="width: 100%; height: 10px; background: #261622; border-radius: 999px; overflow: hidden; padding: 1.5px;">
+            <div class="vibe-bar" data-width="17%" style="height: 100%; width: 0%; background: linear-gradient(90deg, #00bfa5, #64ffda); border-radius: 999px; transition: width 1.2s ease;"></div>
+          </div>
+          <p style="font-size: 11px; color: #888; font-style: italic; margin-top: 3px;">"Nằm lướt điện thoại từ chối sự vận động của Trái Đất."</p>
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 800; margin-bottom: 4px;">
+            <span style="color: #b39ddb;">😴 Nghiêm túc (chỉ khi ngủ)</span>
+            <span style="color: #7e57c2; font-family: monospace;">5%</span>
+          </div>
+          <div style="width: 100%; height: 10px; background: #261622; border-radius: 999px; overflow: hidden; padding: 1.5px;">
+            <div class="vibe-bar" data-width="5%" style="height: 100%; width: 0%; background: linear-gradient(90deg, #7c4dff, #b388ff); border-radius: 999px; transition: width 1.2s ease;"></div>
+          </div>
+          <p style="font-size: 11px; color: #888; font-style: italic; margin-top: 3px;">"Khoảnh khắc hòa bình ngắn ngủi nhất trong ngày."</p>
+        </div>
+      </div>
+
+      <div style="padding: 12px; border-radius: 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);">
+        <span style="font-size: 11px; font-weight: 800; color: #ff66b2; display: block; margin-bottom: 2px;">🤖 KẾT LUẬN THUẬT TOÁN</span>
+        <p style="font-size: 11.5px; color: #ddd; line-height: 1.4;">
+          Năng lượng của <span class="sync-name" style="color: #fff; font-weight: 700;">Nàng Thơ</span> thất thường như thời tiết, nhưng khiến người đối diện không thể rời mắt!
+        </p>
+      </div>
+    </article>
+
+    <!-- Slide 3: Top Hits -->
+    <article id="slide-2" class="slide" style="background: linear-gradient(180deg, #0d2315 0%, #06130b 60%, #000000 100%);">
+      <div>
+        <span style="font-size: 10px; font-weight: 800; color: var(--sp-green); letter-spacing: 1.5px; text-transform: uppercase;">BẢNG XẾP HẠNG HIT NÓI NHIỀU NHẤT</span>
+        <h2 style="font-size: 28px; font-weight: 900; text-transform: uppercase; margin-top: 4px; line-height: 1.15;">
+          TOP 5 BẢN HIT<br><span style="color: var(--sp-green);">ON REPEAT 24/7</span>
+        </h2>
+        <p style="color: #999; font-size: 12px; margin-top: 4px;">Những câu cửa miệng phát đi phát lại:</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px; margin: 14px 0;">
+        <div style="display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 14px; background: rgba(29, 185, 84, 0.12); border: 1px solid rgba(29, 185, 84, 0.35);">
+          <span style="font-size: 15px; font-weight: 900; color: var(--sp-green); width: 14px; text-align: center;">1</span>
+          <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(29, 185, 84, 0.2); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;">🍲</div>
+          <div style="flex: 1; min-width: 0;">
+            <p style="font-size: 12.5px; font-weight: 800; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">"Hôm nay ăn gì?"</p>
+            <p style="font-size: 10px; color: #aaa;">Album: Vấn Nạn Trăm Năm • 730 lượt phát</p>
+          </div>
+          <span style="font-size: 9px; font-weight: 800; color: var(--sp-green); background: rgba(29, 185, 84, 0.2); padding: 2px 6px; border-radius: 999px;">#1 Trend</span>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 14px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+          <span style="font-size: 15px; font-weight: 900; color: #777; width: 14px; text-align: center;">2</span>
+          <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(255, 0, 127, 0.2); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;">⚠️</div>
+          <div style="flex: 1; min-width: 0;">
+            <p style="font-size: 12.5px; font-weight: 800; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">"Em béo lên đúng không?"</p>
+            <p style="font-size: 10px; color: #aaa;">Cạm bẫy tâm lý • Trả lời sai là chấn thương</p>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 14px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+          <span style="font-size: 15px; font-weight: 900; color: #777; width: 14px; text-align: center;">3</span>
+          <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(147, 51, 234, 0.2); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;">📦</div>
+          <div style="flex: 1; min-width: 0;">
+            <p style="font-size: 12.5px; font-weight: 800; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">"Thôi em không mua đâu..."</p>
+            <p style="font-size: 10px; color: #aaa;">5 phút sau shipper đã đứng bấm chuông</p>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 14px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+          <span style="font-size: 15px; font-weight: 900; color: #777; width: 14px; text-align: center;">4</span>
+          <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(234, 179, 8, 0.2); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;">⏳</div>
+          <div style="flex: 1; min-width: 0;">
+            <p style="font-size: 12.5px; font-weight: 800; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">"5 phút nữa em xong!"</p>
+            <p style="font-size: 10px; color: #aaa;">Thời lượng đo thực tế: 45 phút 12 giây</p>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 14px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+          <span style="font-size: 15px; font-weight: 900; color: #777; width: 14px; text-align: center;">5</span>
+          <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(239, 68, 68, 0.2); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;">🧨</div>
+          <div style="flex: 1; min-width: 0;">
+            <p style="font-size: 12.5px; font-weight: 800; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">"Em có giận đâu."</p>
+            <p style="font-size: 10px; color: #aaa;">Giai điệu hồi hộp nhất lịch sử playlist</p>
+          </div>
+        </div>
+      </div>
+
+      <p style="text-align: center; font-size: 11px; color: #888;">
+        Tổng thời gian phát: <span style="color: var(--sp-green); font-weight: 800;">128.400 phút</span> liên tục
+      </p>
+    </article>
+
+    <!-- Slide 4: Stats -->
+    <article id="slide-3" class="slide" style="background: linear-gradient(180deg, #2b1809 0%, #140b04 60%, #000000 100%);">
+      <div>
+        <span style="font-size: 10px; font-weight: 800; color: #fbbf24; letter-spacing: 1.5px; text-transform: uppercase;">CON SỐ KHÔNG BIẾT NÓI DỐI</span>
+        <h2 style="font-size: 28px; font-weight: 900; text-transform: uppercase; margin-top: 4px; line-height: 1.15;">
+          KỶ LỤC BẤT HỦ<br><span style="color: #fbbf24;">ĐÃ ĐƯỢC XÁC LẬP</span>
+        </h2>
+        <p style="color: #999; font-size: 12px; margin-top: 4px;">Những con số ghi dấu ấn đậm sâu:</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px; margin: 15px 0;">
+        <div style="padding: 14px; border-radius: 18px; background: rgba(251, 191, 36, 0.08); border: 1px solid rgba(251, 191, 36, 0.25); display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <p style="font-size: 11px; color: #aaa; font-weight: 600;">Lượng Trà Sữa Đã Nạp</p>
+            <div style="font-size: 26px; font-weight: 900; color: #fde047; margin-top: 2px;">
+              <span class="count-num" data-target="156">0</span> <span style="font-size: 15px; font-weight: 700;">ly</span>
+            </div>
+            <p style="font-size: 10.5px; color: #fde047; margin-top: 2px;">Top 0.1% Kẻ Hủy Diệt Trân Châu hệ sinh thái</p>
+          </div>
+          <span style="font-size: 32px;">🧋</span>
+        </div>
+
+        <div style="padding: 14px; border-radius: 18px; background: rgba(244, 114, 182, 0.08); border: 1px solid rgba(244, 114, 182, 0.25); display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <p style="font-size: 11px; color: #aaa; font-weight: 600;">Ảnh Selfie Đã Bấm Máy</p>
+            <div style="font-size: 26px; font-weight: 900; color: #f472b6; margin-top: 2px;">
+              <span class="count-num" data-target="1420">0</span> <span style="font-size: 15px; font-weight: 700;">tấm</span>
+            </div>
+            <p style="font-size: 10.5px; color: #f472b6; margin-top: 2px;">Chỉ chọn đúng 1 tấm sau 2 tiếng chỉnh ảnh</p>
+          </div>
+          <span style="font-size: 32px;">📸</span>
+        </div>
+
+        <div style="padding: 14px; border-radius: 18px; background: rgba(52, 211, 153, 0.08); border: 1px solid rgba(52, 211, 153, 0.25); display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <p style="font-size: 11px; color: #aaa; font-weight: 600;">Thời Gian Dỗi Trung Bình</p>
+            <div style="font-size: 26px; font-weight: 900; color: #34d399; margin-top: 2px;">
+              <span class="count-num" data-target="12">0</span> <span style="font-size: 15px; font-weight: 700;">phút</span>
+            </div>
+            <p style="font-size: 10.5px; color: #34d399; margin-top: 2px;">Giảm tức thì về 0 giây nếu có đồ ăn ngon</p>
+          </div>
+          <span style="font-size: 32px;">🍗</span>
+        </div>
+      </div>
+
+      <div style="padding: 10px; border-radius: 14px; background: rgba(255,255,255,0.05); text-align: center; font-size: 11.5px; color: #eee;">
+        Đánh giá: <span style="color: var(--sp-green); font-weight: 800;">Hơi khó chiều nhưng đáng yêu 100%!</span>
+      </div>
+    </article>
+
+    <!-- Slide 5: Aura -->
+    <article id="slide-4" class="slide" style="background: linear-gradient(180deg, #1d072b 0%, #0b0213 60%, #000000 100%);">
+      <div>
+        <span style="font-size: 10px; font-weight: 800; color: #c084fc; letter-spacing: 1.5px; text-transform: uppercase;">TRƯỜNG NĂNG LƯỢNG LINH HỒN</span>
+        <h2 style="font-size: 28px; font-weight: 900; text-transform: uppercase; margin-top: 4px; line-height: 1.15;">
+          AURA CỦA BẠN LÀ:<br><span style="background: linear-gradient(90deg, #ff007f, #c084fc, #00f2fe); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">MẦM NON HỜN DỖI</span>
+        </h2>
+      </div>
+
+      <div style="position: relative; display: flex; align-items: center; justify-content: center; margin: 20px 0;">
+        <div class="aura-orb" style="position: absolute; width: 190px; height: 190px; border-radius: 50%;"></div>
+        
+        <div style="position: relative; z-index: 5; padding: 22px 18px; border-radius: 24px; background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.18); text-align: center; max-width: 280px; box-shadow: 0 15px 35px rgba(0,0,0,0.6);">
+          <div style="font-size: 34px; margin-bottom: 6px;">🌸✨</div>
+          <h3 style="font-size: 13px; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 0.5px;">"HỜN DỖI NHƯNG RẤT TỐT TÍNH"</h3>
+          <div style="display: flex; justify-content: center; gap: 6px; margin: 10px 0;">
+            <span style="padding: 2px 8px; border-radius: 999px; background: rgba(255, 0, 127, 0.2); border: 1px solid rgba(255, 0, 127, 0.35); font-size: 9.5px; font-weight: 800; color: #ff99cc;">Hồng Ngọt Ngào</span>
+            <span style="padding: 2px 8px; border-radius: 999px; background: rgba(0, 242, 254, 0.2); border: 1px solid rgba(0, 242, 254, 0.35); font-size: 9.5px; font-weight: 800; color: #67e8f9;">Xanh Ấm Áp</span>
+          </div>
+          <p style="font-size: 11px; color: #ccc; line-height: 1.45;">
+            Trường năng lượng tích cực của bạn luôn mang lại tiếng cười và cảm giác an tâm cho mọi người xung quanh.
+          </p>
+        </div>
+      </div>
+
+      <p style="text-align: center; font-size: 11px; color: #888;">
+        Chỉ số tỏa sáng: <span style="color: #ff66b2; font-weight: 800;">Vượt giới hạn vũ trụ 🌌</span>
+      </p>
+    </article>
+
+    <!-- Slide 6: Summary + Majestic Neon Heart + Gift Button -->
+    <article id="slide-5" class="slide" style="background: linear-gradient(180deg, #092314 0%, #05130b 60%, #000000 100%);">
+      <!-- Spotify Card Summary -->
+      <div style="padding: 13px 15px; border-radius: 22px; background: linear-gradient(145deg, #151515, #0d0d0d); border: 1px solid rgba(29, 185, 84, 0.35); box-shadow: 0 10px 28px rgba(0,0,0,0.7);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <div style="width: 17px; height: 17px; border-radius: 50%; background: var(--sp-green); color: #000; font-size: 9.5px; font-weight: 900; display: flex; align-items: center; justify-content: center;">★</div>
+            <span style="font-size: 10.5px; font-weight: 900; color: var(--sp-green); letter-spacing: 1px;">20/10 WRAPPED</span>
+          </div>
+          <span style="font-size: 9.5px; font-family: monospace; color: #888;">2024 EDITION</span>
+        </div>
+
+        <div style="margin-bottom: 6px;">
+          <span style="font-size: 9px; font-weight: 700; color: #888; text-transform: uppercase;">NGHỆ SĨ CỦA TRÁI TIM</span>
+          <h3 class="sync-name" style="font-size: 21px; font-weight: 900; color: #fff; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Nàng Thơ</h3>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 6px;">
+          <div style="padding: 6px 8px; border-radius: 11px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">
+            <p style="font-size: 8.5px; color: #888;">TOP BẢN HIT</p>
+            <p style="font-size: 10.5px; font-weight: 800; color: var(--sp-green-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Hôm nay ăn gì?</p>
+          </div>
+          <div style="padding: 6px 8px; border-radius: 11px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">
+            <p style="font-size: 8.5px; color: #888;">MỨC DỄ THƯƠNG</p>
+            <p style="font-size: 10.5px; font-weight: 800; color: #ff66b2;">100 / 10 Điểm</p>
+          </div>
+          <div style="padding: 6px 8px; border-radius: 11px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">
+            <p style="font-size: 8.5px; color: #888;">ĐỘ PHỦ SÓNG</p>
+            <p style="font-size: 10.5px; font-weight: 800; color: #fbbf24;">100% Tâm Trí</p>
+          </div>
+          <div style="padding: 6px 8px; border-radius: 11px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">
+            <p style="font-size: 8.5px; color: #888;">DANH HIỆU 20/10</p>
+            <p style="font-size: 10.5px; font-weight: 800; color: #c084fc;">Nữ Thần Độc Bản</p>
+          </div>
+        </div>
+
+        <p style="font-size: 10.5px; color: #ccc; font-style: italic; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 6px; line-height: 1.4;">
+          "Dù các con số có hài hước thế nào, bạn vẫn luôn là điều tuyệt vời nhất! Chúc ngày 20/10 ngọt ngào, rực rỡ và hạnh phúc!"
+        </p>
+      </div>
+
+      <!-- Majestic 3D Floating Heart Centerpiece (114px diameter) -->
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 10px 0 6px; position: relative;">
+        <!-- Shockwave Burst Ring Element -->
+        <div id="shockwave-element" class="shockwave-ring"></div>
+
+        <div class="heart-float-wrapper">
+          <!-- Twinkling Star Accents Around Heart -->
+          <span class="sparkle-dot" style="top: -6px; left: 6px; animation-delay: 0s;">✨</span>
+          <span class="sparkle-dot" style="top: 8px; right: -8px; animation-delay: 0.7s;">✦</span>
+          <span class="sparkle-dot" style="bottom: 0px; left: -10px; animation-delay: 1.3s;">✦</span>
+          <span class="sparkle-dot" style="bottom: -8px; right: 8px; animation-delay: 0.4s;">✨</span>
+
+          <div id="heart-pulse-btn" class="heart-majestic-pulse" style="width: 114px; height: 114px; border-radius: 50%; background: radial-gradient(circle, rgba(255,20,117,0.38) 0%, rgba(225,29,72,0.18) 55%, transparent 75%); display: flex; align-items: center; justify-content: center; position: relative;" title="Chạm để mở trái tim">
+            <svg width="90" height="90" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 6px 18px rgba(225, 29, 72, 0.75));">
+              <defs>
+                <linearGradient id="ruby-heart-grad" x1="1" y1="1" x2="23" y2="23" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#ff70a6"/>
+                  <stop offset="30%" stop-color="#ff1475"/>
+                  <stop offset="65%" stop-color="#e11d48"/>
+                  <stop offset="100%" stop-color="#880e2f"/>
+                </linearGradient>
+                <linearGradient id="sheen-specular" x1="5" y1="2" x2="14" y2="14" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.75"/>
+                  <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+                </linearGradient>
+                <radialGradient id="heart-center-glow" cx="40%" cy="40%" r="55%">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <!-- Outer Glow Silhouette -->
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#ruby-heart-grad)"/>
+              <!-- 3D Specular Highlight layer -->
+              <path d="M7.5 4.3C5.2 4.3 3.5 6.1 3.2 8.4c0.9-1.6 2.5-2.7 4.5-2.7 1.8 0 3.2 0.8 4.1 2 .4-.7 1-1.3 1.6-1.8C11.6 4.9 9.6 4.3 7.5 4.3z" fill="url(#sheen-specular)"/>
+              <!-- Center Glow Radial -->
+              <circle cx="10" cy="9" r="6" fill="url(#heart-center-glow)"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Button: Open Gift Box -->
+      <div style="margin-bottom: 2px;">
+        <button id="btn-open-gift" style="width: 100%; padding: 15px; border: none; border-radius: 999px; background: linear-gradient(90deg, #ff1475, #e11d48, #1DB954); color: #fff; font-weight: 900; font-size: 13.5px; text-transform: uppercase; letter-spacing: 0.8px; cursor: pointer; box-shadow: 0 6px 26px rgba(255, 20, 117, 0.55); display: flex; align-items: center; justify-content: center; gap: 8px; transition: transform 0.15s ease;">
+          <span>🎁 MỞ HỘP QUÀ 20/10</span>
+        </button>
+      </div>
+    </article>
+  </main>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas" style="position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 99980;"></canvas>
+
+  <!-- Modal Letter with Left Polaroid & Right Wishes (No screenshot button) -->
+  <div id="modal-letter" style="position: fixed; inset: 0; z-index: 99999; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(0, 0, 0, 0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);">
+    <div class="letter-paper" style="position: relative; width: 100%; max-width: 530px; border-radius: 28px; padding: 24px 20px 20px; border: 1px solid rgba(255, 235, 215, 0.8); max-height: 92vh; overflow-y: auto;">
+      <!-- Prominent Close Button -->
+      <button id="btn-close-letter" style="position: absolute; top: 12px; right: 14px; width: 34px; height: 34px; border-radius: 50%; background: rgba(0,0,0,0.07); border: none; color: #4a2818; font-size: 17px; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 30; transition: background 0.2s;" title="Đóng thư">✕</button>
+
+      <!-- Letter Header -->
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; border-bottom: 1px dashed rgba(180, 140, 110, 0.4); padding-bottom: 8px;">
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <span style="font-size: 18px;">💌</span>
+          <span style="font-size: 11px; font-weight: 900; letter-spacing: 1.5px; color: #b45309; text-transform: uppercase;">SPECIAL EDITION FOR YOU</span>
+        </div>
+        <div style="padding: 3px 9px; border-radius: 999px; background: #fee2e2; border: 1px solid #fecaca; font-size: 10px; font-weight: 800; color: #e11d48; margin-right: 32px;">
+          20.10.2024
+        </div>
+      </div>
+
+      <!-- Letter Body: Left Polaroid & Right Heartfelt Wishes -->
+      <div style="display: flex; gap: 14px; align-items: stretch;">
+        <!-- Left Side: Vintage Polaroid Frame with Washi Tape -->
+        <div style="width: 38%; min-width: 125px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center;">
+          <div class="polaroid-frame">
+            <div class="washi-tape"></div>
+            <div style="width: 100%; aspect-ratio: 1/1.18; border-radius: 8px; overflow: hidden; background: #ffe4e6; margin-bottom: 7px; margin-top: 4px;">
+              <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?w=500&auto=format&fit=crop&q=80" 
+                   alt="Bó hoa 20/10" 
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x480/ffe4e6/e11d48?text=Happy+20%2F10+💐';"
+                   style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
+            <p style="font-family: 'Caveat', cursive; font-size: 17px; font-weight: 700; color: #3a2218; line-height: 1.1;">Nụ cười tỏa nắng 🌸</p>
+            <p style="font-size: 9px; color: #998; margin-top: 2px;">#AlwaysShining</p>
+          </div>
+        </div>
+
+        <!-- Right Side: Wishes & Wax Seal -->
+        <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3 style="font-size: 14px; font-weight: 900; color: #9f1239; margin-bottom: 6px;">
+              Gửi <span class="sync-name" style="text-decoration: underline;">Nàng Thơ</span> thân mến,
+            </h3>
+            <p style="font-size: 11.5px; color: #4a2c1f; line-height: 1.5; text-align: justify;">
+              Nhân ngày Phụ nữ Việt Nam 20/10, chúc bạn luôn luôn xinh đẹp, rạng rỡ và ngập tràn hạnh phúc. Mong mỗi ngày trôi qua đều là những khoảnh khắc dịu dàng, ăn ngon miệng không lo béo, ví tiền luôn rủng rỉnh và luôn nhận được thật nhiều sự cưng chiều!
+            </p>
+            <p style="font-size: 11px; color: #7c2d12; font-style: italic; margin-top: 6px; line-height: 1.45;">
+              "Dù có điều gì xảy ra, bạn vẫn luôn là bản tình ca êm dịu và phiên bản độc bản quý giá nhất! ✨"
+            </p>
+          </div>
+
+          <div style="border-top: 1px dashed rgba(180, 140, 110, 0.4); padding-top: 8px; margin-top: 8px; display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <p style="font-size: 9px; color: #887; text-transform: uppercase;">Yêu thương & Trân quý,</p>
+              <p style="font-size: 11px; font-weight: 800; color: #9f1239;">Người luôn dõi theo bạn ❤️</p>
+            </div>
+            <!-- Embossed Wax Seal -->
+            <div style="width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #e11d48, #9f1239); border: 2px solid #fecdd3; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; box-shadow: 0 4px 12px rgba(225, 29, 72, 0.45);" title="Dấu mộc 20/10">
+              💐
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Name Modal -->
+  <div id="modal-name" style="position: fixed; inset: 0; z-index: 99999; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
+    <div style="width: 100%; max-width: 320px; background: #181818; border: 1px solid rgba(255,255,255,0.15); border-radius: 24px; padding: 20px; text-align: center;">
+      <h3 style="font-size: 15px; font-weight: 900; text-transform: uppercase; color: #fff; margin-bottom: 4px;">CÁ NHÂN HÓA LỜI CHÚC</h3>
+      <p style="font-size: 11px; color: #888; margin-bottom: 12px;">Nhập tên người bạn muốn gửi tặng:</p>
+      <input id="input-name" type="text" maxlength="25" placeholder="VD: Em Yêu, Bé Thu, Chị Mai..." style="width: 100%; padding: 10px 14px; border-radius: 14px; background: #262626; border: 1px solid #444; color: #fff; font-size: 13px; text-align: center; outline: none; margin-bottom: 12px;">
+      <div style="display: flex; gap: 8px;">
+        <button id="btn-cancel-name" style="flex: 1; padding: 10px; border-radius: 999px; background: #333; color: #aaa; border: none; font-size: 11px; font-weight: 700; cursor: pointer;">Hủy</button>
+        <button id="btn-submit-name" style="flex: 1; padding: 10px; border-radius: 999px; background: var(--sp-green); color: #000; border: none; font-size: 11px; font-weight: 900; cursor: pointer;">Lưu</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" style="position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); z-index: 100000; padding: 10px 18px; border-radius: 999px; background: #ffffff; color: #000000; font-size: 12px; font-weight: 800; display: flex; align-items: center; gap: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); opacity: 0; pointer-events: none; transition: transform 0.3s ease, opacity 0.3s ease;">
+    <span id="toast-icon">✨</span>
+    <span id="toast-text">Thông báo</span>
+  </div>
+
+  <script>
+    const TOTAL_SLIDES = 6;
+    const SLIDE_DURATION = 12000; // 12 seconds per slide
+    let currentSlide = 0;
+    let recipientName = "Nàng Thơ";
+
+    let elapsedSlideTime = 0;
+    let lastTimestamp = performance.now();
+    let isHoldPaused = false;
+    let isModalOpen = false;
+
+    const storyFrame = document.getElementById('story-frame');
+    const slides = [
+      document.getElementById('slide-0'),
+      document.getElementById('slide-1'),
+      document.getElementById('slide-2'),
+      document.getElementById('slide-3'),
+      document.getElementById('slide-4'),
+      document.getElementById('slide-5')
+    ];
+    const progressBars = [
+      document.getElementById('p-bar-0'),
+      document.getElementById('p-bar-1'),
+      document.getElementById('p-bar-2'),
+      document.getElementById('p-bar-3'),
+      document.getElementById('p-bar-4'),
+      document.getElementById('p-bar-5')
+    ];
+    const headerName = document.getElementById('header-name');
+    const slideNum = document.getElementById('slide-num');
+    const vinylDisc = document.getElementById('vinyl-elem');
+
+    /* Web Audio API - Background Lo-Fi & Celestial Bell Chime */
+    let audioCtx = null;
+    let bgmTimer = null;
+    let audioStarted = false;
+
+    const lofiChords = [
+      [261.63, 329.63, 392.00, 493.88], // Cmaj7
+      [220.00, 261.63, 329.63, 392.00], // Am7
+      [174.61, 220.00, 261.63, 329.63], // Fmaj7
+      [196.00, 246.94, 293.66, 392.00]  // G7
+    ];
+    let noteStep = 0;
+
+    function initAudioEngine() {
+      if (audioStarted) return;
+      try {
+        const AudioClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioClass) return;
+        audioCtx = new AudioClass();
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        audioStarted = true;
+
+        bgmTimer = setInterval(() => {
+          if (!audioStarted || isHoldPaused || isModalOpen) return;
+          const chord = lofiChords[Math.floor(noteStep / 4) % lofiChords.length];
+          const frequency = chord[noteStep % chord.length];
+          playGentleTone(frequency, 0.45, 0.035);
+          noteStep++;
+        }, 380);
+      } catch (err) {
+        console.warn("Audio Context init suppressed", err);
+      }
+    }
+
+    function playGentleTone(freq, dur = 0.35, gainVal = 0.04) {
+      if (!audioCtx) return;
+      try {
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+        gain.gain.setValueAtTime(gainVal, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + dur);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start();
+        osc.stop(audioCtx.currentTime + dur);
+      } catch (e) {}
+    }
+
+    function playSfxDing() {
+      if (!audioCtx) return;
+      playGentleTone(659.25, 0.28, 0.06);
+    }
+
+    /* Celestial Harp Chime Sound Synthesizer */
+    function playCelestialChime() {
+      if (!audioCtx) return;
+      try {
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const chimeNotes = [523.25, 659.25, 783.99, 987.77, 1046.50, 1318.51, 1567.98]; // C5, E5, G5, B5, C6, E6, G6
+        chimeNotes.forEach((freq, idx) => {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = "sine";
+          osc.frequency.setValueAtTime(freq, audioCtx.currentTime + idx * 0.05);
+
+          gain.gain.setValueAtTime(0.001, audioCtx.currentTime + idx * 0.05);
+          gain.gain.exponentialRampToValueAtTime(0.075, audioCtx.currentTime + idx * 0.05 + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + idx * 0.05 + 0.65);
+
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+
+          osc.start(audioCtx.currentTime + idx * 0.05);
+          osc.stop(audioCtx.currentTime + idx * 0.05 + 0.7);
+        });
+      } catch (e) {}
+    }
+
+    /* Confetti Particle System */
+    const canvas = document.getElementById('confetti-canvas');
+    const ctx = canvas.getContext('2d');
+    let confettiParticles = [];
+    let confettiRunning = false;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function launchConfetti(count = 80, originX = null, originY = null) {
+      const colors = ['#1DB954', '#ff1475', '#e11d48', '#ff70a6', '#00f2fe', '#fbbf24', '#ffffff'];
+      const cx = originX !== null ? originX : canvas.width * 0.5;
+      const cy = originY !== null ? originY : canvas.height * 0.55;
+
+      for (let i = 0; i < count; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 12 + 4;
+        confettiParticles.push({
+          x: cx,
+          y: cy,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed - 4,
+          size: Math.random() * 8 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rotation: Math.random() * 360,
+          vRot: (Math.random() - 0.5) * 12,
+          opacity: 1
+        });
+      }
+      if (!confettiRunning) {
+        confettiRunning = true;
+        requestAnimationFrame(updateConfetti);
+      }
+    }
+
+    function updateConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = confettiParticles.length - 1; i >= 0; i--) {
+        const p = confettiParticles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.35;
+        p.rotation += p.vRot;
+        p.opacity -= 0.013;
+
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, p.opacity);
+        ctx.translate(p.x, p.y);
+        ctx.rotate((p.rotation * Math.PI) / 180);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+        ctx.restore();
+
+        if (p.opacity <= 0 || p.y > canvas.height) {
+          confettiParticles.splice(i, 1);
+        }
+      }
+
+      if (confettiParticles.length > 0) {
+        requestAnimationFrame(updateConfetti);
+      } else {
+        confettiRunning = false;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+
+    /* Slide Navigation System */
+    function goToSlide(targetIndex) {
+      if (targetIndex < 0) targetIndex = 0;
+      if (targetIndex >= TOTAL_SLIDES) targetIndex = TOTAL_SLIDES - 1;
+
+      slides.forEach((s, idx) => {
+        if (idx === targetIndex) {
+          s.classList.add('active');
+        } else {
+          s.classList.remove('active');
+        }
+      });
+
+      progressBars.forEach((p, idx) => {
+        if (idx < targetIndex) {
+          p.style.width = '100%';
+        } else if (idx === targetIndex) {
+          p.style.width = '0%';
+        } else {
+          p.style.width = '0%';
+        }
+      });
+
+      currentSlide = targetIndex;
+      elapsedSlideTime = 0;
+      lastTimestamp = performance.now();
+      slideNum.innerText = `${currentSlide + 1} / ${TOTAL_SLIDES}`;
+
+      playSfxDing();
+      onSlideChanged(currentSlide);
+    }
+
+    function nextSlide() {
+      if (currentSlide < TOTAL_SLIDES - 1) {
+        goToSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        goToSlide(currentSlide - 1);
+      }
+    }
+
+    function onSlideChanged(index) {
+      if (index === 1) {
+        setTimeout(() => {
+          document.querySelectorAll('.vibe-bar').forEach(bar => {
+            bar.style.width = bar.getAttribute('data-width');
+          });
+        }, 100);
+      } else {
+        document.querySelectorAll('.vibe-bar').forEach(bar => {
+          bar.style.width = '0%';
+        });
+      }
+
+      if (index === 3) {
+        document.querySelectorAll('.count-num').forEach(el => {
+          animateCount(el, parseInt(el.getAttribute('data-target'), 10));
+        });
+      }
+
+      if (index === 5) {
+        setTimeout(() => {
+          launchConfetti(45);
+        }, 300);
+      }
+    }
+
+    function animateCount(elem, target) {
+      let current = 0;
+      const steps = 30;
+      const increment = target / steps;
+      const interval = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          elem.innerText = target.toLocaleString('vi-VN');
+          clearInterval(interval);
+        } else {
+          elem.innerText = Math.floor(current).toLocaleString('vi-VN');
+        }
+      }, 35);
+    }
+
+    function storyAnimationLoop(now) {
+      const delta = now - lastTimestamp;
+      lastTimestamp = now;
+
+      if (!isHoldPaused && !isModalOpen) {
+        elapsedSlideTime += delta;
+        const pct = Math.min((elapsedSlideTime / SLIDE_DURATION) * 100, 100);
+        if (progressBars[currentSlide]) {
+          progressBars[currentSlide].style.width = `${pct}%`;
+        }
+
+        if (elapsedSlideTime >= SLIDE_DURATION) {
+          if (currentSlide < TOTAL_SLIDES - 1) {
+            nextSlide();
+          } else {
+            progressBars[currentSlide].style.width = '100%';
+          }
+        }
+      }
+
+      requestAnimationFrame(storyAnimationLoop);
+    }
+
+    let toastTimer = null;
+    function showToast(text, icon = "✨") {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-text').innerText = text;
+      document.getElementById('toast-icon').innerText = icon;
+      toast.style.opacity = '1';
+      toast.style.transform = 'translateX(-50%) translateY(0)';
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(-50%) translateY(80px)';
+      }, 2400);
+    }
+
+    function setRecipientName(name) {
+      if (!name || !name.trim()) return;
+      recipientName = name.trim();
+      headerName.innerText = recipientName;
+      document.querySelectorAll('.sync-name').forEach(el => el.innerText = recipientName);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryName = urlParams.get('name');
+      if (queryName) setRecipientName(queryName);
+
+      lastTimestamp = performance.now();
+      requestAnimationFrame(storyAnimationLoop);
+
+      window.addEventListener('pointerdown', initAudioEngine, { once: true });
+
+      /* Silent Hold-To-Pause and Slide Step Gestures */
+      let holdTimeout = null;
+      let isHolding = false;
+      const HOLD_DELAY = 170;
+
+      storyFrame.addEventListener('pointerdown', (e) => {
+        if (e.target.closest('button, #heart-pulse-btn, input, a, #modal-name, #modal-letter')) {
+          return;
+        }
+        initAudioEngine();
+        holdTimeout = setTimeout(() => {
+          isHolding = true;
+          isHoldPaused = true;
+          if (vinylDisc) vinylDisc.classList.add('paused');
+        }, HOLD_DELAY);
+      });
+
+      storyFrame.addEventListener('pointerup', (e) => {
+        if (e.target.closest('button, #heart-pulse-btn, input, a, #modal-name, #modal-letter')) {
+          clearTimeout(holdTimeout);
+          return;
+        }
+        clearTimeout(holdTimeout);
+        if (isHolding) {
+          isHolding = false;
+          isHoldPaused = false;
+          if (vinylDisc) vinylDisc.classList.remove('paused');
+        } else {
+          const rect = storyFrame.getBoundingClientRect();
+          const clickX = e.clientX - rect.left;
+          if (clickX < rect.width * 0.35) {
+            prevSlide();
+          } else {
+            nextSlide();
+          }
+        }
+      });
+
+      storyFrame.addEventListener('pointercancel', () => {
+        clearTimeout(holdTimeout);
+        if (isHolding) {
+          isHolding = false;
+          isHoldPaused = false;
+          if (vinylDisc) vinylDisc.classList.remove('paused');
+        }
+      });
+
+      document.getElementById('btn-start').addEventListener('click', (e) => {
+        e.stopPropagation();
+        initAudioEngine();
+        nextSlide();
+      });
+
+      const modalLetter = document.getElementById('modal-letter');
+      const heartPulseBtn = document.getElementById('heart-pulse-btn');
+      const btnOpenGift = document.getElementById('btn-open-gift');
+      const shockwaveElem = document.getElementById('shockwave-element');
+
+      function triggerMagicalHeartOpening(e) {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        initAudioEngine();
+
+        // 1. Calculate heart center coordinate for tailored particle origin
+        const heartRect = heartPulseBtn.getBoundingClientRect();
+        const originX = heartRect.left + heartRect.width / 2;
+        const originY = heartRect.top + heartRect.height / 2;
+
+        // 2. Rapid heartbeat anticipation effect
+        heartPulseBtn.classList.remove('heart-majestic-pulse');
+        heartPulseBtn.classList.add('heart-rapid-rush');
+
+        // 3. Shockwave ripple burst
+        if (shockwaveElem) {
+          shockwaveElem.classList.remove('animate-burst');
+          void shockwaveElem.offsetWidth; // trigger reflow
+          shockwaveElem.classList.add('animate-burst');
+        }
+
+        // 4. Play harmonic celestial chime & fireworks
+        playCelestialChime();
+        launchConfetti(95, originX, originY);
+
+        // 5. Open Letter popup smoothly from heart center
+        setTimeout(() => {
+          isModalOpen = true;
+          modalLetter.style.display = 'flex';
+          heartPulseBtn.classList.remove('heart-rapid-rush');
+          heartPulseBtn.classList.add('heart-majestic-pulse');
+        }, 360);
+      }
+
+      // Bind opening events to both Gift Button and Heart Centerpiece
+      btnOpenGift.addEventListener('click', triggerMagicalHeartOpening);
+      heartPulseBtn.addEventListener('click', triggerMagicalHeartOpening);
+
+      // Close modal event
+      document.getElementById('btn-close-letter').addEventListener('click', (e) => {
+        e.stopPropagation();
+        modalLetter.style.display = 'none';
+        isModalOpen = false;
+      });
+
+      // Name Modal Handling
+      const modalName = document.getElementById('modal-name');
+      const inputName = document.getElementById('input-name');
+
+      document.getElementById('btn-edit-name').addEventListener('click', (e) => {
+        e.stopPropagation();
+        isModalOpen = true;
+        inputName.value = recipientName;
+        modalName.style.display = 'flex';
+      });
+
+      document.getElementById('btn-cancel-name').addEventListener('click', () => {
+        modalName.style.display = 'none';
+        isModalOpen = false;
+      });
+
+      document.getElementById('btn-submit-name').addEventListener('click', () => {
+        if (inputName.value.trim()) {
+          setRecipientName(inputName.value);
+          showToast(`Đã đổi tên: ${recipientName}`, "💖");
+        }
+        modalName.style.display = 'none';
+        isModalOpen = false;
+      });
+
+      // Keyboard Arrow Navigation
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') nextSlide();
+        if (e.key === 'ArrowLeft') prevSlide();
+      });
+    });
+  </script>
+</body>
+</html>
