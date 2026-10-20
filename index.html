@@ -1,0 +1,2993 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="referrer" content="no-referrer">
+    <meta name="theme-color" content="#010103">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Vũ Trụ Ngàn Sao - Chúc Mừng Ngày Phụ Nữ Việt Nam 20/10</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts hỗ trợ tiếng Việt sắc nét & lãng mạn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Dancing+Script:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --crimson-glow: rgba(225, 29, 72, 0.7);
+            --gold-glow: rgba(251, 191, 36, 0.6);
+            --sat: env(safe-area-inset-top, 0px);
+            --sab: env(safe-area-inset-bottom, 0px);
+            --sal: env(safe-area-inset-left, 0px);
+            --sar: env(safe-area-inset-right, 0px);
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            height: 100dvh;
+            overflow: hidden;
+            overscroll-behavior: none;
+            touch-action: none;
+            background-color: #010103;
+            font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        .font-script {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .font-serif-display {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        /* Typography phát sáng tự nhiên hòa quyện vũ trụ */
+        .text-glow-rose {
+            text-shadow: 0 0 20px rgba(244, 63, 94, 0.45), 0 2px 10px rgba(0, 0, 0, 0.85);
+        }
+        .text-glow-gold {
+            text-shadow: 0 0 18px rgba(251, 191, 36, 0.45), 0 2px 10px rgba(0, 0, 0, 0.85);
+        }
+        .celestial-card-glass {
+            background: linear-gradient(135deg, rgba(16, 8, 26, 0.86), rgba(8, 4, 15, 0.92));
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.88), 0 0 40px rgba(225, 29, 72, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+            border: 1px solid rgba(251, 113, 133, 0.38);
+        }
+
+        /* Animations cho Cảm Biến Vân Tay Holographic Luxury */
+        @keyframes scanLaser {
+            0% { top: 14%; opacity: 0; transform: scaleX(0.75); }
+            15% { opacity: 0.95; transform: scaleX(1); }
+            50% { top: 86%; opacity: 1; transform: scaleX(1); }
+            85% { opacity: 0.95; transform: scaleX(1); }
+            100% { top: 14%; opacity: 0; transform: scaleX(0.75); }
+        }
+
+        @keyframes pulseRing {
+            0% { transform: scale(0.95); opacity: 0.55; }
+            75% { transform: scale(1.26); opacity: 0; }
+            100% { transform: scale(1.26); opacity: 0; }
+        }
+
+        @keyframes orbitRotateSlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes orbitRotateReverse {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes breatheAura {
+            0%, 100% { opacity: 0.35; transform: scale(0.98); }
+            50% { opacity: 0.65; transform: scale(1.04); }
+        }
+
+        @keyframes shimmerBorder {
+            0%, 100% {
+                border-color: rgba(244, 63, 94, 0.45);
+                box-shadow: 0 10px 45px rgba(225, 29, 72, 0.28), inset 0 0 20px rgba(244, 63, 94, 0.12);
+            }
+            50% {
+                border-color: rgba(251, 191, 36, 0.55);
+                box-shadow: 0 10px 55px rgba(251, 191, 36, 0.24), inset 0 0 25px rgba(251, 191, 36, 0.15);
+            }
+        }
+
+        .laser-line {
+            position: absolute;
+            left: 12%;
+            width: 76%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #fde68a, #fb7185, #ffffff, #fb7185, #fde68a, transparent);
+            box-shadow: 0 0 12px #e11d48, 0 0 24px #fb7185, 0 0 4px #ffffff;
+            border-radius: 999px;
+            animation: scanLaser 1.65s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        .pulse-ring-1 {
+            animation: pulseRing 3s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+        }
+        .pulse-ring-2 {
+            animation: pulseRing 3s cubic-bezier(0.2, 0.8, 0.4, 1) infinite 1.5s;
+        }
+
+        .orbit-ring-cw {
+            animation: orbitRotateSlow 26s linear infinite;
+        }
+        .orbit-ring-ccw {
+            animation: orbitRotateReverse 34s linear infinite;
+        }
+        .breathe-aura {
+            animation: breatheAura 3.6s ease-in-out infinite;
+        }
+
+        .photo-frame-glow {
+            animation: shimmerBorder 4.5s ease-in-out infinite;
+        }
+
+        /* Hiệu ứng đường vân tay phát sáng mượt mà */
+        .fp-ridge-base {
+            stroke: rgba(255, 228, 235, 0.18);
+            stroke-width: 2.1;
+            stroke-linecap: round;
+            fill: none;
+            transition: stroke 0.3s ease;
+        }
+
+        .fp-ridge-lit {
+            stroke: url(#fpLuxuryGrad);
+            stroke-width: 2.4;
+            stroke-linecap: round;
+            fill: none;
+            filter: drop-shadow(0 0 5px rgba(244, 63, 94, 0.75));
+            stroke-dasharray: 220;
+            stroke-dashoffset: 220;
+            transition: stroke-dashoffset 0.08s linear;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.35);
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(244, 63, 94, 0.45);
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(244, 63, 94, 0.75);
+        }
+
+        /* Tối ưu hóa giao diện xoay ngang trên điện thoại */
+        @media (max-height: 580px) and (orientation: landscape) {
+            #stage4Overlay {
+                justify-content: center !important;
+                align-items: flex-end !important;
+                padding-right: max(1.25rem, env(safe-area-inset-right)) !important;
+                padding-bottom: max(0.75rem, env(safe-area-inset-bottom)) !important;
+            }
+            #loveLetterCard {
+                max-width: 320px !important;
+                padding: 0.875rem !important;
+            }
+            #stage1Container {
+                padding-top: max(1rem, env(safe-area-inset-top)) !important;
+                padding-bottom: max(1rem, env(safe-area-inset-bottom)) !important;
+            }
+        }
+    </style>
+</head>
+<body class="relative w-full h-full select-none overflow-hidden bg-[#010103]">
+
+    <!-- HTML5 Canvas chính cho Bầu trời sao thiên văn, Trái tim 3D Đỏ Ruby, Drone Xuyên Thấu & Khung Trái Tim Hào Quang -->
+    <canvas id="cosmosCanvas" class="fixed inset-0 w-full h-full z-0 block touch-none"></canvas>
+
+    <!-- Thanh điều hướng phía trên (Top Controls) với Safe Area Inset cho iOS & Android -->
+    <header class="fixed top-0 left-0 right-0 z-30 flex items-center justify-between px-3 py-2.5 sm:px-6 sm:py-4 pt-[max(0.65rem,env(safe-area-inset-top))] pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] pointer-events-none">
+        <!-- Logo & Trạng thái màn trình diễn -->
+        <div class="flex items-center gap-2 sm:gap-2.5 pointer-events-auto bg-black/60 backdrop-blur-md border border-rose-500/25 rounded-full px-3 py-1.2 sm:px-3.5 sm:py-1.5 shadow-lg">
+            <span class="relative flex h-2 sm:h-2.5 w-2 sm:w-2.5">
+                <span id="statusPing" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 sm:h-2.5 w-2 sm:w-2.5 bg-rose-600"></span>
+            </span>
+            <span id="stageBadgeText" class="text-[11px] sm:text-xs md:text-sm font-medium text-rose-100/90 tracking-wide">
+                Vũ Trụ 20/10 • Chúc Mừng Phái Đẹp
+            </span>
+        </div>
+
+        <!-- Cụm nút điều khiển: Nhạc & Xem lại -->
+        <div class="flex items-center gap-1.5 sm:gap-2 pointer-events-auto">
+            <!-- Nút Bật/Tắt Nhạc Local & Nhạc Vũ Trụ -->
+            <button id="btnMusicToggle" type="button" title="Bật / Tắt nhạc"
+                class="flex items-center gap-1.5 px-2.5 py-1.2 sm:px-3 sm:py-1.5 rounded-full bg-black/60 hover:bg-rose-950/60 text-rose-100 border border-rose-400/30 backdrop-blur-md text-xs sm:text-sm font-medium transition active:scale-95 shadow-lg cursor-pointer">
+                <span id="musicIcon" class="text-sm">🎵</span>
+                <span id="musicTitle" class="text-xs text-rose-200/80 max-w-[80px] sm:max-w-[110px] truncate hidden xs:inline sm:inline">Nhạc</span>
+            </button>
+
+            <!-- Nút Xem lại từ đầu -->
+            <button id="btnTopRestart" type="button" title="Xem lại từ đầu"
+                class="hidden items-center gap-1.5 px-3 py-1.2 sm:px-3.5 sm:py-1.5 rounded-full bg-black/60 hover:bg-rose-950/60 text-rose-100 border border-rose-400/30 backdrop-blur-md text-xs sm:text-sm font-medium transition active:scale-95 shadow-lg cursor-pointer">
+                <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+                <span class="text-xs sm:text-sm">Xem lại</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- STAGE 1: MÀN HÌNH XÁC THỰC VÂN TAY HOLOGRAPHIC LUXURY (BIOMETRIC AUTHENTICATION) -->
+    <main id="stage1Container" class="fixed inset-0 z-30 flex flex-col items-center justify-center px-4 py-3 sm:py-6 transition-all duration-700 overflow-y-auto">
+        <div class="max-w-md w-full flex flex-col items-center text-center my-auto">
+            <!-- Huy hiệu ngày 20/10 tinh tế -->
+            <div class="inline-flex items-center gap-1.5 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-white/[0.04] border border-rose-300/25 text-rose-200/90 text-[10.5px] sm:text-xs font-medium tracking-widest uppercase mb-2 sm:mb-3.5 backdrop-blur-md shadow-inner">
+                <span class="w-1.5 h-1.5 rounded-full bg-rose-400 animate-pulse"></span>
+                <span>Vũ Trụ Ánh Sao • 20/10</span>
+            </div>
+
+            <!-- Tiêu đề chính sang trọng, rõ nét, bay bổng -->
+            <h1 class="font-serif-display text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-rose-100 via-pink-50 to-amber-100 bg-clip-text text-transparent drop-shadow-[0_2px_18px_rgba(244,63,94,0.35)] mb-2 sm:mb-2.5 tracking-tight leading-snug">
+                Món Quà Vũ Trụ Dành Tặng Phái Đẹp
+            </h1>
+            <p id="scanInstructionText" class="text-rose-100/80 text-xs sm:text-sm max-w-[290px] sm:max-w-sm mb-4 sm:mb-7 leading-relaxed font-normal tracking-wide drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
+                Chạm ngón tay lên mặt kính cảm biến để đánh thức vũ trụ ánh sao chúc mừng ngày 20/10
+            </p>
+
+            <!-- CỤM CẢM BIẾN VÂN TAY HOLOGRAPHIC LUXURY GLASS -->
+            <div id="fingerprintCluster" onclick="startFingerScan(event)" class="relative flex items-center justify-center my-1 sm:my-2 w-48 h-48 sm:w-56 sm:h-56 md:w-60 md:h-60 rounded-full cursor-pointer touch-none select-none transition-transform duration-200 active:scale-95">
+                <!-- Quầng sáng thở dịu nhẹ phía sau (Breathing Aura) -->
+                <div class="breathe-aura absolute w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full bg-radial from-rose-600/25 via-rose-900/10 to-transparent blur-xl pointer-events-none"></div>
+
+                <!-- Vòng sóng lan tỏa mảnh (Subtle Pulse Rings) -->
+                <div class="pulse-ring-1 absolute w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full border border-rose-400/25 pointer-events-none"></div>
+                <div class="pulse-ring-2 absolute w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full border border-amber-300/20 pointer-events-none"></div>
+
+                <!-- Vòng cơ khí thiên văn xoay chậm & Vòng tiến độ SVG -->
+                <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 220 220">
+                    <defs>
+                        <linearGradient id="scanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#fde68a" />
+                            <stop offset="45%" stop-color="#fb7185" />
+                            <stop offset="100%" stop-color="#e11d48" />
+                        </linearGradient>
+                        <linearGradient id="bezelRimGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(255, 241, 242, 0.38)" />
+                            <stop offset="50%" stop-color="rgba(244, 63, 94, 0.12)" />
+                            <stop offset="100%" stop-color="rgba(251, 191, 36, 0.28)" />
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Vòng khắc độ thiên văn ngoài cùng xoay thuận chiều kim đồng hồ -->
+                    <g class="orbit-ring-cw" style="transform-origin: 110px 110px;">
+                        <circle cx="110" cy="110" r="98" stroke="rgba(255, 228, 230, 0.12)" stroke-width="1" stroke-dasharray="2 8" fill="none" />
+                        <circle cx="110" cy="12" r="2" fill="#fda4af" fill-opacity="0.7" />
+                        <circle cx="110" cy="208" r="1.5" fill="#fde68a" fill-opacity="0.5" />
+                    </g>
+
+                    <!-- Vòng cung kỹ thuật số xoay ngược chiều kim đồng hồ -->
+                    <g class="orbit-ring-ccw" style="transform-origin: 110px 110px;">
+                        <circle cx="110" cy="110" r="89" stroke="rgba(251, 113, 133, 0.16)" stroke-width="1.2" stroke-dasharray="28 45 10 45" stroke-linecap="round" fill="none" />
+                    </g>
+
+                    <!-- Rãnh nền của thanh tiến độ (Track) -->
+                    <circle cx="110" cy="110" r="78" stroke="rgba(255, 255, 255, 0.07)" stroke-width="3" fill="rgba(4, 4, 10, 0.72)" />
+
+                    <!-- Vòng viền kính Bezel mảnh -->
+                    <circle cx="110" cy="110" r="72" stroke="url(#bezelRimGrad)" stroke-width="1" fill="none" />
+
+                    <!-- Vòng tròn hiển thị % tiến độ quét (Circumference = 2 * PI * 78 ≈ 490.09) -->
+                    <circle id="fingerprintProgressCircle" cx="110" cy="110" r="78" stroke="url(#scanGrad)" stroke-width="3.8"
+                        stroke-dasharray="490.09" stroke-dashoffset="490.09" stroke-linecap="round" fill="transparent"
+                        transform="rotate(-90 110 110)"
+                        class="transition-all duration-75 filter drop-shadow-[0_0_8px_rgba(244,63,94,0.8)]" />
+                </svg>
+
+                <!-- Nút Cảm Biến Mặt Kính Sapphire & Vân Tay Đồng Tâm (Apple Touch ID / Luxury Portal) -->
+                <button id="fingerprintBtn" type="button" aria-label="Quét vân tay" onclick="startFingerScan(event)"
+                    class="group relative w-28 h-28 sm:w-34 sm:h-34 md:w-36 md:h-36 rounded-full flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#130d18]/95 via-[#09060e]/95 to-[#030206]/98 border border-rose-200/25 shadow-[0_10px_40px_rgba(0,0,0,0.9),0_0_30px_rgba(225,29,72,0.22),inset_0_2px_12px_rgba(255,255,255,0.12)] hover:border-rose-300/45 active:scale-95 transition-all duration-300 cursor-pointer focus:outline-none touch-none">
+
+                    <!-- Phản quang mặt kính cong phía trên (Curved Sapphire Glass Gloss) -->
+                    <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-28 h-16 bg-white/[0.07] rounded-full blur-md pointer-events-none"></div>
+
+                    <!-- Tia laser quét ngang thanh mảnh khi chạm giữ -->
+                    <div id="laserScanBeam" class="laser-line hidden pointer-events-none"></div>
+
+                    <!-- Ánh sáng lõi hồng ngọc bừng lên khi nhấn giữ -->
+                    <div id="fingerprintGlowBg" class="absolute inset-0 bg-radial from-rose-500/30 via-rose-600/10 to-transparent opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+
+                    <!-- Đồ họa SVG Vân Tay Sinh Trắc Học Đa Tầng (2 lớp: Lớp vân nền mờ & Lớp vân phát sáng dần theo tiến độ) -->
+                    <svg id="fingerprintSvg" class="relative z-10 w-16 h-16 sm:w-20 sm:h-20 md:w-22 md:h-22 transition-transform duration-300 group-hover:scale-105 pointer-events-none"
+                        viewBox="0 0 120 120" fill="none" style="pointer-events: none;">
+                        <defs>
+                            <linearGradient id="fpLuxuryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#fff1f2" />
+                                <stop offset="35%" stop-color="#fda4af" />
+                                <stop offset="70%" stop-color="#f43f5e" />
+                                <stop offset="100%" stop-color="#fbbf24" />
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Lớp 1: Các đường vân tay mảnh tĩnh (Base Biometric Ridges) -->
+                        <g class="fp-ridge-base" style="pointer-events: none;">
+                            <!-- Vòm ngoài cùng -->
+                            <path d="M 24 56 C 24 30, 40 16, 60 16 C 80 16, 96 30, 96 56" />
+                            <path d="M 20 68 C 19 60, 20 50, 22 44" />
+                            <path d="M 100 68 C 101 60, 100 50, 98 44" />
+                            <!-- Vòm thứ 2 -->
+                            <path d="M 29 79 C 26 65, 29 48, 32 39 C 37 26, 47 23, 60 23 C 73 23, 83 26, 88 39 C 91 48, 94 65, 91 79" />
+                            <!-- Vòm thứ 3 (đứt đoạn nghệ thuật) -->
+                            <path d="M 36 88 C 33 73, 35 55, 38 45 C 42 33, 50 30, 60 30 C 70 30, 78 33, 82 45 C 85 55, 87 73, 84 88" />
+                            <!-- Vòm thứ 4 -->
+                            <path d="M 43 95 C 40 80, 41 61, 44 51 C 47 41, 53 38, 60 38 C 67 38, 73 41, 76 51 C 79 61, 80 80, 77 95" />
+                            <!-- Vòm trong sát tâm -->
+                            <path d="M 50 101 C 48 86, 48 70, 50 61 C 52 50, 55 46, 60 46 C 65 46, 68 50, 70 61 C 72 70, 72 86, 70 101" />
+                            <!-- Đường vân dọc dưới tâm -->
+                            <path d="M 56 104 C 57 90, 57 79, 57 73" />
+                            <path d="M 64 104 C 63 90, 63 79, 63 73" />
+                        </g>
+
+                        <!-- Lớp 2: Các đường vân phát sáng dần khi quét (Progressive Illuminated Ridges) -->
+                        <g id="fpLitGroup" style="pointer-events: none;">
+                            <path class="fp-ridge-lit" data-threshold="0" d="M 56 104 C 57 90, 57 79, 57 73" />
+                            <path class="fp-ridge-lit" data-threshold="5" d="M 64 104 C 63 90, 63 79, 63 73" />
+                            <path class="fp-ridge-lit" data-threshold="12" d="M 50 101 C 48 86, 48 70, 50 61 C 52 50, 55 46, 60 46 C 65 46, 68 50, 70 61 C 72 70, 72 86, 70 101" />
+                            <path class="fp-ridge-lit" data-threshold="25" d="M 43 95 C 40 80, 41 61, 44 51 C 47 41, 53 38, 60 38 C 67 38, 73 41, 76 51 C 79 61, 80 80, 77 95" />
+                            <path class="fp-ridge-lit" data-threshold="42" d="M 36 88 C 33 73, 35 55, 38 45 C 42 33, 50 30, 60 30 C 70 30, 78 33, 82 45 C 85 55, 87 73, 84 88" />
+                            <path class="fp-ridge-lit" data-threshold="60" d="M 29 79 C 26 65, 29 48, 32 39 C 37 26, 47 23, 60 23 C 73 23, 83 26, 88 39 C 91 48, 94 65, 91 79" />
+                            <path class="fp-ridge-lit" data-threshold="76" d="M 24 56 C 24 30, 40 16, 60 16 C 80 16, 96 30, 96 56" />
+                            <path class="fp-ridge-lit" data-threshold="88" d="M 20 68 C 19 60, 20 50, 22 44" />
+                            <path class="fp-ridge-lit" data-threshold="88" d="M 100 68 C 101 60, 100 50, 98 44" />
+                        </g>
+
+                        <!-- Biểu tượng Trái Tim Hồng Ngọc Tinh Xảo ở Chính Giữa Tâm Vân Tay -->
+                        <path id="fpCenterHeart" d="M 60 68 C 60 68, 51.5 61, 51.5 55.5 C 51.5 52, 54.2 49.8, 57.2 49.8 C 58.8 49.8, 60 50.8, 60 52 C 60 50.8, 61.2 49.8, 62.8 49.8 C 65.8 49.8, 68.5 52, 68.5 55.5 C 68.5 61, 60 68, 60 68 Z"
+                            fill="rgba(225, 29, 72, 0.78)" stroke="#ffe4e6" stroke-width="1.6"
+                            class="transition-all duration-300 filter drop-shadow-[0_0_8px_rgba(225,29,72,0.9)] pointer-events-none"
+                            style="pointer-events: none;" />
+                    </svg>
+                </button>
+
+                <!-- LỚP PHỦ CẢM ỨNG ĐA ĐIỂM TOÀN DIỆN (100% DIỆN TÍCH TỪ TÂM TRÁI TIM ĐẾN VÀNH NGOÀI) -->
+                <button id="fingerprintTouchOverlay" type="button" aria-label="Chạm quét vân tay" onclick="startFingerScan(event)"
+                    class="absolute inset-0 w-full h-full rounded-full z-30 cursor-pointer touch-none bg-transparent border-0 p-0 focus:outline-none"></button>
+            </div>
+
+            <!-- Trạng thái % & Thông báo xác thực -->
+            <div class="mt-3 sm:mt-5 h-14 sm:h-16 flex flex-col items-center justify-center">
+                <div id="scanPercentText" class="px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-white/[0.06] border border-rose-400/30 text-[11px] sm:text-xs md:text-sm font-semibold tracking-wider text-rose-100 uppercase backdrop-blur-md shadow-md transition-all">
+                    TOUCH ID • SẴN SÀNG (0%)
+                </div>
+                <div id="scanSubStatus" class="text-[11.5px] sm:text-xs md:text-sm text-rose-200/90 font-medium mt-1.5 sm:mt-2 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+                    Chạm hoặc nhấn giữ để mở món quà 20/10
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- THANH TRẠNG THÁI & PHỤ ĐỀ TRÌNH DIỄN SANG TRỌNG DƯỚI ĐÁY CHO MÀN 2 & 3 -->
+    <div id="stageHudBar" class="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] left-0 right-0 z-20 hidden flex-col items-center justify-center px-3 sm:px-4 pointer-events-none transition-all duration-500">
+        <div class="pointer-events-auto flex items-center gap-2.5 sm:gap-3.5 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-black/80 border border-rose-400/40 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.85),0_0_20px_rgba(244,63,94,0.25)] transition-all max-w-[92%] sm:max-w-none">
+            <div id="hudMessage" class="text-xs sm:text-sm md:text-base text-rose-100 font-medium tracking-wide drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] flex items-center gap-2 truncate">
+                <span>❤️</span>
+                <span class="truncate">Chạm & xoay nhẹ để ngắm trái tim Đỏ Ruby 3D...</span>
+            </div>
+            <button id="btnSkipStage" type="button"
+                class="text-xs sm:text-sm px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-gradient-to-r from-rose-600/80 to-rose-700/80 hover:from-rose-500 hover:to-rose-600 text-white font-medium border border-rose-300/40 transition active:scale-95 shadow-md shrink-0 cursor-pointer">
+                Tiếp theo →
+            </button>
+        </div>
+    </div>
+
+    <!-- STAGE 4 & 5: KHUNG ẢNH SẮC NÉT & TÂM THƯ 20/10 -->
+    <section id="stage4Overlay" class="fixed inset-0 z-20 pointer-events-none hidden flex-col items-center justify-end pb-[max(1rem,env(safe-area-inset-bottom))] px-3 sm:px-6 opacity-0 transition-opacity duration-1000">
+        <!-- Thẻ lời chúc lãng mạn bên dưới bức ảnh -->
+        <div id="loveLetterCard" class="pointer-events-auto w-full max-w-sm sm:max-w-md md:max-w-lg celestial-card-glass rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 photo-frame-glow transform translate-y-2 transition-all duration-1000 backdrop-blur-2xl">
+            <div class="flex items-center justify-between gap-2 mb-1.5 sm:mb-2">
+                <span class="inline-flex items-center gap-1.5 text-[11px] sm:text-xs md:text-sm font-semibold tracking-wider text-rose-200 bg-rose-500/20 px-3 py-1 rounded-full border border-rose-400/35 truncate shadow-sm">
+                    <span>🌹</span> Happy Vietnamese Women's Day 20/10
+                </span>
+                <button id="btnFireworkBurst" type="button"
+                    class="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 rounded-full bg-amber-500/25 hover:bg-amber-500/40 text-amber-200 border border-amber-400/40 shadow-[0_0_15px_rgba(251,191,36,0.3)] transition active:scale-95 flex items-center gap-1 shrink-0 cursor-pointer">
+                    <span class="animate-pulse">✨</span> Bắn sao
+                </button>
+            </div>
+
+            <h2 id="finalCardTitle" class="font-script text-2xl sm:text-3xl md:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-rose-100 via-pink-100 to-amber-100 drop-shadow-[0_2px_12px_rgba(244,63,94,0.4)] mb-2 sm:mb-2.5 tracking-wide">
+                Gửi Những Bông Hoa Xinh Đẹp Nhất,
+            </h2>
+
+            <p id="finalCardMessage" class="text-[13px] sm:text-[14.5px] md:text-base text-rose-50/95 leading-relaxed sm:leading-loose font-normal max-h-24 sm:max-h-28 md:max-h-32 overflow-y-auto pr-1 tracking-[0.015em] drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
+                Nhân ngày Phụ nữ Việt Nam 20/10, chúc toàn thể các bạn nữ luôn xinh tươi, rạng rỡ, tự tin và ngập tràn hạnh phúc. Chúc bạn mỗi ngày đều được yêu thương, luôn giữ nụ cười tỏa nắng trên môi và gặt hái thật nhiều thành công nhé! Happy Vietnamese Women's Day 20/10 💖🌹✨
+            </p>
+
+            <div class="mt-2.5 sm:mt-3.5 pt-2 sm:pt-2.5 border-t border-rose-500/20 flex items-center justify-center">
+                <button id="btnReplayShow" type="button"
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-rose-700 to-red-600 hover:from-rose-600 hover:to-red-500 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-rose-950/50 transition active:scale-95 cursor-pointer">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Xem lại trình diễn</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        /**************************************************************************
+         * 1. TRÌNH TẠO TRANH MINH HỌA LÃNG MẠN MẶC ĐỊNH (BUILT-IN ROMANTIC ART)
+         **************************************************************************/
+        function createDefaultRomanticIllustration() {
+            const c = document.createElement('canvas');
+            c.width = 640;
+            c.height = 640;
+            const ctx = c.getContext('2d');
+
+            const bgGrad = ctx.createLinearGradient(0, 0, 0, 640);
+            bgGrad.addColorStop(0, '#090414');
+            bgGrad.addColorStop(0.45, '#2d0b38');
+            bgGrad.addColorStop(0.8, '#6b1035');
+            bgGrad.addColorStop(1, '#9f1239');
+            ctx.fillStyle = bgGrad;
+            ctx.fillRect(0, 0, 640, 640);
+
+            // Vầng trăng tỏa sáng
+            const moonGlow = ctx.createRadialGradient(320, 245, 20, 320, 245, 240);
+            moonGlow.addColorStop(0, 'rgba(255, 251, 235, 1)');
+            moonGlow.addColorStop(0.45, 'rgba(254, 240, 138, 0.85)');
+            moonGlow.addColorStop(0.75, 'rgba(244, 63, 94, 0.35)');
+            moonGlow.addColorStop(1, 'rgba(244, 63, 94, 0)');
+            ctx.fillStyle = moonGlow;
+            ctx.beginPath();
+            ctx.arc(320, 245, 240, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = '#fffbeb';
+            ctx.beginPath();
+            ctx.arc(320, 245, 112, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Sao lấp lánh trên tranh
+            const stars = [
+                [90, 90, 2.5], [540, 80, 3], [140, 190, 2], [510, 210, 2.5],
+                [80, 320, 2], [560, 310, 2.5], [210, 80, 2.5], [440, 100, 3],
+                [160, 120, 3.5], [485, 145, 3.5]
+            ];
+            ctx.fillStyle = '#ffffff';
+            stars.forEach(([sx, sy, sr]) => {
+                ctx.beginPath();
+                ctx.arc(sx, sy, sr, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            function drawHeart(x, y, size, color) {
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.fillStyle = color;
+                ctx.shadowColor = '#e11d48';
+                ctx.shadowBlur = 18;
+                ctx.beginPath();
+                ctx.moveTo(0, size * 0.3);
+                ctx.bezierCurveTo(-size, -size * 0.4, -size * 0.5, -size * 1.1, 0, -size * 0.45);
+                ctx.bezierCurveTo(size * 0.5, -size * 1.1, size, -size * 0.4, 0, size * 0.3);
+                ctx.fill();
+                ctx.restore();
+            }
+
+            drawHeart(320, 195, 42, '#e11d48');
+            drawHeart(250, 150, 18, '#fb7185');
+            drawHeart(390, 145, 20, '#f43f5e');
+
+            // Đồi cỏ đêm
+            ctx.fillStyle = '#160726';
+            ctx.beginPath();
+            ctx.moveTo(0, 520);
+            ctx.quadraticCurveTo(320, 445, 640, 520);
+            ctx.lineTo(640, 640);
+            ctx.lineTo(0, 640);
+            ctx.closePath();
+            ctx.fill();
+
+            // Hình bóng cặp đôi
+            ctx.fillStyle = '#0d031a';
+            ctx.beginPath();
+            ctx.arc(282, 315, 28, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.moveTo(240, 495);
+            ctx.quadraticCurveTo(248, 355, 282, 345);
+            ctx.quadraticCurveTo(312, 355, 316, 495);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(358, 330, 26, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.moveTo(358, 306);
+            ctx.quadraticCurveTo(402, 320, 412, 395);
+            ctx.quadraticCurveTo(382, 385, 365, 355);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.moveTo(318, 495);
+            ctx.quadraticCurveTo(334, 365, 358, 356);
+            ctx.quadraticCurveTo(392, 365, 416, 495);
+            ctx.closePath();
+            ctx.fill();
+
+            drawHeart(322, 385, 22, '#fbbf24');
+            drawHeart(315, 378, 16, '#e11d48');
+            drawHeart(330, 380, 16, '#fb7185');
+
+            ctx.save();
+            ctx.font = 'bold 34px "Be Vietnam Pro", sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillStyle = '#fff1f2';
+            ctx.shadowColor = '#e11d48';
+            ctx.shadowBlur = 16;
+            ctx.fillText('20 • 10', 320, 595);
+            ctx.restore();
+
+            return c.toDataURL('image/jpeg', 0.92);
+        }
+
+        /**************************************************************************
+         * 2. HỆ THỐNG ÂM THANH WEB AUDIO API (SYNTHESIZER & SOUND EFFECTS)
+         **************************************************************************/
+        class CosmicSoundEngine {
+            constructor() {
+                this.ctx = null;
+                this.isMuted = false;
+                this.musicTimer = null;
+                this.scanOsc = null;
+                this.scanGain = null;
+                this.synthMusicInterval = null;
+                this.noteIndex = 0;
+                this.melody = [
+                    523.25, 659.25, 783.99, 1046.50,
+                    880.00, 698.46, 587.33, 783.99,
+                    659.25, 523.25, 440.00, 587.33,
+                    523.25, 659.25, 783.99, 659.25
+                ];
+            }
+
+            init() {
+                if (!this.ctx) {
+                    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                    if (AudioCtx) this.ctx = new AudioCtx();
+                }
+                if (this.ctx && this.ctx.state === 'suspended') {
+                    this.ctx.resume().catch(() => {});
+                }
+            }
+
+            toggleMute() {
+                this.init();
+                this.isMuted = !this.isMuted;
+                if (this.isMuted) {
+                    this.stopScanHum();
+                    this.stopAmbientSynthMusic();
+                }
+                return this.isMuted;
+            }
+
+            startScanHum() {
+                if (this.isMuted) return;
+                this.init();
+                if (!this.ctx || this.scanOsc) return;
+                try {
+                    const now = this.ctx.currentTime;
+                    this.scanOsc = this.ctx.createOscillator();
+                    this.scanGain = this.ctx.createGain();
+                    this.scanOsc.type = 'sine';
+                    this.scanOsc.frequency.setValueAtTime(210, now);
+                    this.scanOsc.frequency.exponentialRampToValueAtTime(640, now + 1.8);
+                    this.scanGain.gain.setValueAtTime(0.001, now);
+                    this.scanGain.gain.linearRampToValueAtTime(0.055, now + 0.15);
+                    this.scanOsc.connect(this.scanGain);
+                    this.scanGain.connect(this.ctx.destination);
+                    this.scanOsc.start(now);
+                } catch (e) {}
+            }
+
+            stopScanHum() {
+                if (this.scanOsc && this.ctx) {
+                    try {
+                        const now = this.ctx.currentTime;
+                        this.scanGain.gain.linearRampToValueAtTime(0.0001, now + 0.1);
+                        this.scanOsc.stop(now + 0.12);
+                    } catch (e) {}
+                }
+                this.scanOsc = null;
+                this.scanGain = null;
+            }
+
+            playUnlockSuccess() {
+                if (this.isMuted) return;
+                this.init();
+                if (!this.ctx) return;
+                const chords = [523.25, 659.25, 783.99, 1046.5, 1318.5];
+                chords.forEach((freq, idx) => {
+                    this.playBellNote(freq, idx * 0.08, 1.4, 0.07);
+                });
+            }
+
+            playMorphShimmer() {
+                if (this.isMuted) return;
+                const now = performance.now();
+                if (this._lastShimmer && now - this._lastShimmer < 240) return;
+                this._lastShimmer = now;
+                this.init();
+                if (!this.ctx) return;
+                const sparkleNotes = [587.33, 783.99, 987.77, 1174.66];
+                sparkleNotes.forEach((freq, i) => {
+                    this.playBellNote(freq, i * 0.06, 0.9, 0.038);
+                });
+            }
+
+            playHeartRevealChime() {
+                if (this.isMuted) return;
+                this.init();
+                if (!this.ctx) return;
+                const chimeFrequencies = [523.25, 659.25, 783.99, 1046.50, 1318.51, 1567.98];
+                chimeFrequencies.forEach((freq, idx) => {
+                    this.playBellNote(freq, idx * 0.08, 1.6, 0.05);
+                });
+            }
+
+            playBellNote(freq, delaySeconds = 0, duration = 1.6, volume = 0.045) {
+                if (this.isMuted || !this.ctx) return;
+                try {
+                    const start = this.ctx.currentTime + delaySeconds;
+                    const osc = this.ctx.createOscillator();
+                    const gain = this.ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(freq, start);
+                    gain.gain.setValueAtTime(0.0001, start);
+                    gain.gain.linearRampToValueAtTime(volume, start + 0.03);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+                    osc.connect(gain);
+                    gain.connect(this.ctx.destination);
+                    osc.start(start);
+                    osc.stop(start + duration + 0.05);
+                } catch (e) {}
+            }
+
+            startAmbientSynthMusic() {
+                if (this.isMuted || this.synthMusicInterval) return;
+                this.init();
+                const chordProgression = [
+                    [523.25, 659.25, 783.99, 1046.50], // C
+                    [392.00, 493.88, 587.33, 783.99],  // G
+                    [440.00, 523.25, 659.25, 880.00],  // Am
+                    [329.63, 392.00, 493.88, 659.25],  // Em
+                    [349.23, 440.00, 523.25, 698.46],  // F
+                    [523.25, 659.25, 783.99, 1046.50], // C
+                    [349.23, 440.00, 523.25, 698.46],  // F
+                    [392.00, 493.88, 587.33, 783.99]   // G
+                ];
+                let chordIdx = 0;
+                let noteStep = 0;
+                this.synthMusicInterval = setInterval(() => {
+                    if (this.isMuted || (bgAudio && !bgAudio.paused)) {
+                        return;
+                    }
+                    const chord = chordProgression[chordIdx];
+                    const freq = chord[noteStep % chord.length];
+                    this.playBellNote(freq, 0, 1.5, 0.03);
+                    noteStep++;
+                    if (noteStep >= chord.length) {
+                        noteStep = 0;
+                        chordIdx = (chordIdx + 1) % chordProgression.length;
+                    }
+                }, 540);
+            }
+
+            stopAmbientSynthMusic() {
+                if (this.synthMusicInterval) {
+                    clearInterval(this.synthMusicInterval);
+                    this.synthMusicInterval = null;
+                }
+            }
+
+            startAmbientMusic() {
+                if (typeof playRandomLocalMusic === 'function') {
+                    playRandomLocalMusic();
+                }
+            }
+        }
+
+        /**************************************************************************
+         * 3. QUẢN LÝ DỮ LIỆU & CÀI ĐẶT NGƯỜI DÙNG
+         **************************************************************************/
+        const STORAGE_KEY = 'vu_tru_cua_anh_20_10_v2';
+        const DEFAULT_PHOTO_DATA = createDefaultRomanticIllustration();
+
+        function toRomanticCasing(str) {
+            if (!str) return '';
+            const trimmed = str.trim();
+            // Nếu chuỗi đang bị IN HOA toàn bộ, chuyển sang Title Case mềm mại và lãng mạn
+            if (trimmed === trimmed.toUpperCase() && trimmed.length > 3) {
+                return trimmed
+                    .toLowerCase()
+                    .replace(/(^|\s)\S/g, c => c.toUpperCase())
+                    .replace(/20\/10/i, '20/10');
+            }
+            return trimmed;
+        }
+
+        /**************************************************************************
+         * 3. TÙY CHỈNH THÔNG TIN TRỰC TIẾP TRONG CODE (CONFIG EDITABLE IN CODE)
+         * Bạn có thể dễ dàng thay đổi danh sách nhạc, ảnh, các câu chúc ngay tại đây:
+         **************************************************************************/
+        const DEFAULT_CONFIG = {
+            // Danh sách các file nhạc local (đặt cùng thư mục Downloads với file html này)
+            // Sẽ tự động chọn ngẫu nhiên một bài để phát khi người dùng ấn vào nút vân tay
+            musicPlaylist: [
+                "1.mp3",
+                "2.mp3",
+                "3.mp3",
+                "4.mp3"
+            ],
+            // Thay đường dẫn ảnh của bạn vào đây (Link ảnh online, ảnh Base64 hoặc tên file cùng thư mục)
+            photoDataUrl: "https://cdnv2.tgdd.vn/bhx-static/bhx/News/Images/2025/02/03/1574643/image3_202502031638478515.jpg",
+            // Các câu chữ Drone trình diễn (Mỗi câu là 1 màn xếp chữ)
+            droneTexts: [
+                "Happy 20/10 ✨",
+                "Chúc Các Bạn Nữ Luôn Xinh Đẹp 💖",
+                "Tự Tin Tỏa Sáng Như Những Vì Sao ✨",
+                "Mỗi Ngày Đều Ngập Tràn Niềm Vui 🌹"
+            ],
+            // Tiêu đề thư chúc mừng
+            cardTitle: "Gửi Những Bông Hoa Xinh Đẹp Nhất,",
+            // Lời tâm thư hiển thị dưới bức ảnh trái tim ở màn cuối
+            cardMessage: "Nhân ngày Phụ nữ Việt Nam 20/10, chúc toàn thể các bạn nữ luôn xinh tươi, rạng rỡ, tự tin và ngập tràn hạnh phúc. Chúc bạn mỗi ngày đều được yêu thương, luôn giữ nụ cười tỏa nắng trên môi và gặt hái thật nhiều thành công nhé! Happy Vietnamese Women's Day 20/10 💖🌹✨"
+        };
+
+        const appConfig = {
+            musicPlaylist: DEFAULT_CONFIG.musicPlaylist,
+            photoDataUrl: DEFAULT_CONFIG.photoDataUrl,
+            droneTexts: DEFAULT_CONFIG.droneTexts.map(t => toRomanticCasing(t)),
+            cardTitle: DEFAULT_CONFIG.cardTitle,
+            cardMessage: DEFAULT_CONFIG.cardMessage
+        };
+
+        /**************************************************************************
+         * 3.1. HỆ THỐNG PHÁT NHẠC LOCAL & GIAI ĐIỆU VŨ TRỤ DỰ PHÒNG CHO DI ĐỘNG
+         **************************************************************************/
+        let bgAudio = null;
+        let isMusicPlaying = false;
+        let currentSongIndex = -1;
+        let failedSongAttempts = 0;
+        let isAudioLoading = false;
+
+        function updateMusicToggleUI(playing, trackName = '') {
+            const btn = document.getElementById('btnMusicToggle');
+            const icon = document.getElementById('musicIcon');
+            const title = document.getElementById('musicTitle');
+            if (!btn || !icon) return;
+            if (playing) {
+                icon.textContent = '🎵';
+                icon.className = 'text-sm animate-pulse text-rose-300';
+                if (title && trackName) {
+                    const cleanName = trackName.replace(/^.*[\\\/]/, '');
+                    title.textContent = cleanName;
+                }
+                btn.classList.add('border-rose-400/60', 'shadow-[0_0_12px_rgba(244,63,94,0.3)]');
+            } else {
+                icon.textContent = '🔇';
+                icon.className = 'text-sm text-slate-400';
+                if (title) title.textContent = 'Tắt nhạc';
+                btn.classList.remove('border-rose-400/60', 'shadow-[0_0_12px_rgba(244,63,94,0.3)]');
+            }
+        }
+
+        function playRandomLocalMusic(forceNew = false) {
+            sound.init();
+            if (bgAudio && !bgAudio.paused && !forceNew) {
+                return;
+            }
+            if (isAudioLoading && !forceNew) return;
+
+            const playlist = appConfig.musicPlaylist || DEFAULT_CONFIG.musicPlaylist || [];
+            if (!playlist || playlist.length === 0) {
+                sound.startAmbientSynthMusic();
+                isMusicPlaying = true;
+                updateMusicToggleUI(true, 'Giai điệu lãng mạn');
+                return;
+            }
+
+            // Chọn ngẫu nhiên bài khác bài trước đó nếu có từ 2 bài trở lên
+            let nextIndex = Math.floor(Math.random() * playlist.length);
+            if (playlist.length > 1 && nextIndex === currentSongIndex) {
+                nextIndex = (nextIndex + 1 + Math.floor(Math.random() * (playlist.length - 1))) % playlist.length;
+            }
+            currentSongIndex = nextIndex;
+            const songSrc = playlist[currentSongIndex];
+            isAudioLoading = true;
+
+            if (!bgAudio) {
+                bgAudio = new Audio();
+                bgAudio.addEventListener('ended', () => {
+                    playRandomLocalMusic(true);
+                });
+                bgAudio.addEventListener('error', (e) => {
+                    isAudioLoading = false;
+                    failedSongAttempts++;
+                    if (failedSongAttempts < playlist.length) {
+                        setTimeout(() => playRandomLocalMusic(true), 350);
+                    } else {
+                        // Khi người dùng mở file html độc lập trên điện thoại mà không có file mp3,
+                        // Tự động kích hoạt giai điệu tổng hợp Web Audio API ngọt ngào lãng mạn
+                        sound.startAmbientSynthMusic();
+                        isMusicPlaying = true;
+                        updateMusicToggleUI(true, 'Giai điệu lãng mạn');
+                    }
+                });
+            }
+
+            bgAudio.src = songSrc;
+            bgAudio.volume = 0.75;
+            const playPromise = bgAudio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    isAudioLoading = false;
+                    isMusicPlaying = true;
+                    failedSongAttempts = 0;
+                    sound.stopAmbientSynthMusic();
+                    updateMusicToggleUI(true, songSrc);
+                }).catch(err => {
+                    isAudioLoading = false;
+                    // Nếu audio bị chặn hoặc lỗi, kích hoạt nhạc nền synth
+                    sound.startAmbientSynthMusic();
+                    isMusicPlaying = true;
+                    updateMusicToggleUI(true, 'Giai điệu lãng mạn');
+                });
+            }
+        }
+
+        function toggleMusicPlayback() {
+            sound.init();
+            if (sound.isMuted) {
+                sound.toggleMute();
+            }
+            if (bgAudio && !bgAudio.paused) {
+                bgAudio.pause();
+                isMusicPlaying = false;
+                sound.stopAmbientSynthMusic();
+                updateMusicToggleUI(false);
+            } else if (sound.synthMusicInterval) {
+                sound.stopAmbientSynthMusic();
+                isMusicPlaying = false;
+                updateMusicToggleUI(false);
+            } else {
+                playRandomLocalMusic();
+            }
+        }
+
+        /**************************************************************************
+         * 4. ENGINE ĐỒ HỌA THIÊN VĂN CHÂN THỰC & HẠT QUANG HỌC
+         * - Astrophotography Milky Way Background (1000+ realistic pinprick stars)
+         * - Monochromatic Crimson Ruby 3D Volumetric Heart (100% pure red tones)
+         * - See-Through Lattice Drone Text (translucent glowing dot grid)
+         * - 3-Tier Celestial Photo Halo (Perimeter Flow + Rising Bokeh + 4-Point Glints)
+         **************************************************************************/
+        const canvas = document.getElementById('cosmosCanvas');
+        const ctx = canvas.getContext('2d', { alpha: false });
+        const sound = new CosmicSoundEngine();
+
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+        let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+        let currentStage = 'AUTH';
+        let stageStartTime = performance.now();
+        let warpFactor = 0;
+        let currentTextIndex = 0;
+
+        // Xoay tương tác Trái tim 3D, Chữ Drone 3D & Parallax
+        let heartRotY = 0;
+        let heartRotX = 0;
+        let textRotY = 0;
+        let textRotX = 0;
+        let isDraggingScene = false;
+        let dragLastX = 0;
+        let dragLastY = 0;
+        let parallaxX = 0;
+        let parallaxY = 0;
+        let targetParallaxX = 0;
+        let targetParallaxY = 0;
+        // Quản lý Ảnh & Vòng Hào Quang Trái Tim Bao Quanh Ảnh ở Stage 4 & 5
+        let loadedPhotoImg = new Image();
+        let photoBox = { x: 0, y: 0, w: 230, h: 230, r: 22 };
+        let heartFrameGeom = { cx: 0, cy: 0, scale: 12 };
+        let sharpPhotoAlpha = 0;
+        let mosaicBlendProgress = 0;
+
+        // Cường độ hiển thị bầu trời sao: ở màn AUTH ban đầu giảm nhẹ để tối giản, sau khi mở khóa tăng lên 100%
+        let skyIntensity = 0.22;
+        let targetSkyIntensity = 0.22;
+
+        // Hệ thống sao thiên văn chân thực (Astrophotography Starfield)
+        let skyBackdropCanvas = null; // Offscreen canvas cho dải Ngân Hà tĩnh + 850 sao li ti cực xa
+        const dynamicStars = [];      // 260 sao lấp lánh Parallax
+        const brightCrossStars = [];  // 14 ngôi sao lớn có tia khúc xạ chữ thập 4 cánh
+        const shootingStars = [];
+        const burstFireworks = [];
+
+        // Hệ thống 3800 hạt ánh sáng chính
+        const PARTICLE_COUNT = 3800;
+        const particles = [];
+
+        // Bộ nhớ đệm Offscreen Optical Glow Sprites
+        // 0: Deep Ruby Red (Vỏ & Lõi Trái Tim)
+        // 1: Bright Crimson Red (Viền sáng Fresnel Trái Tim)
+        // 2: Warm Champagne Gold (Chữ Drone & Viền Hào Quang Ảnh)
+        // 3: Soft Rose Gold (Đom đóm Bokeh & Hào Quang Ảnh)
+        // 4: Starlight Diamond White (Chữ Drone & Tia Sao Lấp Lánh)
+        // 5: Soft Celestial Cyan-White (Sao nền & Điểm nhấn tinh tế)
+        const glowSprites = [];
+        const SPRITE_SIZE = 64;
+
+        function createOpticalSprite(coreR, coreG, coreB, midR, midG, midB, outerR, outerG, outerB) {
+            const sc = document.createElement('canvas');
+            sc.width = SPRITE_SIZE;
+            sc.height = SPRITE_SIZE;
+            const sctx = sc.getContext('2d');
+            const half = SPRITE_SIZE / 2;
+
+            const grad = sctx.createRadialGradient(half, half, 0, half, half, half);
+            grad.addColorStop(0.0, `rgba(${coreR}, ${coreG}, ${coreB}, 1)`);
+            grad.addColorStop(0.11, `rgba(${midR}, ${midG}, ${midB}, 0.92)`);
+            grad.addColorStop(0.26, `rgba(${outerR}, ${outerG}, ${outerB}, 0.58)`);
+            grad.addColorStop(0.52, `rgba(${outerR}, ${outerG}, ${outerB}, 0.16)`);
+            grad.addColorStop(0.78, `rgba(${Math.floor(outerR * 0.6)}, ${Math.floor(outerG * 0.6)}, ${Math.floor(outerB * 0.6)}, 0.03)`);
+            grad.addColorStop(1.0, 'rgba(0, 0, 0, 0)');
+
+            sctx.fillStyle = grad;
+            sctx.fillRect(0, 0, SPRITE_SIZE, SPRITE_SIZE);
+            return sc;
+        }
+
+        function initOpticalGlowSprites() {
+            glowSprites.length = 0;
+            // 0: Pure Deep Ruby Red (Trái tim 1 màu đỏ thẫm quyến rũ)
+            glowSprites.push(createOpticalSprite(255, 225, 230, 240, 25, 55, 185, 8, 32));
+            // 1: Intense Crimson Red (Điểm nhấn đỏ rực trên bề mặt trái tim)
+            glowSprites.push(createOpticalSprite(255, 240, 242, 255, 42, 70, 215, 12, 40));
+            // 2: Warm Champagne Gold (Vàng kim sang trọng cho chữ & viền khung ảnh)
+            glowSprites.push(createOpticalSprite(255, 252, 240, 253, 215, 115, 217, 140, 38));
+            // 3: Soft Rose Gold / Blush (Hồng ánh kim dịu dàng quanh ảnh)
+            glowSprites.push(createOpticalSprite(255, 245, 248, 251, 145, 175, 215, 65, 105));
+            // 4: Pure Starlight White (Trắng kim cương trong trẻo)
+            glowSprites.push(createOpticalSprite(255, 255, 255, 238, 244, 255, 175, 198, 245));
+            // 5: Ice Starlight Blue-White (Ánh sao thiên văn)
+            glowSprites.push(createOpticalSprite(255, 255, 255, 195, 230, 255, 110, 175, 245));
+        }
+
+        /**
+         * KHỞI TẠO NỀN BẦU TRỜI ĐÊM NHIẾP ẢNH THIÊN VĂN CHÂN THỰC (ASTROPHOTOGRAPHY SKY)
+         * Kết hợp dải Ngân Hà chéo tự nhiên, vùng tối Dark Dust Lanes và hơn 1.000 ngôi sao quang phổ thực
+         */
+        function initAstrophotographySky() {
+            skyBackdropCanvas = document.createElement('canvas');
+            skyBackdropCanvas.width = width * dpr;
+            skyBackdropCanvas.height = height * dpr;
+            const bctx = skyBackdropCanvas.getContext('2d');
+            bctx.scale(dpr, dpr);
+
+            // 1. Nền vũ trụ tối sâu tự nhiên (Deepest Cosmos Void)
+            const bgGrad = bctx.createRadialGradient(
+                width * 0.5, height * 0.45, 10,
+                width * 0.5, height * 0.5, Math.max(width, height) * 0.95
+            );
+            bgGrad.addColorStop(0.0, '#05060d');
+            bgGrad.addColorStop(0.55, '#020307');
+            bgGrad.addColorStop(1.0, '#010103');
+            bctx.fillStyle = bgGrad;
+            bctx.fillRect(0, 0, width, height);
+
+            // 2. Dải Ngân Hà (Milky Way Band) chạy chéo góc tự nhiên với các đám bụi sao siêu mịn
+            bctx.save();
+            bctx.translate(width * 0.5, height * 0.5);
+            bctx.rotate(-0.42);
+            const mwLength = Math.hypot(width, height) * 1.2;
+            const mwWidth = Math.min(width, height) * 0.52;
+
+            // Quầng sáng dải Ngân Hà mờ dịu
+            const mwGrad = bctx.createLinearGradient(0, -mwWidth, 0, mwWidth);
+            mwGrad.addColorStop(0.0, 'rgba(0, 0, 0, 0)');
+            mwGrad.addColorStop(0.28, 'rgba(14, 19, 38, 0.25)');
+            mwGrad.addColorStop(0.46, 'rgba(28, 24, 46, 0.38)');
+            mwGrad.addColorStop(0.50, 'rgba(8, 9, 18, 0.22)'); // Khe bụi tối tự nhiên ở tâm Ngân Hà (Great Rift)
+            mwGrad.addColorStop(0.56, 'rgba(26, 22, 44, 0.36)');
+            mwGrad.addColorStop(0.75, 'rgba(12, 18, 36, 0.22)');
+            mwGrad.addColorStop(1.0, 'rgba(0, 0, 0, 0)');
+            bctx.fillStyle = mwGrad;
+            bctx.fillRect(-mwLength / 2, -mwWidth, mwLength, mwWidth * 2);
+
+            // Các cụm tinh vân khí tự nhiên dọc dải Ngân Hà
+            for (let i = 0; i < 18; i++) {
+                const cx = (Math.random() - 0.5) * mwLength * 0.85;
+                const cy = (Math.random() - 0.5) * mwWidth * 0.75;
+                const rx = 60 + Math.random() * 160;
+                const g = bctx.createRadialGradient(cx, cy, 0, cx, cy, rx);
+                if (i % 3 === 0) {
+                    g.addColorStop(0, 'rgba(42, 22, 48, 0.14)');
+                } else {
+                    g.addColorStop(0, 'rgba(18, 28, 52, 0.14)');
+                }
+                g.addColorStop(1, 'rgba(0, 0, 0, 0)');
+                bctx.fillStyle = g;
+                bctx.beginPath();
+                bctx.arc(cx, cy, rx, 0, Math.PI * 2);
+                bctx.fill();
+            }
+            bctx.restore();
+
+            // 3. 850 ngôi sao li ti cực xa (Micro Pinprick Stars) tập trung dày hơn dọc dải Ngân Hà
+            const spectralColors = [
+                '210, 228, 255', // O/B Blue-white
+                '245, 248, 255', // A Pure white
+                '255, 248, 232', // F/G Warm white
+                '255, 228, 195', // K Soft orange-gold
+                '255, 205, 190'  // M Faint warm red-orange
+            ];
+
+            for (let i = 0; i < 850; i++) {
+                let sx, sy;
+                // 55% sao phân bố dọc theo trục dải Ngân Hà để nhìn chân thực như ảnh chụp thiên văn
+                if (Math.random() < 0.55) {
+                    const along = (Math.random() - 0.5) * Math.hypot(width, height);
+                    const across = (Math.random() + Math.random() - 1) * Math.min(width, height) * 0.34;
+                    const angle = -0.42;
+                    sx = width * 0.5 + along * Math.cos(angle) - across * Math.sin(angle);
+                    sy = height * 0.5 + along * Math.sin(angle) + across * Math.cos(angle);
+                } else {
+                    sx = Math.random() * width;
+                    sy = Math.random() * height;
+                }
+
+                if (sx < 0 || sx > width || sy < 0 || sy > height) continue;
+
+                const col = spectralColors[Math.floor(Math.random() * spectralColors.length)];
+                const radius = 0.3 + Math.random() * 0.65;
+                const alpha = 0.12 + Math.random() * 0.48;
+                bctx.fillStyle = `rgba(${col}, ${alpha.toFixed(2)})`;
+                bctx.beginPath();
+                bctx.arc(sx, sy, radius, 0, Math.PI * 2);
+                bctx.fill();
+            }
+
+            // 4. 260 ngôi sao động lấp lánh có chiều sâu Parallax
+            dynamicStars.length = 0;
+            for (let i = 0; i < 260; i++) {
+                const col = spectralColors[Math.floor(Math.random() * spectralColors.length)];
+                const depthLayer = Math.random() < 0.7 ? 1 : 2;
+                dynamicStars.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    z: depthLayer === 1 ? (0.4 + Math.random() * 0.4) : (0.9 + Math.random() * 0.5),
+                    size: depthLayer === 1 ? (0.55 + Math.random() * 0.7) : (1.0 + Math.random() * 0.8),
+                    baseAlpha: 0.25 + Math.random() * 0.55,
+                    twinkleSpeed: 0.0012 + Math.random() * 0.003,
+                    twinklePhase: Math.random() * Math.PI * 2,
+                    rgb: col
+                });
+            }
+
+            // 5. 14 Ngôi sao dẫn đường sáng rõ có tia khúc xạ chữ thập mảnh (Astrophotography Diffraction Spikes)
+            brightCrossStars.length = 0;
+            for (let i = 0; i < 14; i++) {
+                brightCrossStars.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    z: 1.15 + Math.random() * 0.4,
+                    spikeLen: 7 + Math.random() * 9,
+                    phase: Math.random() * Math.PI * 2,
+                    speed: 0.0018 + Math.random() * 0.002,
+                    spriteIdx: i % 3 === 0 ? 2 : (i % 2 === 0 ? 4 : 5)
+                });
+            }
+        }
+
+        function spawnShootingStar() {
+            const startX = Math.random() * width * 0.85;
+            const startY = Math.random() * height * 0.38;
+            const angle = (Math.PI / 7) + Math.random() * (Math.PI / 9);
+            const speed = 14 + Math.random() * 7;
+            shootingStars.push({
+                x: startX,
+                y: startY,
+                vx: Math.cos(angle) * speed,
+                vy: Math.sin(angle) * speed,
+                len: 90 + Math.random() * 65,
+                life: 1.0,
+                decay: 0.018 + Math.random() * 0.012
+            });
+        }
+
+        function spawnHeartFirework(cx, cy, colorTheme = null) {
+            const count = 68;
+            const palettes = [
+                [0, 1, 2, 4], // Đỏ Ruby, Đỏ Rực, Vàng Kim, Trắng Kim Cương
+                [2, 3, 4],    // Vàng Champagne, Hồng Ánh Kim, Trắng
+                [3, 4, 1, 0], // Hồng Ánh Kim, Trắng, Đỏ
+                [4, 5, 2]     // Trắng Băng Thiên Văn & Vàng
+            ];
+            const activePalette = colorTheme || palettes[Math.floor(Math.random() * palettes.length)];
+
+            for (let i = 0; i < count; i++) {
+                const t = (i / count) * Math.PI * 2;
+                const hx = 15 * Math.pow(Math.sin(t), 3);
+                const hy = -(12.5 * Math.cos(t) - 4.2 * Math.cos(2 * t) - 1.6 * Math.cos(3 * t) - 0.45 * Math.cos(4 * t));
+                const scale = 0.22 + Math.random() * 0.09;
+                const sprite = activePalette[i % activePalette.length];
+                burstFireworks.push({
+                    x: cx,
+                    y: cy,
+                    vx: hx * scale + (Math.random() - 0.5) * 0.45,
+                    vy: hy * scale + (Math.random() - 0.5) * 0.45,
+                    spriteIdx: sprite,
+                    alpha: 1,
+                    size: 8 + Math.random() * 8
+                });
+            }
+            sound.playMorphShimmer();
+        }
+
+        function initParticles() {
+            particles.length = 0;
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const dist = Math.max(width, height) * (0.35 + Math.random() * 0.75);
+                const startX = width / 2 + Math.cos(angle) * dist;
+                const startY = height / 2 + Math.sin(angle) * dist;
+
+                particles.push({
+                    x: startX,
+                    y: startY,
+                    tx: startX,
+                    ty: startY,
+                    // Tọa độ 3D chuẩn hóa cho Trái tim Đỏ Ruby
+                    hx: 0,
+                    hy: 0,
+                    hz: 0,
+                    depthZ: 0,
+                    normalLen: 1,
+                    // Màu RGB cho ghép ảnh Mosaic & chỉ số Sprite quang học
+                    r: 235, g: 25, b: 55,
+                    tr: 235, tg: 25, tb: 55,
+                    spriteIdx: 0,
+                    alpha: 0.0,
+                    tAlpha: 0.0,
+                    size: 2.0,
+                    tSize: 2.2,
+                    speed: 0.055 + Math.random() * 0.04,
+                    swirlFactor: (Math.random() - 0.5) * 0.16,
+                    phase: Math.random() * Math.PI * 2,
+                    turbFreq: 0.75 + Math.random() * 0.85,
+                    isHeartSurface: true,
+                    isHeartCore: true,
+                    activeInFormation: false,
+                    isTextEdge: false,
+                    edgeType: 0,
+                    isRim: false,
+                    // Thuộc tính chuyên biệt cho Vòng Hào Quang Trái Tim Quanh Ảnh (Stage 4 & 5)
+                    haloRole: 'NONE', // 'MOSAIC' | 'HEART_CONTOUR_STREAM' | 'HEART_BOKEH_FIREFLY' | 'HEART_STARBURST'
+                    haloParam: Math.random(),
+                    haloSpeed: 0.04 + Math.random() * 0.05,
+                    haloOffset: (Math.random() - 0.5) * 16,
+                    haloLayer: i % 3
+                });
+            }
+            computeMonochromeRuby3DHeartTargets();
+        }
+
+        /**
+         * THUẬT TOÁN VỎ TRÁI TIM 3D ĐỎ RUBY ĐỀU ĐẶN & KHÔNG CÓ CHỖ BỊ LÕM (UNIFORM HOLLOW 3D HEART SHELL)
+         * - 90% hạt (3600 hạt) phủ đều 100% diện tích bề mặt vỏ 3D bằng giải thuật Fibonacci Sphere Raycasting
+         * - Mặt cầu vỏ 3D căng tròn, mọng bóng, tuyệt đối không bị lõm, không có điểm thưa hay vết trũng
+         * - Lòng trái tim hoàn toàn RỖNG RUỘT (Hollow Cavity) tạo chiều sâu không gian quang học
+         * - 10% hạt (400 hạt) bụi sao hồng ngọc bồng bềnh lượn trong lòng rỗng và quanh vỏ trái tim
+         */
+        function computeMonochromeRuby3DHeartTargets() {
+            const heartScale = 14.5;
+            const cx = 0, cy = 0.15, cz = 0;
+
+            // Giải thuật bắn tia (Ray Marching Bisection) cắt chuẩn xác bề mặt toán học Trái tim Taubin 3D
+            function intersectTaubinHeart(dx, dy, dz) {
+                let len = Math.hypot(dx, dy, dz);
+                if (len < 1e-6) len = 1;
+                dx /= len; dy /= len; dz /= len;
+                let low = 0.02, high = 2.4;
+                for (let step = 0; step < 22; step++) {
+                    const mid = (low + high) * 0.5;
+                    const x = cx + dx * mid;
+                    const y = cy + dy * mid;
+                    const z = cz + dz * mid;
+                    const a = x * x + 2.25 * z * z + y * y - 1.0;
+                    const v = a * a * a - (x * x) * (y * y * y) - 0.1125 * (z * z) * (y * y * y);
+                    if (v < 0) {
+                        low = mid;
+                    } else {
+                        high = mid;
+                    }
+                }
+                const r = (low + high) * 0.5;
+                return {
+                    x: cx + dx * r,
+                    y: cy + dy * r,
+                    z: cz + dz * r,
+                    r: r
+                };
+            }
+
+            const shellCount = Math.floor(PARTICLE_COUNT * 0.90);
+            const phi_golden = (1 + Math.sqrt(5)) * 0.5;
+
+            // 1. Phân bố 3600 hạt đều đặn tuyệt đối trên khắp vỏ 3D bằng mạng lưới xoắn ốc Fibonacci
+            for (let i = 0; i < shellCount; i++) {
+                const y_sph = 1 - (i / (shellCount - 1)) * 2; // từ đỉnh trên xuống đáy dưới
+                const rad_xy = Math.sqrt(Math.max(0, 1 - y_sph * y_sph));
+                const theta = 2 * Math.PI * i / phi_golden;
+                const x_sph = Math.cos(theta) * rad_xy;
+                const z_sph = Math.sin(theta) * rad_xy;
+
+                const pt = intersectTaubinHeart(x_sph, y_sph, z_sph);
+
+                // Lớp vỏ pha lê mỏng 3.5% tạo độ dày tinh tế, 96.5% bên trong rỗng hoàn toàn!
+                const thickness = 1.0 - (i % 5) * 0.007;
+                const x = pt.x * thickness;
+                const y = pt.y * thickness;
+                const z = pt.z * thickness;
+
+                const p = particles[i];
+                p.hx = x * heartScale;
+                p.hy = -(y - 0.12) * heartScale; // Cân bằng tâm trục dọc, đảo dấu theo trục Canvas
+                p.hz = z * heartScale;
+                p.isHeartCore = true;
+                p.isHeartSurface = true;
+
+                // Các hạt nằm quanh xích đạo (z/r gần 0) đóng vai trò định hình viền chu vi sắc nét
+                p.isRim = Math.abs(pt.z / pt.r) < 0.12;
+            }
+
+            // 2. 10% hạt bụi sao hồng ngọc bồng bềnh lượn trong lòng rỗng và quanh vỏ trái tim
+            for (let i = shellCount; i < PARTICLE_COUNT; i++) {
+                const p = particles[i];
+                const sub = (i - shellCount) / (PARTICLE_COUNT - shellCount);
+                const isInside = sub < 0.45;
+                const theta = Math.random() * Math.PI * 2;
+                const phi = Math.acos(2 * Math.random() - 1);
+                const rad = isInside ? (2.0 + Math.random() * 5.5) : (14.0 + Math.random() * 7.5);
+
+                p.hx = rad * Math.sin(phi) * Math.cos(theta);
+                p.hy = rad * Math.sin(phi) * Math.sin(theta) * 0.88;
+                p.hz = rad * Math.cos(phi) * 0.75;
+                p.isHeartCore = false;
+                p.isHeartSurface = false;
+                p.isRim = false;
+            }
+        }
+
+        function assignMonochromeRubyHeartColors() {
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                const p = particles[i];
+                p.activeInFormation = true;
+                p.haloRole = 'NONE';
+                if (p.isHeartCore) {
+                    const rand = Math.random();
+                    if (p.isRim) {
+                        // 1. Chu vi viền ngoài: Nét căng, rực rỡ, định hình rõ ràng từng đường cong
+                        p.spriteIdx = rand < 0.60 ? 1 : (rand < 0.85 ? 0 : 4);
+                        p.tAlpha = 0.95 + Math.random() * 0.05;
+                        p.tSize = (width < 640 ? 2.1 : 2.65) + Math.random() * 0.40;
+                    } else if (p.hz >= -0.5) {
+                        // 2. Vỏ mặt trước: Sáng rõ nét, điểm các tia kim cương lấp lánh
+                        p.spriteIdx = rand < 0.68 ? 0 : (rand < 0.90 ? 1 : 4);
+                        p.tAlpha = 0.85 + Math.random() * 0.15;
+                        p.tSize = (width < 640 ? 1.95 : 2.45) + Math.random() * 0.45;
+                    } else {
+                        // 3. Vỏ mặt sau xuyên thấu: Mờ dịu hơn để nhìn rõ không gian rỗng ở giữa
+                        p.spriteIdx = rand < 0.85 ? 0 : 1;
+                        p.tAlpha = 0.38 + Math.random() * 0.18;
+                        p.tSize = (width < 640 ? 1.45 : 1.75) + Math.random() * 0.35;
+                    }
+                    p.tr = 230; p.tg = 20; p.tb = 50;
+                } else {
+                    // Bụi sao hồng ngọc bồng bềnh lượn quanh và bay lướt qua lòng trái tim rỗng
+                    p.spriteIdx = Math.random() < 0.65 ? 0 : (Math.random() < 0.85 ? 1 : 3);
+                    p.tr = 220; p.tg = 18; p.tb = 45;
+                    p.tAlpha = 0.22 + Math.random() * 0.24;
+                    p.tSize = 1.2 + Math.random() * 0.7;
+                }
+            }
+        }
+
+        /**
+         * THUẬT TOÁN ĐỊNH HÌNH CHỮ DRONE ÁNH SAO TINH TẾ, RÕ NÉT & HÒA QUYỆN THIÊN HÀ
+         * - Tối ưu hóa tuyệt đối ngữ nghĩa tiếng Việt: Phân dòng tự nhiên, không ngắt đôi từ ghép.
+         * - Nét chữ bo tròn mềm mại (Anti-Aliased Rounded Skeleton): Không thô cứng, không đứt đoạn dấu tiếng Việt.
+         * - Hệ thống phân bố hạt 3 tầng: Lõi định hình nét chữ sắc sảo, viền hạt thở êm ái, và bụi sao hào quang lấp lánh.
+         */
+        function sampleSeeThroughDroneTextTargets(textString, phraseIndex = 0) {
+            const availableW = Math.min(width * 0.90, 960);
+            const availableH = Math.min(height * 0.54, 500);
+            const offW = Math.max(280, Math.floor(availableW));
+            const offH = Math.max(180, Math.floor(availableH));
+            const offCanvas = document.createElement('canvas');
+            offCanvas.width = offW;
+            offCanvas.height = offH;
+            const octx = offCanvas.getContext('2d');
+
+            octx.fillStyle = '#000000';
+            octx.fillRect(0, 0, offW, offH);
+
+            const cleanText = toRomanticCasing(textString);
+            let lines = [];
+
+            // Ngắt dòng tự nhiên theo ngữ nghĩa tiếng Việt giúp câu chữ cân xứng, thanh nhã
+            if (cleanText.includes('Chúc Các Bạn Nữ')) {
+                lines = ['Chúc Các Bạn Nữ', cleanText.replace('Chúc Các Bạn Nữ', '').trim()];
+            } else if (cleanText.includes('Tự Tin Tỏa Sáng')) {
+                lines = ['Tự Tin Tỏa Sáng', cleanText.replace('Tự Tin Tỏa Sáng', '').trim()];
+            } else if (cleanText.includes('Mỗi Ngày Đều')) {
+                lines = ['Mỗi Ngày Đều', cleanText.replace('Mỗi Ngày Đều', '').trim()];
+            } else {
+                const words = cleanText.split(/\s+/);
+                if (words.length <= 3 || cleanText.length <= 16) {
+                    lines = [cleanText];
+                } else {
+                    let bestMid = 1;
+                    let minDiff = Infinity;
+                    for (let i = 1; i < words.length; i++) {
+                        const l1 = words.slice(0, i).join(' ');
+                        const l2 = words.slice(i).join(' ');
+                        const diff = Math.abs(l1.length - l2.length);
+                        if (diff < minDiff) {
+                            minDiff = diff;
+                            bestMid = i;
+                        }
+                    }
+                    lines = [words.slice(0, bestMid).join(' '), words.slice(bestMid).join(' ')];
+                }
+            }
+
+            // Phông chữ cao cấp, hỗ trợ hoàn mỹ tiếng Việt: Be Vietnam Pro Bold 700
+            const fontStack = '"Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+            let maxFont = (width < 480 ? 50 : (width < 768 ? 64 : (width < 1024 ? 78 : 92)));
+            let fontSize = maxFont;
+            octx.textAlign = 'center';
+            octx.textBaseline = 'middle';
+
+            const lineHeightRatio = 1.58; // Tỉ lệ chiều cao dòng chuẩn mực cho chữ tiếng Việt, tạo khoảng cách thoáng đãng giữa các dấu thanh và dòng dưới
+
+            while (fontSize > 18) {
+                octx.font = `700 ${fontSize}px ${fontStack}`;
+                let fits = true;
+                for (let i = 0; i < lines.length; i++) {
+                    if (octx.measureText(lines[i]).width > offW * 0.90) {
+                        fits = false;
+                        break;
+                    }
+                }
+                if (fits && lines.length * fontSize * lineHeightRatio <= offH * 0.88) {
+                    break;
+                }
+                fontSize -= 2;
+            }
+
+            // Kỹ thuật fillText thuần khiết: Sử dụng chuẩn xác 100% đường cong vector gốc của phông chữ Be Vietnam Pro 700.
+            // TUYỆT ĐỐI KHÔNG DÙNG strokeText: strokeText làm nở nét phình to vào trong, bít kín các khe rỗng của chữ 'g', 'e'
+            // và dính liền dấu mũ '^' vào thân chữ 'ê'. Pure fillText giữ cho các lỗ hở luôn thông thoáng, trong trẻo và chuẩn xác.
+            octx.font = `700 ${fontSize}px ${fontStack}`;
+            octx.fillStyle = '#ffffff';
+
+            const lineHeight = fontSize * lineHeightRatio;
+            const totalTextH = lines.length * lineHeight;
+            const startY = (offH - totalTextH) / 2 + lineHeight / 2;
+
+            lines.forEach((line, idx) => {
+                const ly = startY + idx * lineHeight;
+                octx.fillText(line, offW / 2, ly);
+            });
+
+            const imgData = octx.getImageData(0, 0, offW, offH).data;
+            const offsetX = (width - offW) / 2;
+            const offsetY = (height - offH) / 2 - (height > 600 ? 15 : 4);
+
+            // Thu thập các pixel sáng đại diện cho khung chữ
+            // Ngưỡng alpha > 50 loại bỏ rìa nhòe bán mờ, bắt chuẩn xác hình dáng nét chữ và các dấu thanh
+            const rawLitPixels = [];
+            const step = width < 480 ? 1.95 : 2.15;
+            for (let y = 1; y < offH - 1; y += step) {
+                const iy = Math.floor(y);
+                for (let x = 1; x < offW - 1; x += step) {
+                    const ix = Math.floor(x);
+                    const idx = (iy * offW + ix) * 4;
+                    const alpha = imgData[idx];
+                    if (alpha > 50) {
+                        const topA = (iy > 2) ? imgData[((iy - 2) * offW + ix) * 4] : 0;
+                        const botA = (iy < offH - 3) ? imgData[((iy + 2) * offW + ix) * 4] : 0;
+                        const leftA = (ix > 2) ? imgData[(iy * offW + ix - 2) * 4] : 0;
+                        const rightA = (ix < offW - 3) ? imgData[(iy * offW + ix + 2) * 4] : 0;
+
+                        const isEdge = (topA < 60 || botA < 60 || leftA < 60 || rightA < 60 || alpha < 190);
+                        rawLitPixels.push({ x: ix, y: iy, alpha, isEdge });
+                    }
+                }
+            }
+
+            // Xáo trộn mượt mà để các drone bay về vị trí từ khắp bầu trời
+            for (let i = rawLitPixels.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                const temp = rawLitPixels[i];
+                rawLitPixels[i] = rawLitPixels[j];
+                rawLitPixels[j] = temp;
+            }
+
+            // Tối đa hạt tham gia tạo chữ để nét chữ đầy đặn, rực rỡ
+            const maxPoints = Math.min(Math.floor(PARTICLE_COUNT * 0.80), rawLitPixels.length);
+            const textCoords = [];
+
+            // KHẮC PHỤC VỠ CHỮ: Tọa độ hạt drone đặt CHÍNH XÁC 100% tại tọa độ pixel (r = 0, không jitter).
+            // Mọi hạt bám chuẩn xác trên đường vector giúp các nét chữ cong mượt mà,
+            // chữ 'g' có 2 vòng tròn mở thanh thoát, chữ 'ê' có dấu mũ sắc nét nguyên vẹn, không bị vỡ hạt.
+            for (let i = 0; i < rawLitPixels.length && textCoords.length < maxPoints; i++) {
+                const lp = rawLitPixels[i];
+                textCoords.push({
+                    x: offsetX + lp.x,
+                    y: offsetY + lp.y,
+                    isEdge: lp.isEdge
+                });
+            }
+
+            const numCoords = textCoords.length;
+
+            // Bảng màu quang học sang trọng, tươi sáng cho từng câu chúc
+            const textSprites = [2, 3, 4, 5];
+            const primarySprite = textSprites[phraseIndex % textSprites.length];
+
+            // Tìm tâm hình học chuẩn của khối chữ để căn giữa hoàn hảo
+            let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+            for (let i = 0; i < numCoords; i++) {
+                const pt = textCoords[i];
+                if (pt.x < minX) minX = pt.x;
+                if (pt.x > maxX) maxX = pt.x;
+                if (pt.y < minY) minY = pt.y;
+                if (pt.y > maxY) maxY = pt.y;
+            }
+            const centerTextX = (minX + maxX) / 2;
+            const centerTextY = (minY + maxY) / 2;
+
+            // 1. Phân bổ các hạt tạo thành chữ drone trong không gian (hx, hy, hz)
+            // hz = 0 giữ cho mặt chữ phẳng hoàn hảo đối diện người xem, loại bỏ mọi biến dạng chiều sâu
+            for (let i = 0; i < Math.min(PARTICLE_COUNT, numCoords); i++) {
+                const p = particles[i];
+                const target = textCoords[i];
+                p.depthZ = 0;
+                p.haloRole = 'NONE';
+                p.isTextEdge = target.isEdge;
+                p.edgeType = 0;
+
+                const relX = target.x - centerTextX;
+                const relY = target.y - centerTextY;
+
+                p.hx = relX;
+                p.hy = relY;
+                p.hz = 0; // Mặt phẳng chính diện hoàn hảo, không biến dạng 3D
+
+                p.activeInFormation = true;
+                p.spriteIdx = Math.random() < 0.20 ? 4 : primarySprite;
+
+                // Kích thước hạt drone chuẩn xác, vừa vặn: Đủ lớn để nét chữ dày dặn, liền mạch;
+                // đủ gọn gàng để các khoảng hở của chữ 'g', 'e', 'ê' không bao giờ bị bít dính
+                p.tAlpha = 1.0;
+                p.tSize = (width < 640 ? 1.70 : 2.05);
+                p.speed = 0.075 + Math.random() * 0.035;
+            }
+
+            // 2. Các hạt còn lại phân tán êm dịu ra không gian nền làm bụi sao thiên hà mờ ảo
+            for (let i = numCoords; i < PARTICLE_COUNT; i++) {
+                const p = particles[i];
+                const angle = (i / PARTICLE_COUNT) * Math.PI * 2 + Math.random() * 0.5;
+                const rx = width * 0.46 * (0.45 + Math.random() * 0.55);
+                const ry = height * 0.44 * (0.45 + Math.random() * 0.55);
+                p.depthZ = 0;
+                p.haloRole = 'NONE';
+                p.isTextEdge = false;
+                p.edgeType = 0;
+                p.tx = width / 2 + Math.cos(angle) * rx;
+                p.ty = height / 2 + Math.sin(angle) * ry;
+                p.activeInFormation = false;
+                p.spriteIdx = i % 3 === 0 ? 4 : primarySprite;
+                p.tAlpha = 0.08 + Math.random() * 0.12;
+                p.tSize = 1.0 + Math.random() * 0.6;
+                p.speed = 0.032 + Math.random() * 0.022;
+            }
+        }
+
+        /**
+         * TÍNH TOÁN TỌA ĐỘ TRÊN ĐƯỜNG VIỀN TRÁI TIM BAO QUANH KHUNG ẢNH (HEART CONTOUR FRAME PARAMETERIZATION)
+         * Giúp hàng ngàn hạt sáng tạo thành một hình Trái Tim lớn, cân đối, ôm trọn bức ảnh nằm ở chính giữa tâm trái tim
+         */
+        function getHeartContourPoint(tNorm, geom, radialOffset = 0) {
+            const t = ((tNorm % 1) + 1) % 1 * Math.PI * 2;
+            const sinT = Math.sin(t);
+            const cosT = Math.cos(t);
+
+            // Phương trình tham số Trái Tim chuẩn có tinh chỉnh độ mở rộng hai thùy để ôm đẹp bức ảnh ở tâm
+            const rawX = 16.5 * Math.pow(sinT, 3);
+            const rawY = -(13.2 * cosT - 4.7 * Math.cos(2 * t) - 1.85 * Math.cos(3 * t) - 0.65 * Math.cos(4 * t));
+
+            // Dịch nhẹ tâm hình học để vùng bụng rộng nhất của trái tim trùng khớp với tâm bức ảnh (geom.cx, geom.cy)
+            const centeredY = rawY - 1.65;
+
+            const len = Math.hypot(rawX, centeredY) || 1;
+            const nx = rawX / len;
+            const ny = centeredY / len;
+
+            return {
+                x: geom.cx + rawX * geom.scale + nx * radialOffset,
+                y: geom.cy + centeredY * geom.scale + ny * radialOffset,
+                nx,
+                ny
+            };
+        }
+
+        /**
+         * VẼ ĐƯỜNG CONG TRÁI TIM TOÀN PHẦN MỀM MẠI (180 ĐIỂM NỘI SUY LIÊN TỤC)
+         * Dùng để cắt ảnh (clip) theo hình Trái Tim và vẽ viền hào quang phát sáng
+         */
+        function traceHeartPath(targetCtx, geom, radialOffset = 0) {
+            targetCtx.beginPath();
+            const steps = 180;
+            for (let s = 0; s <= steps; s++) {
+                const pt = getHeartContourPoint(s / steps, geom, radialOffset);
+                if (s === 0) targetCtx.moveTo(pt.x, pt.y);
+                else targetCtx.lineTo(pt.x, pt.y);
+            }
+            targetCtx.closePath();
+        }
+
+        /**
+         * STAGE 4 & 5: GHÉP HẠT ĐIỂM ẢNH HÌNH TRÁI TIM & VÒNG HÀO QUANG TRÁI TIM MỀM MẠI
+         * - Bức ảnh được cắt (clip) theo đúng hình Trái Tim mềm mại, lãng mạn
+         * - Vòng Hào Quang Trái Tim 3 Tầng phát sáng mềm mại ôm trọn lấy bức ảnh:
+         *   + Tier 1 (HEART_CONTOUR_STREAM): Dòng chảy hạt Đỏ Ruby, Vàng Kim & Hồng Rose chạy dọc đường viền Trái Tim
+         *   + Tier 2 (HEART_BOKEH_FIREFLY): Đom đóm Bokeh bay lượn quanh vòm ngoài của Trái Tim
+         *   + Tier 3 (HEART_STARBURST): Các ngôi sao kim cương 4 cánh lấp lánh dọc theo đường cong Trái Tim
+         */
+        function computePhotoMosaicAndHaloTargets() {
+            const imgW = loadedPhotoImg.naturalWidth || 640;
+            const imgH = loadedPhotoImg.naturalHeight || 640;
+            const imgAspect = imgW / imgH;
+
+            const isLandscape = (width > height * 1.25) && (height < 650);
+            let centerX, centerY;
+            let heartScale;
+
+            if (isLandscape) {
+                // Trên màn hình xoay ngang điện thoại hoặc laptop nhỏ:
+                // Trái tim nằm cân đối ở nửa bên trái, Thẻ tâm thư nằm ở nửa bên phải
+                const availableW = width * 0.48;
+                const availableH = height - 60;
+                const maxHeartWidth = Math.min(availableW * 0.82, 340);
+                const maxHeartHeight = Math.min(availableH * 0.82, 280);
+                heartScale = Math.min(maxHeartWidth / 33, maxHeartHeight / 28.5);
+                centerX = width * 0.27;
+                centerY = height * 0.50 - heartScale * 0.936;
+            } else {
+                // Màn hình dọc (Điện thoại portrait, Tablet, Laptop, PC):
+                const topMargin = (height < 700 ? 54 : 68);
+                const cardEstH = (height < 680 ? 195 : (height < 800 ? 225 : 255));
+                const bottomMargin = cardEstH + 18;
+                const availableH = Math.max(160, height - topMargin - bottomMargin);
+
+                const maxHeartWidth = Math.min(width * 0.84, 440);
+                const maxHeartHeight = Math.min(availableH * 0.88, 390);
+                heartScale = Math.min(maxHeartWidth / 33, maxHeartHeight / 28.5);
+
+                centerX = width / 2;
+                // Đặt tâm quang học của Trái Tim (heartMidY) chính giữa khoảng không gian khả dụng
+                centerY = topMargin + (availableH / 2) - (heartScale * 0.936);
+            }
+
+            heartFrameGeom = {
+                cx: centerX,
+                cy: centerY,
+                scale: heartScale
+            };
+
+            // Tọa độ hình học và hộp bao chuẩn xác đồng bộ 100% với viền trái tim
+            const heartTotalW = heartScale * 33;
+            const heartTotalH = heartScale * 28.23;
+            const heartMidY = centerY + heartScale * 0.936;
+
+            photoBox = {
+                x: centerX - heartTotalW / 2,
+                y: heartMidY - heartTotalH / 2,
+                w: heartTotalW,
+                h: heartTotalH,
+                r: 0
+            };
+
+            // Canvas ảo kiểm tra điểm nằm trong hình Trái Tim để hạt mosaic xếp đúng hình trái tim
+            const hitCanvas = document.createElement('canvas');
+            hitCanvas.width = 1;
+            hitCanvas.height = 1;
+            const hitCtx = hitCanvas.getContext('2d');
+            traceHeartPath(hitCtx, heartFrameGeom, 0);
+
+            // Canvas lấy màu ảnh phủ (cover) lên vùng Trái Tim
+            const sampleCols = 54;
+            const sampleRows = 50;
+            const offCanvas = document.createElement('canvas');
+            offCanvas.width = sampleCols;
+            offCanvas.height = sampleRows;
+            const octx = offCanvas.getContext('2d');
+
+            let sW = imgW, sH = imgH;
+            let sX = 0, sY = 0;
+            if (imgAspect > (sampleCols / sampleRows)) {
+                sW = imgH * (sampleCols / sampleRows);
+                sX = (imgW - sW) / 2;
+            } else {
+                sH = imgW / (sampleCols / sampleRows);
+                sY = (imgH - sH) / 2;
+            }
+            octx.drawImage(loadedPhotoImg, sX, sY, sW, sH, 0, 0, sampleCols, sampleRows);
+            const pixels = octx.getImageData(0, 0, sampleCols, sampleRows).data;
+
+            const cellW = heartTotalW / sampleCols;
+            const cellH = heartTotalH / sampleRows;
+            const dotRadius = Math.max(1.8, Math.min(cellW, cellH) * 0.62);
+
+            let pIdx = 0;
+            const mosaicLimit = Math.floor(PARTICLE_COUNT * 0.60);
+            for (let r = 0; r < sampleRows; r++) {
+                for (let c = 0; c < sampleCols; c++) {
+                    if (pIdx >= mosaicLimit) break;
+                    const px = photoBox.x + (c + 0.5) * cellW;
+                    const py = photoBox.y + (r + 0.5) * cellH;
+
+                    // Chỉ phân bổ các hạt nằm BÊN TRONG HÌNH TRÁI TIM
+                    if (hitCtx.isPointInPath(px, py)) {
+                        const p = particles[pIdx];
+                        const idx = (r * sampleCols + c) * 4;
+
+                        p.tx = px;
+                        p.ty = py;
+                        p.tr = pixels[idx];
+                        p.tg = pixels[idx + 1];
+                        p.tb = pixels[idx + 2];
+                        p.tAlpha = 0.98;
+                        p.tSize = dotRadius;
+                        p.speed = 0.078 + Math.random() * 0.035;
+                        p.activeInFormation = true;
+                        p.haloRole = 'MOSAIC';
+                        pIdx++;
+                    }
+                }
+            }
+
+            // 2. Toàn bộ các hạt còn lại tạo thành VIỀN TRÁI TIM PHÁT SÁNG MỀM MẠI ÔM TRỌN ẢNH
+            const remaining = PARTICLE_COUNT - pIdx;
+            const tier1Count = Math.floor(remaining * 0.70); // Dải ngân hà Trái Tim ôm sát viền ảnh
+            const tier2Count = Math.floor(remaining * 0.22); // Đom đóm Bokeh bay quanh vòm
+            // Còn lại: Tia sao kim cương 4 cánh
+
+            for (let i = pIdx; i < PARTICLE_COUNT; i++) {
+                const p = particles[i];
+                p.activeInFormation = false;
+                const localIdx = i - pIdx;
+
+                if (localIdx < tier1Count) {
+                    // TIER 1: HEART CONTOUR STARDUST STREAM (Viền Trái Tim phát sáng nhiều lớp ôm trọn bức ảnh)
+                    p.haloRole = 'HEART_CONTOUR_STREAM';
+                    p.haloParam = localIdx / tier1Count;
+                    p.haloLayer = localIdx % 3; // 0: Lõi viền trong sắc nét, 1: Lớp giữa rực rỡ, 2: Tán xạ bụi sao ngoài
+                    p.haloSpeed = (localIdx % 2 === 0 ? 1 : -1) * (0.012 + Math.random() * 0.018);
+
+                    if (p.haloLayer === 0) {
+                        // Lớp lõi sát đường viền hình Trái Tim nhẹ nhàng, thanh thoát
+                        p.haloOffset = (Math.random() - 0.5) * 2.4;
+                        p.spriteIdx = Math.random() < 0.55 ? 1 : (Math.random() < 0.8 ? 2 : 4);
+                        p.tAlpha = 0.28 + Math.random() * 0.15;
+                        p.tSize = 0.75 + Math.random() * 0.45;
+                    } else if (p.haloLayer === 1) {
+                        // Lớp hào quang giữa (Hồng Rose dịu nhẹ)
+                        p.haloOffset = (Math.random() - 0.45) * 8;
+                        p.spriteIdx = Math.random() < 0.5 ? 0 : (Math.random() < 0.85 ? 3 : 2);
+                        p.tAlpha = 0.18 + Math.random() * 0.12;
+                        p.tSize = 0.65 + Math.random() * 0.40;
+                    } else {
+                        // Lớp bụi sao tản mạn êm dịu ngoài cùng
+                        p.haloOffset = 3 + Math.pow(Math.random(), 1.4) * 14;
+                        p.spriteIdx = Math.random() < 0.45 ? 2 : (Math.random() < 0.8 ? 3 : 0);
+                        p.tAlpha = 0.12 + Math.random() * 0.10;
+                        p.tSize = 0.55 + Math.random() * 0.35;
+                    }
+                    p.speed = 0.055 + Math.random() * 0.03;
+                }
+                else if (localIdx < tier1Count + tier2Count) {
+                    // TIER 2: HEART BOKEH FIREFLIES (Đom đóm ánh sáng bay bổng quanh vòm Trái Tim)
+                    p.haloRole = 'HEART_BOKEH_FIREFLY';
+                    p.haloParam = Math.random();
+                    p.haloSpeed = 0.035 + Math.random() * 0.055;
+                    const baseOffset = 18 + Math.random() * 48;
+                    const pt = getHeartContourPoint(p.haloParam, heartFrameGeom, baseOffset);
+                    p.hx = pt.x;
+                    p.hy = pt.y;
+                    p.tx = p.hx;
+                    p.ty = p.hy;
+
+                    const isLargeBokeh = Math.random() < 0.30;
+                    const randCol = Math.random();
+                    p.spriteIdx = randCol < 0.45 ? 0 : (randCol < 0.78 ? 2 : 3);
+                    p.tAlpha = isLargeBokeh ? (0.18 + Math.random() * 0.22) : (0.42 + Math.random() * 0.40);
+                    p.tSize = isLargeBokeh ? (3.0 + Math.random() * 2.6) : (1.2 + Math.random() * 1.4);
+                    p.speed = 0.04 + Math.random() * 0.035;
+                }
+                else {
+                    // TIER 3: 4-POINT DIAMOND STARBURSTS ON HEART CONTOUR (Tia sao kim cương 4 cánh lấp lánh trên viền Trái Tim)
+                    p.haloRole = 'HEART_STARBURST';
+                    p.haloParam = Math.random();
+                    p.haloSpeed = (Math.random() - 0.5) * 0.008;
+                    p.haloOffset = (Math.random() - 0.3) * 14;
+                    p.spriteIdx = Math.random() < 0.55 ? 4 : 2;
+                    p.tAlpha = 0.80 + Math.random() * 0.20;
+                    p.tSize = 1.75 + Math.random() * 1.35;
+                    p.speed = 0.06 + Math.random() * 0.03;
+                }
+            }
+        }
+
+        function loadPhotoSource(dataUrl, callback) {
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.onload = () => {
+                loadedPhotoImg = img;
+                if (callback) callback();
+            };
+            img.onerror = () => {
+                loadedPhotoImg.src = DEFAULT_PHOTO_DATA;
+                if (callback) callback();
+            };
+            img.src = dataUrl || DEFAULT_PHOTO_DATA;
+        }
+
+        /**************************************************************************
+         * 5. ĐIỀU KHIỂN CHUYỂN CẢNH (STAGE STATE MACHINE) & TỰ ĐỘNG BẮN SAO
+         **************************************************************************/
+        const stageBadgeText = document.getElementById('stageBadgeText');
+        const stage1Container = document.getElementById('stage1Container');
+        const stageHudBar = document.getElementById('stageHudBar');
+        const hudMessage = document.getElementById('hudMessage');
+        const stage4Overlay = document.getElementById('stage4Overlay');
+        const loveLetterCard = document.getElementById('loveLetterCard');
+        const btnTopRestart = document.getElementById('btnTopRestart');
+
+        // ===== HỆ THỐNG TỰ ĐỘNG BẮN SAO KHI VÀO MỤC TRÁI TIM CHỨA ẢNH =====
+        let autoStarInterval = null;
+        let autoStarSalvoTimers = [];
+
+        function stopAutoShootStars() {
+            if (autoStarInterval) {
+                clearInterval(autoStarInterval);
+                autoStarInterval = null;
+            }
+            if (autoStarSalvoTimers && autoStarSalvoTimers.length > 0) {
+                autoStarSalvoTimers.forEach(t => clearTimeout(t));
+                autoStarSalvoTimers = [];
+            }
+        }
+
+        function triggerSingleAutoStar(isInitialSalvo = false) {
+            if (currentStage !== 'PHOTO_REVEAL' && currentStage !== 'PHOTO_MOSAIC') return;
+
+            let cx = width * 0.5;
+            let cy = height * 0.35;
+            if (heartFrameGeom && heartFrameGeom.scale > 0 && typeof getHeartContourPoint === 'function') {
+                const tParam = Math.random();
+                const offset = (Math.random() - 0.5) * 32;
+                const pt = getHeartContourPoint(tParam, {
+                    cx: heartFrameGeom.cx,
+                    cy: heartFrameGeom.cy,
+                    scale: heartFrameGeom.scale
+                }, offset);
+                cx = pt.x;
+                cy = pt.y;
+            } else if (photoBox && photoBox.w > 0) {
+                cx = photoBox.x + Math.random() * photoBox.w;
+                cy = photoBox.y + Math.random() * photoBox.h * 0.75;
+            }
+
+            // Bắn pháo hoa hình trái tim
+            spawnHeartFirework(cx, cy);
+
+            // Bắn sao băng bay xẹt qua vũ trụ
+            if (isInitialSalvo || Math.random() < 0.65) {
+                spawnShootingStar();
+            }
+        }
+
+        function startAutoShootStars() {
+            stopAutoShootStars();
+
+            // 1. Loạt pháo hoa sao khai mạc chào đón bức ảnh xuất hiện (Opening Celebration Salvo)
+            const salvoDelays = [1350, 1700, 2150, 2600, 3150, 3750];
+            salvoDelays.forEach((delay, idx) => {
+                const timer = setTimeout(() => {
+                    if (currentStage === 'PHOTO_REVEAL' || currentStage === 'PHOTO_MOSAIC') {
+                        triggerSingleAutoStar(true);
+                        if (idx % 2 === 1) {
+                            setTimeout(() => {
+                                if (currentStage === 'PHOTO_REVEAL' || currentStage === 'PHOTO_MOSAIC') {
+                                    triggerSingleAutoStar(true);
+                                }
+                            }, 160);
+                        }
+                    }
+                }, delay);
+                autoStarSalvoTimers.push(timer);
+            });
+
+            // 2. Chế độ bắn sao tự động tuần hoàn định kỳ (Periodic Auto-bursts)
+            autoStarInterval = setInterval(() => {
+                if (currentStage === 'PHOTO_REVEAL' || currentStage === 'PHOTO_MOSAIC') {
+                    triggerSingleAutoStar(false);
+                } else {
+                    stopAutoShootStars();
+                }
+            }, 2200);
+        }
+
+        function transitionToStage(newStage) {
+            currentStage = newStage;
+            stageStartTime = performance.now();
+
+            if (newStage === 'AUTH') {
+                stopAutoShootStars();
+                stageBadgeText.textContent = 'Món Quà 20/10 • Chạm Để Mở Khóa';
+                stage1Container.classList.remove('opacity-0', 'pointer-events-none', 'scale-110');
+                stageHudBar.classList.add('hidden');
+                stageHudBar.classList.remove('flex');
+                stage4Overlay.classList.add('hidden', 'opacity-0', 'pointer-events-none');
+                stage4Overlay.classList.remove('flex', 'opacity-100');
+                loveLetterCard.classList.add('translate-y-2');
+                loveLetterCard.classList.remove('translate-y-0');
+                btnTopRestart.classList.add('hidden');
+                btnTopRestart.classList.remove('flex');
+                sharpPhotoAlpha = 0;
+                mosaicBlendProgress = 0;
+                heartRotY = 0;
+                heartRotX = 0;
+                textRotY = 0;
+                textRotX = 0;
+                currentTextIndex = 0;
+                computeMonochromeRuby3DHeartTargets(); // Tái tạo chuẩn xác tọa độ Trái Tim 3D
+                // Giảm mật độ và độ sáng sao ở màn hình quét vân tay đầu tiên để không gian tĩnh lặng, sang trọng
+                targetSkyIntensity = 0.22;
+                resetFingerprintScannerUI();
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    const p = particles[i];
+                    p.tx = Math.random() * width;
+                    p.ty = Math.random() * height;
+                    // Chỉ để khoảng 60 hạt bụi sao rất mờ ở màn mở đầu, còn lại ẩn hoàn toàn (tAlpha = 0)
+                    p.tAlpha = (i < 60) ? (0.06 + Math.random() * 0.12) : 0.0;
+                    p.tSize = 1.0 + Math.random() * 0.6;
+                    p.spriteIdx = i % 3 === 0 ? 2 : (i % 2 === 0 ? 4 : 5);
+                    p.activeInFormation = false;
+                    p.haloRole = 'NONE';
+                    p.speed = 0.055 + Math.random() * 0.04;
+                }
+            }
+            else if (newStage === 'WARP') {
+                stopAutoShootStars();
+                stageBadgeText.textContent = 'Đang mở cánh cổng Vũ Trụ Ánh Sao 20/10...';
+                stage1Container.classList.add('opacity-0', 'pointer-events-none', 'scale-110');
+                btnTopRestart.classList.remove('hidden');
+                btnTopRestart.classList.add('flex');
+                targetSkyIntensity = 1.0; // Đánh thức toàn bộ dải Ngân Hà rực rỡ
+                sound.startAmbientMusic();
+            }
+            else if (newStage === 'HEART_3D') {
+                stopAutoShootStars();
+                stageBadgeText.textContent = 'Trái Tim Tri Ân & Yêu Thương • 20/10';
+                stageHudBar.classList.remove('hidden');
+                stageHudBar.classList.add('flex');
+                hudMessage.innerHTML = '<span>❤️</span> <span>Gửi trọn tình cảm và những lời chúc tốt đẹp nhất tới các bạn nữ...</span>';
+                stage4Overlay.classList.add('hidden', 'opacity-0', 'pointer-events-none');
+                stage4Overlay.classList.remove('flex', 'opacity-100');
+                loveLetterCard.classList.add('translate-y-2');
+                loveLetterCard.classList.remove('translate-y-0');
+                btnTopRestart.classList.remove('hidden');
+                btnTopRestart.classList.add('flex');
+                targetSkyIntensity = 1.0;
+                mosaicBlendProgress = 0;
+                sharpPhotoAlpha = 0;
+                heartRotY = 0;
+                heartRotX = 0;
+                textRotY = 0;
+                textRotX = 0;
+                currentTextIndex = 0;
+                // Khắc phục triệt để lỗi lộn xộn khi bấm Xem lại: Tính toán lại 100% tọa độ Trái Tim 3D nguyên bản
+                computeMonochromeRuby3DHeartTargets();
+                assignMonochromeRubyHeartColors();
+                sound.playMorphShimmer();
+            }
+            else if (newStage === 'DRONE_TEXT') {
+                stopAutoShootStars();
+                currentTextIndex = 0;
+                targetSkyIntensity = 1.0;
+                mosaicBlendProgress = 0;
+                stageHudBar.classList.remove('hidden');
+                stageHudBar.classList.add('flex');
+                triggerCurrentDroneText();
+            }
+            else if (newStage === 'PHOTO_MOSAIC' || newStage === 'PHOTO_REVEAL') {
+                currentStage = 'PHOTO_REVEAL';
+                stageBadgeText.textContent = 'Ngàn vì sao đang kết tinh món quà 20/10 rực rỡ...';
+                stageHudBar.classList.remove('hidden');
+                stageHudBar.classList.add('flex');
+                hudMessage.innerHTML = '<span class="text-amber-300">✨</span> <span class="text-rose-100 font-medium">Ngàn vì sao đang hội tụ kết tinh những lời chúc rực rỡ nhất...</span>';
+                targetSkyIntensity = 1.0;
+                sharpPhotoAlpha = 0;
+                mosaicBlendProgress = 0;
+                stageElapsed = 0;
+                computePhotoMosaicAndHaloTargets();
+                sound.playMorphShimmer();
+                stage4Overlay.classList.add('opacity-0', 'pointer-events-none');
+                stage4Overlay.classList.remove('opacity-100');
+                loveLetterCard.classList.add('translate-y-2');
+                loveLetterCard.classList.remove('translate-y-0');
+                // BẮT ĐẦU BẮN SAO TỰ ĐỘNG
+                startAutoShootStars();
+            }
+        }
+
+        function triggerCurrentDroneText() {
+            const list = appConfig.droneTexts.filter(t => t.trim().length > 0);
+            if (currentTextIndex >= list.length) {
+                transitionToStage('PHOTO_REVEAL');
+                return;
+            }
+            const phrase = list[currentTextIndex];
+            stageBadgeText.textContent = `Drone Ánh Sáng • ${currentTextIndex + 1}/${list.length}`;
+            hudMessage.innerHTML = `<span class="text-amber-300 text-base">✨</span> <span class="bg-gradient-to-r from-amber-100 via-rose-100 to-pink-200 bg-clip-text text-transparent font-bold tracking-wide text-sm sm:text-base">${phrase}</span> <span class="text-[11px] text-rose-300/80 border border-rose-400/30 px-2 py-0.5 rounded-full ml-1 backdrop-blur-sm hidden sm:inline">Chạm xoay 3D</span>`;
+            sampleSeeThroughDroneTextTargets(phrase, currentTextIndex);
+            textRotY = 0;
+            textRotX = 0;
+            sound.playMorphShimmer();
+            stageStartTime = performance.now();
+        }
+
+        /**************************************************************************
+         * 6. LOGIC CẢM BIẾN QUÉT VÂN TAY HOLOGRAPHIC LUXURY (STAGE 1 BIOMETRIC SCANNER)
+         **************************************************************************/
+        const fingerprintBtn = document.getElementById('fingerprintBtn');
+        const fingerprintCluster = document.getElementById('fingerprintCluster');
+        const fingerprintTouchOverlay = document.getElementById('fingerprintTouchOverlay');
+        const fingerprintProgressCircle = document.getElementById('fingerprintProgressCircle');
+        const laserScanBeam = document.getElementById('laserScanBeam');
+        const fingerprintGlowBg = document.getElementById('fingerprintGlowBg');
+        const scanPercentText = document.getElementById('scanPercentText');
+        const scanSubStatus = document.getElementById('scanSubStatus');
+        const scanInstructionText = document.getElementById('scanInstructionText');
+        const fpCenterHeart = document.getElementById('fpCenterHeart');
+        const fpLitRidges = document.querySelectorAll('.fp-ridge-lit');
+
+        const CIRCLE_CIRCUMFERENCE = 490.09; // 2 * PI * 78
+        let scanProgress = 0;
+        let isHoldingFinger = false;
+        let autoScanLock = false;
+        let isUnlocked = false;
+
+        function resetFingerprintScannerUI() {
+            scanProgress = 0;
+            isHoldingFinger = false;
+            autoScanLock = false;
+            isUnlocked = false;
+            updateScannerVisuals();
+            laserScanBeam.classList.add('hidden');
+            fingerprintGlowBg.classList.add('opacity-0');
+            if (fpCenterHeart) {
+                fpCenterHeart.setAttribute('transform', 'scale(1)');
+            }
+            scanPercentText.textContent = 'TOUCH ID • SẴN SÀNG (0%)';
+            scanPercentText.className = 'px-4 py-1 rounded-full bg-white/[0.04] border border-rose-400/20 text-xs sm:text-sm font-semibold tracking-widest text-rose-200 uppercase backdrop-blur-sm transition-all';
+            scanSubStatus.textContent = 'Chạm hoặc nhấn giữ để mở món quà 20/10';
+            scanInstructionText.textContent = 'Chạm ngón tay lên mặt kính cảm biến để đánh thức vũ trụ ánh sao chúc mừng ngày 20/10';
+        }
+
+        function updateScannerVisuals() {
+            const offset = CIRCLE_CIRCUMFERENCE - (scanProgress / 100) * CIRCLE_CIRCUMFERENCE;
+            fingerprintProgressCircle.style.strokeDashoffset = offset.toFixed(2);
+
+            // Hiệu ứng các đường vân tay sáng dần từ tâm ra ngoài theo % tiến độ quét
+            fpLitRidges.forEach((pathEl) => {
+                const threshold = parseFloat(pathEl.getAttribute('data-threshold') || '0');
+                const localProgress = Math.max(0, Math.min(1, (scanProgress - threshold) / 28));
+                const dashOffset = 220 * (1 - localProgress);
+                pathEl.style.strokeDashoffset = dashOffset.toFixed(1);
+            });
+
+            if (fpCenterHeart && scanProgress > 0) {
+                const pulseScale = 1 + 0.12 * Math.sin(scanProgress * 0.25);
+                fpCenterHeart.style.transformOrigin = '60px 58px';
+                fpCenterHeart.style.transform = `scale(${pulseScale.toFixed(3)})`;
+            }
+        }
+
+        let isTouchingFingerprint = false;
+        let lastScanTriggerTime = 0;
+
+        function startFingerScan(e) {
+            if (isUnlocked) return;
+            if (window.startApp && !window.__appStarted) window.startApp();
+            if (currentStage !== 'AUTH') {
+                transitionToStage('AUTH');
+            }
+            isHoldingFinger = true;
+            autoScanLock = true;
+            if (laserScanBeam) laserScanBeam.classList.remove('hidden');
+            if (fingerprintGlowBg) fingerprintGlowBg.classList.remove('opacity-0');
+            if (fingerprintBtn) fingerprintBtn.classList.add('scale-95');
+            scanSubStatus.textContent = 'Đang nhận diện sinh trắc học...';
+            sound.startScanHum();
+
+            // Phát nhạc ngẫu nhiên từ file local ngay khi người dùng ấn vào nút vân tay
+            playRandomLocalMusic();
+        }
+
+        window.startFingerScan = startFingerScan;
+
+        function endFingerScan() {
+            isHoldingFinger = false;
+        }
+
+        function handleFingerScanPress(e) {
+            if (isUnlocked) return;
+            const now = performance.now();
+            if (now - lastScanTriggerTime < 80 && isHoldingFinger) return;
+            lastScanTriggerTime = now;
+            isTouchingFingerprint = true;
+            if (fingerprintBtn) fingerprintBtn.classList.add('scale-95');
+            startFingerScan(e);
+        }
+
+        function handleFingerScanRelease() {
+            if (isTouchingFingerprint) {
+                isTouchingFingerprint = false;
+                if (fingerprintBtn) fingerprintBtn.classList.remove('scale-95');
+                endFingerScan();
+            }
+        }
+
+        // Bắt sự kiện trên cả lớp phủ toàn diện (touch overlay), nút cảm biến lẫn toàn bộ cụm vòng tròn
+        // Hỗ trợ đồng thời pointerdown, touchstart, mousedown, click trên cả iOS Safari, Android Chrome và Desktop
+        function bindScanTrigger(element) {
+            if (!element) return;
+            element.addEventListener('pointerdown', handleFingerScanPress);
+            element.addEventListener('touchstart', handleFingerScanPress);
+            element.addEventListener('mousedown', handleFingerScanPress);
+            element.addEventListener('click', handleFingerScanPress);
+        }
+
+        bindScanTrigger(fingerprintTouchOverlay);
+        bindScanTrigger(fingerprintBtn);
+        bindScanTrigger(fingerprintCluster);
+
+        window.addEventListener('pointerup', handleFingerScanRelease);
+        window.addEventListener('pointercancel', handleFingerScanRelease);
+        window.addEventListener('touchend', handleFingerScanRelease);
+        window.addEventListener('touchcancel', handleFingerScanRelease);
+        window.addEventListener('mouseup', handleFingerScanRelease);
+
+        function updateFingerprintLogic(dt) {
+            if (currentStage !== 'AUTH' || isUnlocked) return;
+
+            if (isHoldingFinger || autoScanLock) {
+                // Tốc độ quét mở khóa tức thì (~0.35 giây) phản hồi ngay khi bấm, không phải chờ đợi
+                scanProgress = Math.min(100, scanProgress + dt * 280);
+                updateScannerVisuals();
+                const pct = Math.floor(scanProgress);
+                scanPercentText.textContent = `ĐANG QUÉT VÂN TAY • ${pct}%`;
+
+                if (scanProgress >= 100) {
+                    isUnlocked = true;
+                    sound.stopScanHum();
+                    sound.playUnlockSuccess();
+                    laserScanBeam.classList.add('hidden');
+                    scanPercentText.textContent = '✨ CHÀO MỪNG NHỮNG BÔNG HOA RỰC RỠ NHẤT!';
+                    scanPercentText.className = 'px-4 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-400/40 text-xs sm:text-sm font-bold tracking-wide text-emerald-200 shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all';
+                    scanSubStatus.textContent = 'Đang mở cánh cổng bước vào vũ trụ ánh sao 20/10...';
+                    setTimeout(() => {
+                        if (currentStage === 'AUTH') {
+                            transitionToStage('WARP');
+                        }
+                    }, 220);
+                }
+            }
+        }
+
+        /**************************************************************************
+         * 7. VẼ TIA SAO KIM CƯƠNG 4 CÁNH (4-POINT DIAMOND STARBURST HELPER)
+         **************************************************************************/
+        function drawFourPointStarGlint(cx, cy, spikeRadius, alpha, spriteIdx = 4) {
+            if (alpha <= 0.03) return;
+            ctx.save();
+            ctx.globalAlpha = alpha;
+            const sp = glowSprites[spriteIdx] || glowSprites[4];
+            const glowR = spikeRadius * 0.72;
+            ctx.drawImage(sp, cx - glowR, cy - glowR, glowR * 2, glowR * 2);
+
+            ctx.strokeStyle = `rgba(255, 250, 240, ${(alpha * 0.85).toFixed(2)})`;
+            ctx.lineWidth = 1.05;
+            ctx.beginPath();
+            // Tia ngang & dọc chính
+            ctx.moveTo(cx - spikeRadius, cy);
+            ctx.lineTo(cx + spikeRadius, cy);
+            ctx.moveTo(cx, cy - spikeRadius);
+            ctx.lineTo(cx, cy + spikeRadius);
+            // Tia chéo phụ ngắn hơn
+            const diag = spikeRadius * 0.38;
+            ctx.moveTo(cx - diag, cy - diag);
+            ctx.lineTo(cx + diag, cy + diag);
+            ctx.moveTo(cx - diag, cy + diag);
+            ctx.lineTo(cx + diag, cy - diag);
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        /**************************************************************************
+         * 8. VÒNG LẶP RENDER QUANG HỌC 60FPS (MAIN ANIMATION LOOP)
+         **************************************************************************/
+        let lastFrameTime = performance.now();
+
+        function animate(now) {
+            requestAnimationFrame(animate);
+
+            const dt = Math.min(0.05, (now - lastFrameTime) / 1000);
+            lastFrameTime = now;
+            const stageElapsed = (now - stageStartTime) / 1000;
+            const timeSec = now * 0.001;
+
+            updateFingerprintLogic(dt);
+
+            parallaxX += (targetParallaxX - parallaxX) * 0.05;
+            parallaxY += (targetParallaxY - parallaxY) * 0.05;
+            skyIntensity += (targetSkyIntensity - skyIntensity) * 0.04;
+
+            const cx = width / 2;
+            const cy = height / 2;
+
+            // 1. VẼ BẦU TRỜI THIÊN VĂN TĨNH (Ở màn AUTH ban đầu được làm dịu nhẹ, sau khi mở khóa sáng rõ 100%)
+            ctx.globalCompositeOperation = 'source-over';
+            ctx.fillStyle = '#010103';
+            ctx.fillRect(0, 0, width, height);
+
+            if (skyBackdropCanvas) {
+                ctx.save();
+                ctx.globalAlpha = skyIntensity;
+                ctx.drawImage(skyBackdropCanvas, 0, 0, width, height);
+                ctx.restore();
+            }
+
+            // 2. XỬ LÝ HIỆU ỨNG XUYÊN KHÔNG WARP KHI MỞ KHÓA
+            if (currentStage === 'WARP') {
+                warpFactor = Math.min(1, stageElapsed / 1.1);
+                if (stageElapsed >= 1.25) {
+                    warpFactor = 0;
+                    transitionToStage('HEART_3D');
+                }
+            } else {
+                warpFactor *= 0.9;
+            }
+
+            // 3. VẼ CÁC NGÔI SAO LẤP LÁNH PARALLAX (Màn AUTH chỉ hiện ~35% số sao với độ sáng dịu)
+            const starStep = currentStage === 'AUTH' ? 3 : 1;
+            for (let i = 0; i < dynamicStars.length; i += starStep) {
+                const s = dynamicStars[i];
+                const sx = (s.x - parallaxX * s.z * 0.45 + width) % width;
+                const sy = (s.y - parallaxY * s.z * 0.45 + height) % height;
+                const twinkle = 0.55 + 0.45 * Math.sin(now * s.twinkleSpeed + s.twinklePhase);
+                const alpha = s.baseAlpha * twinkle * (0.32 + 0.68 * skyIntensity);
+
+                if (warpFactor > 0.02) {
+                    const dx = sx - cx;
+                    const dy = sy - cy;
+                    const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+                    s.x += (dx / dist) * warpFactor * 15 * s.z;
+                    s.y += (dy / dist) * warpFactor * 15 * s.z;
+
+                    ctx.strokeStyle = `rgba(${s.rgb}, ${Math.min(1, alpha * 1.4).toFixed(2)})`;
+                    ctx.lineWidth = s.size;
+                    ctx.beginPath();
+                    ctx.moveTo(sx, sy);
+                    ctx.lineTo(sx - (dx / dist) * warpFactor * 36 * s.z, sy - (dy / dist) * warpFactor * 36 * s.z);
+                    ctx.stroke();
+                } else {
+                    ctx.fillStyle = `rgba(${s.rgb}, ${alpha.toFixed(2)})`;
+                    ctx.beginPath();
+                    ctx.arc(sx, sy, s.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            // Vẽ các ngôi sao lớn có tia khúc xạ chữ thập (chỉ hiện nhẹ nhàng sau khi mở khóa)
+            if (warpFactor <= 0.05 && skyIntensity > 0.35) {
+                ctx.globalCompositeOperation = 'lighter';
+                for (let i = 0; i < brightCrossStars.length; i++) {
+                    const bs = brightCrossStars[i];
+                    const sx = (bs.x - parallaxX * bs.z * 0.5 + width) % width;
+                    const sy = (bs.y - parallaxY * bs.z * 0.5 + height) % height;
+                    const pulse = 0.55 + 0.45 * Math.sin(now * bs.speed + bs.phase);
+                    drawFourPointStarGlint(sx, sy, bs.spikeLen * (0.85 + 0.25 * pulse), 0.52 * pulse * skyIntensity, bs.spriteIdx);
+                }
+                ctx.globalCompositeOperation = 'source-over';
+            }
+
+            // 4. VẼ SAO BĂNG TỰ NHIÊN (chỉ xuất hiện sau khi đã mở khóa vân tay)
+            if (currentStage !== 'AUTH' && Math.random() < 0.014 && shootingStars.length < 2) {
+                spawnShootingStar();
+            }
+            for (let i = shootingStars.length - 1; i >= 0; i--) {
+                const st = shootingStars[i];
+                st.x += st.vx;
+                st.y += st.vy;
+                st.life -= st.decay;
+                if (st.life <= 0) {
+                    shootingStars.splice(i, 1);
+                    continue;
+                }
+                const tailX = st.x - (st.vx / 14) * st.len;
+                const tailY = st.y - (st.vy / 14) * st.len;
+                const grad = ctx.createLinearGradient(st.x, st.y, tailX, tailY);
+                grad.addColorStop(0, `rgba(255, 255, 255, ${st.life})`);
+                grad.addColorStop(0.4, `rgba(253, 224, 171, ${st.life * 0.55})`);
+                grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                ctx.strokeStyle = grad;
+                ctx.lineWidth = 1.6;
+                ctx.beginPath();
+                ctx.moveTo(st.x, st.y);
+                ctx.lineTo(tailX, tailY);
+                ctx.stroke();
+            }
+
+            // 5. CẬP NHẬT TOẠ ĐỘ MỤC TIÊU HẠT THEO TỪNG GIAI ĐOẠN
+            const energyWaveY = Math.sin(now * 0.0032) * 14;
+
+            // ĐỒNG BỘ TỌA ĐỘ VÀ KÍCH THƯỚC TRÁI TIM TOÀN CỤC CHO MỌI SECTION
+            let heartBeatScale = 1.0;
+            let photoBeatGlow = 0;
+            if (currentStage === 'PHOTO_REVEAL' && stageElapsed > 2.6) {
+                // Nhịp đập tình yêu êm ái, bồi hồi cho bức ảnh trái tim ở hồi kết
+                const pCycle = (timeSec * 4.6) % (Math.PI * 2);
+                const pLub = Math.sin(pCycle) > 0 ? Math.pow(Math.sin(pCycle), 3.4) * 0.042 : 0;
+                const pDubCycle = (pCycle - 0.56 + Math.PI * 2) % (Math.PI * 2);
+                const pDub = (pDubCycle > 0 && pDubCycle < Math.PI) ? Math.pow(Math.sin(pDubCycle), 4.4) * 0.024 : 0;
+                heartBeatScale = 1.0 + pLub + pDub;
+                photoBeatGlow = pLub * 0.55 + pDub * 0.30;
+            }
+            const activeHeartGeom = {
+                cx: heartFrameGeom.cx,
+                cy: heartFrameGeom.cy,
+                scale: heartFrameGeom.scale * heartBeatScale
+            };
+            const heartTotalW = activeHeartGeom.scale * 33;
+            const heartTotalH = activeHeartGeom.scale * 28.23;
+            const heartMidY = activeHeartGeom.cy + activeHeartGeom.scale * 0.936;
+
+            let heart3DLub = 0;
+            let heart3DDub = 0;
+
+            if (currentStage === 'HEART_3D') {
+                if (isDraggingScene) {
+                    // Người dùng có thể chạm giữ/kéo ngắm nhẹ
+                } else {
+                    // LOẠI BỎ TỰ XOAY: Trái tim giữ góc nhìn thẳng chính diện tĩnh tại, trang trọng
+                    heartRotY += (0 - heartRotY) * 0.08;
+                    heartRotX += (0 - heartRotX) * 0.08;
+                }
+                // Nhịp đập tim sinh học nhẹ nhàng, êm ái, thư thái (~72 bpm)
+                const beatCycle = (timeSec * 4.8) % (Math.PI * 2);
+                heart3DLub = Math.sin(beatCycle) > 0 ? Math.pow(Math.sin(beatCycle), 3.2) * 0.065 : 0;
+                const dubCycle = (beatCycle - 0.56 + Math.PI * 2) % (Math.PI * 2);
+                heart3DDub = (dubCycle > 0 && dubCycle < Math.PI) ? Math.pow(Math.sin(dubCycle), 4.2) * 0.035 : 0;
+                const recoil = Math.sin(beatCycle * 2) * 0.006 * (heart3DLub + heart3DDub);
+                const pulse = 1.0 + heart3DLub + heart3DDub + recoil;
+
+                const baseScale = Math.min(width, height) * (width < 640 ? 0.0176 : 0.0196) * pulse;
+                const cosY = Math.cos(heartRotY);
+                const sinY = Math.sin(heartRotY);
+                const cosX = Math.cos(heartRotX);
+                const sinX = Math.sin(heartRotX);
+                const fov = 420;
+
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    const p = particles[i];
+                    const rx = p.hx * cosY - p.hz * sinY;
+                    const rz1 = p.hx * sinY + p.hz * cosY;
+                    const ry = p.hy * cosX - rz1 * sinX;
+                    const rz2 = p.hy * sinX + rz1 * cosX;
+
+                    p.depthZ = rz2;
+                    const proj = fov / (fov - rz2 * baseScale + 120);
+                    p.tx = cx + rx * baseScale * proj;
+                    p.ty = cy + ry * baseScale * proj;
+                }
+
+                // Thời gian xoay 3.4s vừa vặn để chiêm ngưỡng 3 nhịp đập thư thái trước khi chuyển cảnh
+                if (stageElapsed >= 3.4) {
+                    transitionToStage('DRONE_TEXT');
+                }
+            }
+            else if (currentStage === 'DRONE_TEXT') {
+                if (isDraggingScene) {
+                    // Khi người dùng chạm/kéo xoay thì giữ nguyên thời gian để họ ngắm
+                    stageStartTime = Math.max(stageStartTime, now - 3200);
+                } else {
+                    // BỎ TỰ XOAY: Chữ giữ nguyên góc nhìn thẳng chính diện để người xem đọc rõ ràng nhất.
+                    // Nếu người dùng vừa thả tay ra sau khi kéo xoay, chữ tự trôi êm ái về góc thẳng chính diện (0, 0)
+                    textRotY += (0 - textRotY) * 0.08;
+                    textRotX += (0 - textRotX) * 0.08;
+                }
+
+                const cosY = Math.cos(textRotY);
+                const sinY = Math.sin(textRotY);
+                const cosX = Math.cos(textRotX);
+                const sinX = Math.sin(textRotX);
+                const fov = 500;
+
+                // Chiếu tọa độ 3D (hx, hy, hz) của chữ lên màn hình
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    const p = particles[i];
+                    if (p.activeInFormation) {
+                        const rx = p.hx * cosY - p.hz * sinY;
+                        const rz1 = p.hx * sinY + p.hz * cosY;
+                        const ry = p.hy * cosX - rz1 * sinX;
+                        const rz2 = p.hy * sinX + rz1 * cosX;
+
+                        p.depthZ = rz2;
+                        const proj = fov / (fov + rz2);
+                        // Chuyển động bồng bềnh đồng bộ toàn đội hình (Synchronized Drone Fleet Float):
+                        // Cả khối chữ cùng nâng lên hạ xuống nhịp nhàng như một thể thống nhất,
+                        // KHÔNG có dao động vi mô ngẫu nhiên làm rung lắc hay vỡ nét chữ
+                        const breathFloat = Math.sin(timeSec * 0.85) * 1.6;
+                        p.tx = cx + rx * proj;
+                        p.ty = (cy - 16) + ry * proj + breathFloat;
+                    }
+                }
+
+                // Thời gian hiển thị 5.5s thư thái, rộng rãi để đọc trọn vẹn từng câu chữ một cách dễ dàng
+                if (stageElapsed >= 5.5) {
+                    currentTextIndex++;
+                    triggerCurrentDroneText();
+                }
+            }
+            else if (currentStage === 'PHOTO_MOSAIC' || currentStage === 'PHOTO_REVEAL') {
+                // 1. Giai đoạn ghép hạt sáng thành bức ảnh (0s -> 1.5s): Các hạt sao hội tụ phát sáng màu ảnh
+                mosaicBlendProgress = Math.min(1, stageElapsed / 1.25);
+
+                // 2. Giai đoạn từ từ hiện rõ ảnh thật sắc nét (từ 1.5s -> 2.8s): Ảnh thật dịu dàng nở hoa
+                sharpPhotoAlpha = Math.min(1, Math.max(0, (stageElapsed - 1.45) / 1.25));
+
+                if (stageElapsed >= 1.65 && (stage4Overlay.classList.contains('hidden') || stage4Overlay.classList.contains('opacity-0'))) {
+                    stageBadgeText.textContent = 'Chúc Mừng Ngày Phụ Nữ Việt Nam 20/10 💖';
+                    stageHudBar.classList.add('hidden');
+                    stageHudBar.classList.remove('flex');
+                    stage4Overlay.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
+                    stage4Overlay.classList.add('flex', 'opacity-100');
+                    loveLetterCard.classList.remove('translate-y-2');
+                    loveLetterCard.classList.add('translate-y-0');
+                    sound.playHeartRevealChime();
+                }
+
+                // Cập nhật chuyển động của các hạt quanh trái tim
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    const p = particles[i];
+                    if (p.haloRole === 'HEART_CONTOUR_STREAM') {
+                        // Tier 1: Chảy mượt mà dọc theo đường viền hình Trái Tim bao quanh bức ảnh
+                        p.haloParam = (p.haloParam + dt * p.haloSpeed + 1) % 1;
+                        const waveAmp = p.haloLayer === 0 ? 1.8 : 4.2;
+                        const waveOffset = p.haloOffset + Math.sin(timeSec * 2.4 + p.phase) * waveAmp;
+                        const pt = getHeartContourPoint(p.haloParam, activeHeartGeom, waveOffset);
+                        p.tx = pt.x;
+                        p.ty = pt.y;
+                    }
+                    else if (p.haloRole === 'HEART_BOKEH_FIREFLY') {
+                        // Tier 2: Đom đóm Bokeh bay lơ lửng hướng nhẹ lên trên quanh vòm ngoài của Trái Tim
+                        p.hy -= dt * (6 + p.haloSpeed * 110);
+                        const swayX = Math.sin(timeSec * 1.5 + p.phase) * 12;
+                        const minY = Math.max(18, heartFrameGeom.cy - heartFrameGeom.scale * 19);
+                        if (p.hy < minY) {
+                            const respawnPt = getHeartContourPoint(Math.random(), activeHeartGeom, 20 + Math.random() * 42);
+                            p.hx = respawnPt.x;
+                            p.hy = Math.max(heartFrameGeom.cy, respawnPt.y);
+                        }
+                        p.tx = p.hx + swayX;
+                        p.ty = p.hy;
+                    }
+                    else if (p.haloRole === 'HEART_STARBURST') {
+                        // Tier 3: Các tia sao kim cương 4 cánh lấp lánh chạy dọc đường cong Trái Tim
+                        p.haloParam = (p.haloParam + dt * p.haloSpeed + 1) % 1;
+                        const breatheOffset = p.haloOffset + Math.cos(timeSec * 1.9 + p.phase) * 3.0;
+                        const pt = getHeartContourPoint(p.haloParam, activeHeartGeom, breatheOffset);
+                        p.tx = pt.x;
+                        p.ty = pt.y;
+                    }
+                }
+            }
+
+            // 5.4. QUẦNG SÁNG VÀ SÓNG XUNG KÍCH NHỊP ĐẬP TRÁI TIM 3D (HEARTBEAT SHOCKWAVE & AURA)
+            if (currentStage === 'HEART_3D') {
+                ctx.save();
+                ctx.globalCompositeOperation = 'lighter';
+                const beatIntensity = (heart3DLub * 0.75 + heart3DDub * 0.35) / 0.065;
+                const auraR = Math.min(width, height) * (0.26 + 0.08 * (heart3DLub + heart3DDub));
+                const heartAura = ctx.createRadialGradient(cx, cy - 10, 10, cx, cy - 10, auraR);
+                heartAura.addColorStop(0.0, `rgba(225, 29, 72, ${(0.22 + 0.12 * beatIntensity).toFixed(2)})`);
+                heartAura.addColorStop(0.40, `rgba(159, 18, 57, ${(0.10 + 0.06 * beatIntensity).toFixed(2)})`);
+                heartAura.addColorStop(0.75, `rgba(88, 10, 32, ${(0.03 + 0.02 * beatIntensity).toFixed(2)})`);
+                heartAura.addColorStop(1.0, 'rgba(0, 0, 0, 0)');
+                ctx.fillStyle = heartAura;
+                ctx.fillRect(cx - auraR, cy - 10 - auraR, auraR * 2, auraR * 2);
+
+                if (heart3DLub > 0.015) {
+                    const ringR = auraR * (0.82 + heart3DLub * 0.8);
+                    ctx.beginPath();
+                    ctx.arc(cx, cy - 10, ringR, 0, Math.PI * 2);
+                    ctx.strokeStyle = `rgba(251, 113, 133, ${(heart3DLub * 0.35).toFixed(2)})`;
+                    ctx.lineWidth = 1.2 * (heart3DLub / 0.065);
+                    ctx.stroke();
+                }
+                ctx.restore();
+            }
+
+            // 5.5. VẦNG MÂY TINH VÂN VŨ TRỤ NÂNG ĐỠ CHỮ (COSMIC NEBULA CRADLE)
+            if (currentStage === 'DRONE_TEXT') {
+                ctx.save();
+                ctx.globalCompositeOperation = 'source-over';
+                
+                const bgW = Math.min(width * 0.72, 700);
+                const bgH = Math.min(height * 0.48, 360);
+                
+                // Lớp 1: Vầng tinh vân tím sẫm hoàng gia & rượu vang vũ trụ ôm trọn cụm chữ
+                // Vừa tạo độ tương phản giúp chữ đọc cực nét, vừa hòa quyện êm ái vào nền trời sao
+                const nebulaGrad = ctx.createRadialGradient(cx, cy - 14, 15, cx, cy - 14, Math.max(bgW, bgH));
+                nebulaGrad.addColorStop(0.0, 'rgba(12, 4, 20, 0.82)');   // Deep cosmic contrast
+                nebulaGrad.addColorStop(0.35, 'rgba(26, 7, 30, 0.55)');  // Cosmic rose-wine mist
+                nebulaGrad.addColorStop(0.68, 'rgba(10, 10, 26, 0.30)'); // Midnight indigo ether
+                nebulaGrad.addColorStop(1.0, 'rgba(1, 1, 3, 0.0)');      // Hòa tan 0% vào nền đen sâu
+                ctx.fillStyle = nebulaGrad;
+                ctx.fillRect(cx - bgW, cy - 14 - bgH, bgW * 2, bgH * 2);
+
+                // Lớp 2: Dải ánh sáng tinh vân ngang mềm mại (Ethereal Anamorphic Horizon)
+                // Tạo vệt sáng chân trời điện ảnh dịu dàng ngay dưới các dòng chữ
+                ctx.globalCompositeOperation = 'screen';
+                const ribbonGrad = ctx.createRadialGradient(cx, cy - 8, 5, cx, cy - 8, bgW * 0.88);
+                ribbonGrad.addColorStop(0.0, 'rgba(244, 63, 94, 0.12)');  // Ánh hồng ngọc dịu ngọt
+                ribbonGrad.addColorStop(0.40, 'rgba(251, 191, 36, 0.06)'); // Ánh vàng champagne ấm áp
+                ribbonGrad.addColorStop(1.0, 'rgba(0, 0, 0, 0)');
+                ctx.fillStyle = ribbonGrad;
+                ctx.beginPath();
+                ctx.ellipse(cx, cy - 8, bgW * 0.88, bgH * 0.48, 0, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.restore();
+            }
+
+            // 6. VẼ HỆ THỐNG HẠT QUANG HỌC (TRÁI TIM ĐỎ RUBY, CHỮ XUYÊN THẤU & VIỀN TRÁI TIM BAO QUANH ẢNH)
+            ctx.globalCompositeOperation = 'lighter';
+
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                const p = particles[i];
+
+                // Dao động vi mô (Micro-turbulence): khi chữ đã vào khuôn thì giảm rung tối đa để đọc cực rõ
+                let turbAmp = 1.0;
+                if (currentStage === 'HEART_3D') {
+                    turbAmp = p.isHeartCore ? 0.28 : 1.8;
+                } else if (currentStage === 'DRONE_TEXT') {
+                    const settleRatio = Math.min(1, Math.max(0, (stageElapsed - 0.6) / 0.7));
+                    // Khi đang bay vào khuôn thì có quán tính nhẹ, khi đã ổn định (settleRatio >= 1) thì turbAmp = 0
+                    // Giữ từng drone đứng yên chính xác từng milimet, giúp chữ sắc nét tuyệt đối, không rung giật làm vỡ nét
+                    turbAmp = p.activeInFormation ? (0.28 * (1 - settleRatio)) : 2.4;
+                } else if (currentStage === 'PHOTO_MOSAIC' || currentStage === 'PHOTO_REVEAL') {
+                    turbAmp = p.haloRole === 'MOSAIC' ? (1 - mosaicBlendProgress) * 1.2 : 0.65;
+                }
+
+                const microX = Math.cos(timeSec * p.turbFreq * 2.0 + p.phase) * turbAmp;
+                const microY = Math.sin(timeSec * p.turbFreq * 1.8 + p.phase * 1.3) * turbAmp;
+
+                const dx = (p.tx + microX) - p.x;
+                const dy = (p.ty + microY) - p.y;
+                const dist = Math.hypot(dx, dy);
+
+                let swirlX = 0;
+                let swirlY = 0;
+                if (dist > 18 && p.haloRole !== 'MOSAIC') {
+                    const factor = Math.min(1, dist / 240) * p.swirlFactor;
+                    swirlX = -dy * factor;
+                    swirlY = dx * factor;
+                }
+
+                p.x += dx * p.speed + swirlX;
+                p.y += dy * p.speed + swirlY;
+                p.alpha += (p.tAlpha - p.alpha) * 0.08;
+                p.size += (p.tSize - p.size) * 0.08;
+
+                if ((currentStage === 'PHOTO_MOSAIC' || currentStage === 'PHOTO_REVEAL') && p.haloRole === 'MOSAIC' && mosaicBlendProgress > 0.78) {
+                    continue;
+                }
+
+                const shimmer = 0.78 + 0.22 * Math.sin(timeSec * 3.6 + p.phase);
+                let dofAlpha = 1.0;
+                let dofScale = 1.0;
+
+                if (currentStage === 'HEART_3D' && p.isHeartCore) {
+                    const normZ = Math.max(-1, Math.min(1, p.depthZ / 10));
+                    dofAlpha = 0.62 + 0.38 * normZ + (heart3DLub * 0.35 + heart3DDub * 0.18);
+                    dofScale = 0.82 + 0.24 * normZ + (heart3DLub * 0.10 + heart3DDub * 0.05);
+
+                    const distWave = Math.abs(p.hy - energyWaveY);
+                    if (distWave < 3.5) {
+                        dofAlpha += (1 - distWave / 3.5) * 0.28;
+                        dofScale += (1 - distWave / 3.5) * 0.14;
+                    }
+                } else if (currentStage === 'DRONE_TEXT' && p.activeInFormation) {
+                    const normZ = Math.max(-1, Math.min(1, -p.depthZ / 42));
+                    dofAlpha = 0.94 + 0.10 * normZ;
+                    dofScale = 0.96 + 0.14 * normZ;
+                }
+
+                let glowWeight = 1.0;
+                if ((currentStage === 'PHOTO_MOSAIC' || currentStage === 'PHOTO_REVEAL') && p.haloRole === 'MOSAIC') {
+                    // Giữ độ phát quang của hạt sao khi đang ghép ảnh, chỉ mờ dần khi ảnh thật hiện rõ
+                    glowWeight = Math.max(0, 1 - sharpPhotoAlpha * 1.1);
+                } else if ((currentStage === 'PHOTO_MOSAIC' || currentStage === 'PHOTO_REVEAL') && p.haloRole === 'HEART_CONTOUR_STREAM') {
+                    glowWeight = 0.32; // Giảm độ gắt hạt nền để viền trái tim ở ảnh thật nhẹ nhàng
+                }
+
+                const finalAlpha = Math.min(1, p.alpha * shimmer * dofAlpha * glowWeight);
+                if (finalAlpha > 0.02) {
+                    if (currentStage === 'DRONE_TEXT' && p.activeInFormation) {
+                        const sprite = glowSprites[p.spriteIdx] || glowSprites[2];
+                        // Bán kính quầng sáng vừa phải (radiusMult = 1.40):
+                        // Đủ lung linh ánh sao nhưng không loang lấn vào các khoảng trống của chữ 'g', 'e', 'ê' (chống dính nét)
+                        const radiusMult = 1.40;
+                        const drawRadius = p.size * dofScale * radiusMult;
+
+                        // 1. Quầng hào quang phát sáng thanh tao, ấm áp
+                        ctx.globalAlpha = Math.min(0.68, finalAlpha * 0.68);
+                        ctx.drawImage(sprite, p.x - drawRadius, p.y - drawRadius, drawRadius * 2, drawRadius * 2);
+
+                        // 2. Điểm tâm ngọc ngôi sao sắc nét, định hình chuẩn xác tuyệt đối từng nét chữ
+                        const coreR = p.size * dofScale * 0.44;
+                        ctx.globalAlpha = Math.min(1.0, finalAlpha * 0.95);
+                        ctx.fillStyle = (p.spriteIdx === 2) ? '#fffef2' :
+                                        (p.spriteIdx === 3) ? '#fff5f8' :
+                                        (p.spriteIdx === 5) ? '#f0f9ff' :
+                                        '#ffffff';
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, coreR, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        // 3. Tia sao điểm xuyết nhẹ nhàng (~10% hạt) tạo nét lung linh tinh tế
+                        if (p.phase % 6 > 5.1) {
+                            const twinkle = 0.5 + 0.5 * Math.sin(timeSec * 3.0 + p.phase);
+                            drawFourPointStarGlint(p.x, p.y, p.size * 1.35 * twinkle, finalAlpha * 0.45 * twinkle, 4);
+                        }
+                    } else if (currentStage === 'HEART_3D') {
+                        const sprite = glowSprites[p.spriteIdx] || glowSprites[0];
+                        const normZ = Math.max(-1, Math.min(1, p.depthZ / 10));
+                        const isFront = normZ > -0.10 || p.isRim;
+                        
+                        // 1. Quầng hào quang phát sáng gọn gàng, sắc sảo (không bị nhòe mờ)
+                        const radiusMult = p.isRim ? 2.05 : (isFront ? 1.85 : 1.45);
+                        const drawRadius = p.size * dofScale * radiusMult;
+                        const auraWeight = p.isRim ? 0.92 : (isFront ? 0.82 : 0.40);
+                        ctx.globalAlpha = Math.min(1, finalAlpha * auraWeight);
+                        ctx.drawImage(sprite, p.x - drawRadius, p.y - drawRadius, drawRadius * 2, drawRadius * 2);
+
+                        // 2. Điểm tâm ngọc Ruby sắc sảo, định hình rõ nét tuyệt đối từng hạt
+                        if (p.isHeartSurface) {
+                            const coreRMult = p.isRim ? 0.46 : (isFront ? 0.40 : 0.28);
+                            const coreR = p.size * dofScale * coreRMult;
+                            const coreAlphaWeight = p.isRim ? 0.90 : (isFront ? 0.75 : 0.38);
+                            ctx.globalAlpha = Math.min(1, finalAlpha * coreAlphaWeight);
+                            // Ánh sáng hồng ngọc pha ánh kim cương trắng ở bề mặt trước và đường viền
+                            ctx.fillStyle = (p.isRim || p.spriteIdx === 4 || normZ > 0.40) 
+                                ? 'rgba(255, 242, 246, 0.98)' 
+                                : (p.spriteIdx === 1 ? 'rgba(255, 218, 228, 0.92)' : 'rgba(254, 185, 202, 0.88)');
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, coreR, 0, Math.PI * 2);
+                            ctx.fill();
+                        }
+
+                        // 3. Tia sao kim cương 4 cánh lấp lánh điểm xuyết (~8% hạt trên vỏ trước & đường viền)
+                        if (p.isHeartSurface && (p.phase % 6 > 4.7) && (isFront || p.isRim)) {
+                            const twinkle = Math.pow(0.5 + 0.5 * Math.sin(timeSec * 3.6 + p.phase), 2);
+                            const spikeRadius = p.size * 2.1 * (0.65 + 0.35 * twinkle);
+                            drawFourPointStarGlint(p.x, p.y, spikeRadius, finalAlpha * 0.75 * twinkle, 4);
+                        }
+                    } else if ((currentStage === 'PHOTO_MOSAIC' || currentStage === 'PHOTO_REVEAL') && p.haloRole === 'HEART_STARBURST') {
+                        const twinkleBurst = Math.pow(0.5 + 0.5 * Math.sin(timeSec * 3.2 + p.phase), 2);
+                        drawFourPointStarGlint(p.x, p.y, p.size * 2.8 * (0.6 + 0.4 * twinkleBurst), finalAlpha * 0.45 * twinkleBurst, p.spriteIdx);
+                    } else {
+                        const sprite = glowSprites[p.spriteIdx] || glowSprites[0];
+                        const radiusMultiplier = 2.75;
+                        const drawRadius = p.size * dofScale * radiusMultiplier;
+                        ctx.globalAlpha = finalAlpha;
+                        ctx.drawImage(sprite, p.x - drawRadius, p.y - drawRadius, drawRadius * 2, drawRadius * 2);
+                    }
+                }
+            }
+
+            // 7. VẼ LỚP ĐIỂM ẢNH CHUẨN MÀU RGB (MOSAIC PORTRAIT) & QUẦNG SÁNG TRÁI TIM Ở STAGE 4 & 5
+            if (mosaicBlendProgress > 0.05) {
+                ctx.globalCompositeOperation = 'source-over';
+
+                // Quầng sáng Hồng Ngọc lót phía sau tâm Trái Tim (Backlit Heart Aura)
+                const auraCX = heartFrameGeom.cx;
+                const auraCY = heartFrameGeom.cy + heartFrameGeom.scale * 0.936;
+                const auraRad = heartFrameGeom.scale * 20;
+                const backAura = ctx.createRadialGradient(auraCX, auraCY, heartFrameGeom.scale * 4, auraCX, auraCY, auraRad);
+                backAura.addColorStop(0.0, `rgba(225, 29, 72, ${(0.28 * mosaicBlendProgress + 0.16 * photoBeatGlow).toFixed(2)})`);
+                backAura.addColorStop(0.55, `rgba(251, 191, 36, ${(0.11 * mosaicBlendProgress + 0.08 * photoBeatGlow).toFixed(2)})`);
+                backAura.addColorStop(1.0, 'rgba(0, 0, 0, 0)');
+                ctx.fillStyle = backAura;
+                ctx.fillRect(auraCX - auraRad, auraCY - auraRad, auraRad * 2, auraRad * 2);
+
+                // Vẽ đường lụa ánh sáng mảnh hình Trái Tim làm nền dẫn hướng mềm mại cho các hạt sao (tan biến khi ảnh hiện ra để tránh viền kép)
+                const silkAlpha = 0.12 * mosaicBlendProgress * Math.max(0, 1 - sharpPhotoAlpha * 1.25);
+                if (silkAlpha > 0.008) {
+                    ctx.save();
+                    traceHeartPath(ctx, activeHeartGeom, 0);
+                    ctx.strokeStyle = `rgba(251, 113, 133, ${silkAlpha.toFixed(2)})`;
+                    ctx.lineWidth = 0.85;
+                    ctx.shadowColor = 'rgba(225, 29, 72, 0.12)';
+                    ctx.shadowBlur = 4;
+                    ctx.stroke();
+                    ctx.restore();
+                }
+
+                // Vẽ các hạt điểm ảnh RGB lấp lánh phát sáng tạo thành bức tranh Trái Tim từ ngàn vì sao
+                const dotAlpha = mosaicBlendProgress * Math.max(0, 1 - sharpPhotoAlpha * 1.05);
+                if (dotAlpha > 0.01) {
+                    for (let i = 0; i < PARTICLE_COUNT; i++) {
+                        const p = particles[i];
+                        if (p.haloRole !== 'MOSAIC') continue;
+
+                        p.r += (p.tr - p.r) * 0.12;
+                        p.g += (p.tg - p.g) * 0.12;
+                        p.b += (p.tb - p.b) * 0.12;
+
+                        const shimmer = 0.85 + 0.15 * Math.sin(timeSec * 3.6 + p.phase);
+                        const curAlpha = Math.min(1, dotAlpha * shimmer);
+
+                        // Hạt ngọc ánh sáng mang màu sắc chân thực của ảnh
+                        ctx.fillStyle = `rgba(${p.r | 0}, ${p.g | 0}, ${p.b | 0}, ${curAlpha.toFixed(2)})`;
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.size * 1.15, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        // Lõi sáng lấp lánh như tinh thể sao
+                        if (p.phase % 2 > 1.1) {
+                            ctx.fillStyle = `rgba(255, 255, 255, ${(curAlpha * 0.50).toFixed(2)})`;
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, p.size * 0.45, 0, Math.PI * 2);
+                            ctx.fill();
+                        }
+                    }
+                }
+            }
+
+            // 8. VẼ BỨC ẢNH CẮT THEO HÌNH TRÁI TIM SẮC NÉT & VIỀN TRÁI TIM MỀM MẠI Ở STAGE 5 (PHOTO_REVEAL)
+            if ((currentStage === 'PHOTO_REVEAL' || currentStage === 'PHOTO_MOSAIC') && sharpPhotoAlpha > 0.01) {
+                const imgW = loadedPhotoImg.naturalWidth || 640;
+                const imgH = loadedPhotoImg.naturalHeight || 640;
+                const imgAspect = imgW / imgH;
+
+                let drawW = heartTotalW;
+                let drawH = drawW / imgAspect;
+                if (drawH < heartTotalH) {
+                    drawH = heartTotalH;
+                    drawW = drawH * imgAspect;
+                }
+                drawW *= 1.05;
+                drawH *= 1.05;
+
+                const drawX = activeHeartGeom.cx - drawW / 2;
+                const drawY = heartMidY - drawH / 2;
+
+                // 1. Cắt bức ảnh theo đúng hình Trái Tim mềm mại
+                ctx.save();
+                ctx.globalAlpha = sharpPhotoAlpha;
+
+                traceHeartPath(ctx, activeHeartGeom, 0);
+                ctx.clip();
+                ctx.drawImage(loadedPhotoImg, drawX, drawY, drawW, drawH);
+
+                // Dải mờ nhẹ làm dịu cạnh cắt, giúp bức ảnh hòa vào nền tinh tế không bị sắc cạnh
+                traceHeartPath(ctx, activeHeartGeom, 0);
+                ctx.lineWidth = 1.6;
+                ctx.strokeStyle = 'rgba(255, 240, 245, 0.15)';
+                ctx.stroke();
+                ctx.restore();
+
+                // 2. Viền Trái Tim cực kỳ nhẹ nhàng, thanh thoát và tao nhã ôm khít lấy bức ảnh
+                ctx.save();
+                ctx.globalAlpha = sharpPhotoAlpha;
+
+                // Lớp viền 1: Quầng sáng mỏng manh ôm nhẹ quanh viền tim (Ethereal Soft Aura)
+                traceHeartPath(ctx, activeHeartGeom, 0);
+                ctx.strokeStyle = 'rgba(253, 164, 175, 0.10)';
+                ctx.lineWidth = 2.4;
+                ctx.shadowColor = 'rgba(244, 63, 94, 0.12)';
+                ctx.shadowBlur = 6;
+                ctx.stroke();
+
+                // Lớp viền 2: Đường chỉ lụa thanh mảnh (~0.85px) sắc hồng phấn & champagne dịu dàng
+                traceHeartPath(ctx, activeHeartGeom, 0);
+                const borderGrad = ctx.createLinearGradient(
+                    activeHeartGeom.cx - heartTotalW / 2, heartMidY - heartTotalH / 2,
+                    activeHeartGeom.cx + heartTotalW / 2, heartMidY + heartTotalH / 2
+                );
+                borderGrad.addColorStop(0.0, 'rgba(255, 245, 240, 0.38)'); // Ánh ngọc trai mỏng
+                borderGrad.addColorStop(0.35, 'rgba(253, 164, 175, 0.42)'); // Hồng phấn pastel dịu
+                borderGrad.addColorStop(0.70, 'rgba(254, 215, 170, 0.35)'); // Vàng champagne nhẹ
+                borderGrad.addColorStop(1.0, 'rgba(255, 245, 240, 0.38)');
+
+                ctx.strokeStyle = borderGrad;
+                ctx.lineWidth = 0.85; // Cực mảnh, tạo cảm giác nhẹ nhàng thanh thoát
+                ctx.shadowColor = `rgba(251, 113, 133, ${(0.16 + 0.20 * photoBeatGlow).toFixed(2)})`;
+                ctx.shadowBlur = 3 + 4 * photoBeatGlow;
+                ctx.stroke();
+
+                ctx.restore();
+
+                // 3. Lớp điểm xuyết hạt bụi sao sương mai dịu dàng ôm quanh viền ảnh
+                ctx.save();
+                ctx.globalCompositeOperation = 'lighter';
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    const p = particles[i];
+                    if (p.haloRole === 'HEART_CONTOUR_STREAM' && p.haloLayer === 0) {
+                        const sp = glowSprites[p.spriteIdx] || glowSprites[1];
+                        const shimmer = 0.65 + 0.35 * Math.sin(timeSec * 3.6 + p.phase);
+                        const drawR = p.size * 1.2;
+                        ctx.globalAlpha = sharpPhotoAlpha * p.alpha * shimmer * 0.18; // Nhẹ nhàng như sương sớm
+                        ctx.drawImage(sp, p.x - drawR, p.y - drawR, drawR * 2, drawR * 2);
+                    } else if (p.haloRole === 'HEART_STARBURST') {
+                        const twinkleBurst = Math.pow(0.5 + 0.5 * Math.sin(timeSec * 3.0 + p.phase), 2);
+                        drawFourPointStarGlint(p.x, p.y, p.size * 2.2 * (0.7 + 0.3 * twinkleBurst), sharpPhotoAlpha * 0.35 * twinkleBurst, p.spriteIdx);
+                    }
+                }
+                ctx.restore();
+            }
+
+            // 9. VẼ PHÁO HOA TRÁI TIM BẰNG OPTICAL SPRITE
+            if (burstFireworks.length > 0) {
+                ctx.globalCompositeOperation = 'lighter';
+                for (let i = burstFireworks.length - 1; i >= 0; i--) {
+                    const fw = burstFireworks[i];
+                    fw.x += fw.vx;
+                    fw.y += fw.vy;
+                    fw.vy += 0.03;
+                    fw.vx *= 0.985;
+                    fw.vy *= 0.985;
+                    fw.alpha -= 0.014;
+                    if (fw.alpha <= 0) {
+                        burstFireworks.splice(i, 1);
+                        continue;
+                    }
+                    const sp = glowSprites[fw.spriteIdx] || glowSprites[0];
+                    ctx.globalAlpha = fw.alpha;
+                    ctx.drawImage(sp, fw.x - fw.size, fw.y - fw.size, fw.size * 2, fw.size * 2);
+                }
+                ctx.globalAlpha = 1.0;
+                ctx.globalCompositeOperation = 'source-over';
+            }
+
+            // 10. LỚP VIGNETTE QUANG HỌC MỊN Ở 4 GÓC MÀN HÌNH
+            ctx.globalCompositeOperation = 'source-over';
+            const vigGrad = ctx.createRadialGradient(
+                cx, cy, Math.min(width, height) * 0.36,
+                cx, cy, Math.max(width, height) * 0.82
+            );
+            vigGrad.addColorStop(0.0, 'rgba(0, 0, 0, 0)');
+            vigGrad.addColorStop(0.75, 'rgba(1, 1, 4, 0.22)');
+            vigGrad.addColorStop(1.0, 'rgba(0, 0, 2, 0.65)');
+            ctx.fillStyle = vigGrad;
+            ctx.fillRect(0, 0, width, height);
+        }
+
+        /**************************************************************************
+         * 9. TƯƠNG TÁC KÉO XOAY TRÁI TIM 3D, PARALLAX VŨ TRỤ & BẮN PHÁO HOA
+         **************************************************************************/
+        canvas.addEventListener('pointerdown', (e) => {
+            isDraggingScene = true;
+            dragLastX = e.clientX;
+            dragLastY = e.clientY;
+            if (canvas.setPointerCapture) {
+                try { canvas.setPointerCapture(e.pointerId); } catch(err) {}
+            }
+        });
+
+        window.addEventListener('pointermove', (e) => {
+            targetParallaxX = ((e.clientX / width) - 0.5) * (width < 640 ? 22 : 42);
+            targetParallaxY = ((e.clientY / height) - 0.5) * (height < 640 ? 22 : 42);
+
+            if (!isDraggingScene) return;
+            const dx = e.clientX - dragLastX;
+            const dy = e.clientY - dragLastY;
+            dragLastX = e.clientX;
+            dragLastY = e.clientY;
+            if (currentStage === 'HEART_3D') {
+                heartRotY += dx * 0.008;
+                heartRotX = Math.max(-0.55, Math.min(0.55, heartRotX + dy * 0.006));
+            } else if (currentStage === 'DRONE_TEXT') {
+                textRotY += dx * 0.008;
+                textRotX = Math.max(-0.55, Math.min(0.55, textRotX + dy * 0.006));
+            }
+        });
+
+        function stopSceneDrag(e) {
+            isDraggingScene = false;
+            if (canvas.releasePointerCapture && e && e.pointerId) {
+                try { canvas.releasePointerCapture(e.pointerId); } catch(err) {}
+            }
+        }
+        window.addEventListener('pointerup', stopSceneDrag);
+        window.addEventListener('pointercancel', stopSceneDrag);
+
+        /**************************************************************************
+         * 10. SỰ KIỆN NÚT ĐIỀU KHIỂN & XEM LẠI (CONTROLS & REPLAY)
+         **************************************************************************/
+        const btnSkipStage = document.getElementById('btnSkipStage');
+        const btnReplayShow = document.getElementById('btnReplayShow');
+        const btnFireworkBurst = document.getElementById('btnFireworkBurst');
+        const finalCardTitle = document.getElementById('finalCardTitle');
+        const finalCardMessage = document.getElementById('finalCardMessage');
+
+        function syncCardTextUI() {
+            if (finalCardTitle) finalCardTitle.textContent = appConfig.cardTitle;
+            if (finalCardMessage) finalCardMessage.textContent = appConfig.cardMessage;
+        }
+
+        if (btnSkipStage) {
+            btnSkipStage.addEventListener('click', () => {
+                if (currentStage === 'HEART_3D') {
+                    transitionToStage('DRONE_TEXT');
+                } else if (currentStage === 'DRONE_TEXT') {
+                    transitionToStage('PHOTO_REVEAL');
+                } else if (currentStage === 'PHOTO_MOSAIC' || currentStage === 'PHOTO_REVEAL') {
+                    transitionToStage('PHOTO_REVEAL');
+                }
+            });
+        }
+
+        if (btnReplayShow) {
+            btnReplayShow.addEventListener('click', () => {
+                transitionToStage('HEART_3D');
+            });
+        }
+
+        if (btnTopRestart) {
+            btnTopRestart.addEventListener('click', () => {
+                if (bgAudio) {
+                    bgAudio.pause();
+                    bgAudio.currentTime = 0;
+                    isMusicPlaying = false;
+                    updateMusicToggleUI(false);
+                }
+                transitionToStage('AUTH');
+            });
+        }
+
+        const btnMusicToggle = document.getElementById('btnMusicToggle');
+        if (btnMusicToggle) {
+            btnMusicToggle.addEventListener('click', toggleMusicPlayback);
+        }
+
+        if (btnFireworkBurst) {
+            btnFireworkBurst.addEventListener('click', () => {
+                const rx = photoBox.x + Math.random() * photoBox.w;
+                const ry = photoBox.y + Math.random() * photoBox.h * 0.7;
+                spawnHeartFirework(rx, ry);
+                spawnShootingStar();
+            });
+        }
+
+        /**************************************************************************
+         * 11. KHỞI TẠO & ĐÁP ỨNG KÍCH THƯỚC MÀN HÌNH (RESPONSIVE RESIZE)
+         **************************************************************************/
+        function handleResize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            // Tối ưu DPR: 1.5 trên mobile giúp tiết kiệm pin, máy mát và 60fps mượt mà, 2.0 trên PC màn hình lớn
+            dpr = Math.min(window.devicePixelRatio || 1, (width < 768 ? 1.5 : 2));
+            canvas.width = Math.floor(width * dpr);
+            canvas.height = Math.floor(height * dpr);
+            canvas.style.width = width + 'px';
+            canvas.style.height = height + 'px';
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+            initAstrophotographySky();
+            if (currentStage === 'DRONE_TEXT') {
+                const list = appConfig.droneTexts.filter(t => t.trim().length > 0);
+                if (list[currentTextIndex]) {
+                    sampleSeeThroughDroneTextTargets(list[currentTextIndex], currentTextIndex);
+                }
+            } else if (currentStage === 'PHOTO_MOSAIC' || currentStage === 'PHOTO_REVEAL') {
+                computePhotoMosaicAndHaloTargets();
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+        window.addEventListener('orientationchange', () => {
+            setTimeout(handleResize, 150);
+        });
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', handleResize);
+        }
+
+        function startApp() {
+            if (window.__appStarted) return;
+            window.__appStarted = true;
+            initOpticalGlowSprites();
+            handleResize();
+            initParticles();
+            syncCardTextUI();
+            transitionToStage('AUTH');
+            requestAnimationFrame(animate);
+            // Nạp trước ảnh mẫu ở chế độ ngầm (asynchronous) để Stage 1 tương tác tức thì 0ms
+            loadPhotoSource(appConfig.photoDataUrl);
+        }
+
+        window.startApp = startApp;
+
+        // Khởi động tức thì ngay tại thời điểm tải mã nguồn, không chờ đợi DOMContentLoaded (tránh trễ do mạng tải Google Fonts)
+        startApp();
+
+        // Khi Google Fonts hoàn tất nạp phông Be Vietnam Pro, tự động làm mới chữ nếu đang ở DRONE_TEXT
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(() => {
+                if (currentStage === 'DRONE_TEXT') {
+                    const list = appConfig.droneTexts.filter(t => t.trim().length > 0);
+                    if (list[currentTextIndex]) {
+                        sampleSeeThroughDroneTextTargets(list[currentTextIndex], currentTextIndex);
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
